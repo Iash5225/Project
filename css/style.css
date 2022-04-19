@@ -1,19 +1,21 @@
-body{
+body {
     text-align: center;
     background-color: rgba(0, 255, 255, 0.5);
-}
-
-.outline{
+  }
+  
+  .outline {
     background-color: rgba(0, 68, 255, 0.9);
-    width: 500px;
+    width: 550px;
     height: auto;
     margin-left: auto;
     margin-right: auto;
     padding: 12px;
     border: 2px solid;
-}
-
-.NavBar, .grid, .input{
+  }
+  
+  .NavBar,
+  .grid,
+  .input {
     width: 500px;
     height: 50px;
     margin-left: auto;
@@ -22,18 +24,36 @@ body{
     margin-bottom: 10px;
     padding: 0px;
     border: 2px solid;
-}
-
-.NavBar{
+  }
+  
+  .NavBar {
     background-color: aqua;
-}
-
-.grid{
-    background-color: red;
+  }
+  
+  .grid {
+    background-color: lightskyblue;
     height: 470px;
-}
-
-.input{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    font-size: 30px;
+  }
+  
+  .input {
     background-color: paleturquoise;
     height: 60px;
-}
+  }
+  
+  .grid div{
+    background-color:white;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    text-align: center;
+    margin: 2.5px;
+  }
+  
+  div.clickable{
+      background-color: palegreen;
+  }
+
+  div.clicked{
+      background-color: palegoldenrod;
+  }
