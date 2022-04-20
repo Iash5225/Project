@@ -1,3 +1,52 @@
-.body {
-    text-align: center;
+body {
+  text-align: center;
+  background-color: rgba(0, 255, 255, 0.5);
 }
+
+.outline {
+  background-color: rgba(0, 68, 255, 0.9);
+  width: 500px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 12px;
+  border: 2px solid;
+}
+
+.NavBar,
+.grid,
+.input {
+  width: 500px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 0px;
+  border: 2px solid;
+}
+
+.NavBar {
+  background-color: aqua;
+}
+
+.grid {
+  background-color: lightskyblue;
+  height: 470px;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+}
+
+.input {
+  background-color: paleturquoise;
+  height: 60px;
+}
+
+.grid div{
+  background-color:white;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  text-align: center;
+  margin: 2.5px;
+}
+
+
