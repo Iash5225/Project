@@ -26,13 +26,11 @@
 
 <!-- CONTRIBUTORS -->
 <div align="center">
-    <h4>Authors:</h4>
-    <ul align=center>
-        <li>David Wang (23064036)</li>
-        <li>Jean-Pierre le Breton (21118434)</li>
-        <li>Jeremy Baird (22507349)</li>
-        <li>Iash Bashir (23059859)</li>
-    </ul>
+  <h4>Authors:</h4>
+  <p>David Wang (23064036)</p>
+  <p>Jean-Pierre le Breton (21118434)</p>
+  <p>Jeremy Baird (22507349)</p>
+  <p>Iash Bashir (23059859)</p>
 </div>
 
 
