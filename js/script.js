@@ -81,3 +81,8 @@ $(window).on('load', () => {
         return alphabet[Math.floor(Math.random() * alphabet.length)]
       }
 });
+
+/* Menu button */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
