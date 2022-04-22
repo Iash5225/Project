@@ -50,10 +50,17 @@ body {
     margin: 2.5px;
   }
   
-  div.clickable{
+  div.unclicked{
       background-color: palegreen;
   }
 
   div.clicked{
       background-color: palegoldenrod;
+  }
+
+  .inputcells{
+    display: inline;
+    font-size: 30px;
+    width: 60px;
+    padding: 20px;
   }
