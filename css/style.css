@@ -30,6 +30,61 @@ body {
     background-color: aqua;
   }
   
+/* Dropdown Button */
+.menu-button {
+  border: none;
+  background-color: transparent;
+  position: relative;
+  right: 32%;
+  bottom: 1%;
+  padding: 0%;
+  height: 46px;
+  width: 55px;
+}
+
+/* Menu button background colour on hover*/
+.menu-button:hover { background-color: rgba(255, 255, 255, 0.8); }
+
+/* Words: */
+.word-count {
+  font-size: xx-large;
+  position: relative;
+  bottom: 30%;
+  right: 10%;
+}
+
+/* The count number */
+.count-number{
+  position: relative;
+  text-align: left;
+  left: 67%;
+  bottom: 102%;
+}
+
+/* Menu Content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 1);
+  min-width: 160px;
+  border-color: black;
+  z-index: 1;
+}
+
+/* Links inside the menu */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of menu links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the menu */
+.show {display:block;}
+
   .grid {
     background-color: lightskyblue;
     height: 470px;
@@ -50,7 +105,7 @@ body {
     margin: 2.5px;
   }
   
-  div.clickable{
+  div.unclicked{
       background-color: palegreen;
   }
 
@@ -58,4 +113,9 @@ body {
       background-color: palegoldenrod;
   }
 
-  
+  .inputcells{
+    display: inline;
+    font-size: 30px;
+    width: 60px;
+    padding: 20px;
+  }
