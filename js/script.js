@@ -30,7 +30,7 @@ $(window).on("load", () => {
         cells.row = (i - 3) / 5;
       }
       if (i % 5 == 4) {
-        cells.column = 4
+        cells.column = 4;
         cells.row = (i - 4) / 5;
       }
 
@@ -69,6 +69,7 @@ $(window).on("load", () => {
   //Storing every letter clicked
   var lettersClicked = [];
   var count = 0;
+  var ind = [];
 
   function clickedCell() {
     if (count == 5) {
@@ -78,6 +79,8 @@ $(window).on("load", () => {
 
     //Add to array
     lettersClicked.push(this.dataset.word);
+    ind.push(this.row);
+    ind.push(this.column);
 
     //Declare it to be clicked or unclicked
     if (this.className == "unclicked") {
@@ -86,13 +89,15 @@ $(window).on("load", () => {
       removeLetter(count);
       this.className = "unclicked";
     }
-    console.log(lettersClicked);
-    console.log(this.column);
-    console.log(this.row);
+    // console.log(lettersClicked);
+    // console.log(ind);
 
     //Call a function which inserts it into the input div
     addToInput(this.dataset.word, count);
     count++;
+    if (lettersClicked.length == 5) {
+      dropdown();
+    }
   }
 
   function addToInput(word, count) {
@@ -127,47 +132,58 @@ $(window).on("load", () => {
   // console.log("hello exists: " + TRIE.search("hello"));
   // console.log("hello1 does not exist: " + TRIE.search("hello1"));
 
-  storegrid(40);
+  var grid = document.getElementsByClassName("grid")[0];
+  let col0 = [];
+  let col1 = [];
+  let col2 = [];
+  let col3 = [];
+  let col4 = [];
 
-  // store the grid as a 2d array of letters
+  for (let i = 0; i < 40; i = i + 5) {
+    var cells = document.getElementsByClassName("unclicked")[i];
+    col0.push(cells.innerHTML);
+  }
 
-  function storegrid(numrows) {
-    var grid = document.getElementsByClassName("grid")[0];
-    let col0 = [];
-    let col1 = [];
-    let col2 = [];
-    let col3 = [];
-    let col4 = [];
+  for (let i = 1; i < 40; i = i + 5) {
+    var cells = document.getElementsByClassName("unclicked")[i];
+    col1.push(cells.innerHTML);
+  }
 
-    for (let i = 0; i < 40; i = i + 5) {
-      var cells = document.getElementsByClassName("unclicked")[i];
-      col0.push(cells.innerHTML);
+  for (let i = 2; i < 40; i = i + 5) {
+    var cells = document.getElementsByClassName("unclicked")[i];
+    col2.push(cells.innerHTML);
+  }
+
+  for (let i = 3; i < 40; i = i + 5) {
+    var cells = document.getElementsByClassName("unclicked")[i];
+    col3.push(cells.innerHTML);
+  }
+
+  for (let i = 4; i < 40; i = i + 5) {
+    var cells = document.getElementsByClassName("unclicked")[i];
+    col4.push(cells.innerHTML);
+  }
+
+  let arr = [col0, col1, col2, col3, col4];
+
+  function dropdown() {
+    var k = document.getElementsByClassName("clicked");
+    for (let index = 0; index < 5; index++) {
+      var row = k[index].row;
+      var column = k[index].column;
+      arr[column][row] = "";
+
+      if(row != 0){
+        for (let i = 1; i < 8; i++) {
+          if (arr[column][i] != "") {
+              var a = arr[column][i];
+              var b = arr[column][i+1];
+          }
+          
+        }
+      }
     }
-
-    for (let i = 1; i < 40; i = i + 5) {
-      var cells = document.getElementsByClassName("unclicked")[i];
-      col1.push(cells.innerHTML);
-    }
-
-    for (let i = 2; i < 40; i = i + 5) {
-      var cells = document.getElementsByClassName("unclicked")[i];
-      col2.push(cells.innerHTML);
-    }
-
-    for (let i = 3; i < 40; i = i + 5) {
-      var cells = document.getElementsByClassName("unclicked")[i];
-      col3.push(cells.innerHTML);
-    }
-
-    for (let i = 4; i < 40; i = i + 5) {
-      var cells = document.getElementsByClassName("unclicked")[i];
-      col4.push(cells.innerHTML);
-    }
-    console.log(col2);
-    console.log(col1);
-    console.log(col2);
-    console.log(col3);
-    console.log(col4);
+          console.log(arr);
   }
 });
 
