@@ -15,18 +15,23 @@ $(window).on("load", () => {
 
       if (i % 5 == 0) {
         cells.column = 0;
+        cells.row = i / 5;
       }
       if (i % 5 == 1) {
         cells.column = 1;
+        cells.row = (i - 1) / 5;
       }
       if (i % 5 == 2) {
         cells.column = 2;
+        cells.row = (i - 2) / 5;
       }
       if (i % 5 == 3) {
         cells.column = 3;
+        cells.row = (i - 3) / 5;
       }
       if (i % 5 == 4) {
-        cells.column = 4;
+        cells.column = 4
+        cells.row = (i - 4) / 5;
       }
 
       //Generate random letter
@@ -81,8 +86,9 @@ $(window).on("load", () => {
       removeLetter(count);
       this.className = "unclicked";
     }
-     console.log(lettersClicked);
-     console.log(this.column);
+    console.log(lettersClicked);
+    console.log(this.column);
+    console.log(this.row);
 
     //Call a function which inserts it into the input div
     addToInput(this.dataset.word, count);
