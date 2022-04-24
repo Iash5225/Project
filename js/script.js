@@ -97,7 +97,7 @@ $(window).on("load", () => {
   /* End of section */
 
 
-  //Intialises RAW_TRIE from trie.js to a Trie datatype that can be searched at runtime
+  // Intialises RAW_TRIE from trie.js to a Trie datatype that can be searched at runtime
   const TRIE = Object.setPrototypeOf(RAW_TRIE, new Trie());
   console.log("hello exists: " + TRIE.search("hello"));
   console.log("hello1 does not exist: " + TRIE.search("hello1"));
@@ -121,13 +121,13 @@ class Trie {
 
       for (let i = 0; i < length; i++) {
         let character = key.charAt(i);
-        if (next.children[character] == null) {
-          next.children[character] = new TrieNode();
+        if (next.c[character] == null) {
+          next.c[character] = new TrieNode();
         }
 
-        next = next.children[character];
+        next = next.c[character];
       }
-      next.isValidWord = true;
+      next.w = true;
     };
 
     this.search = function (key) {
@@ -137,21 +137,21 @@ class Trie {
       for (let i = 0; i < length; i++) {
         let character = key.charAt(i);
 
-        if (next && next.children[character]) {
-          next = next.children[character];
+        if (next && next.c[character]) {
+          next = next.c[character];
           continue;
         }
         return false;
       }
 
-      return next && next.isValidWord;
+      return next && next.w;
     };
   }
 }
 
 class TrieNode {
   constructor() {
-    this.children = {};
-    this.isValidWord = false;
+    this.c = {};
+    this.w = false;
   }
 }
