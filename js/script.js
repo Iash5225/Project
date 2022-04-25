@@ -173,17 +173,24 @@ $(window).on("load", () => {
       var column = k[index].column;
       arr[column][row] = "";
 
-      if(row != 0){
-        for (let i = 1; i < 8; i++) {
-          if (arr[column][i] != "") {
-              var a = arr[column][i];
-              var b = arr[column][i+1];
+      if (row != 0) {
+        for (let i = 0; i < 8; i++) {
+          while (arr[column][i + 1] != "") {
+            var a = arr[column][i];
+            // var b = arr[column][i + 1];
+            // arr[column][i] = b;
+            arr[column][i + 1] = a;
           }
-          
+          // if (arr[column][i+1] != "") {
+
+          // }
+          // if(arr[column][i+1] != "" ){
+
+          // }
         }
       }
     }
-          console.log(arr);
+    console.log(arr);
   }
 });
 
