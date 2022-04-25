@@ -175,18 +175,13 @@ $(window).on("load", () => {
 
       if (row != 0) {
         for (let i = 0; i < 8; i++) {
-          while (arr[column][i + 1] != "") {
+          if (arr[column][i + 1] == "") {
+            break;
+          } else {
             var a = arr[column][i];
-            // var b = arr[column][i + 1];
-            // arr[column][i] = b;
+            var b = arr
             arr[column][i + 1] = a;
           }
-          // if (arr[column][i+1] != "") {
-
-          // }
-          // if(arr[column][i+1] != "" ){
-
-          // }
         }
       }
     }
