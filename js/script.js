@@ -174,20 +174,17 @@ $(window).on("load", () => {
       arr[column][row] = "";
 
       if (row != 0) {
-        for (let i = 0; i < 8; i++) {
-          if (arr[column][i + 1] == "") {
-            break;
-          } else {
-            var a = arr[column][i];
-            var b = arr
-            arr[column][i + 1] = a;
-          }
+        for (let j = row; j > 0; j--) {
+          arr[column][j] = arr[column][j - 1];
         }
+        arr[column][0] = "";
       }
     }
     console.log(arr);
   }
 });
+
+//find index of ''
 
 /* Menu button */
 function myFunction() {
