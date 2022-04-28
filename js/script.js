@@ -132,7 +132,7 @@ $(window).on("load", () => {
   // console.log("hello exists: " + TRIE.search("hello"));
   // console.log("hello1 does not exist: " + TRIE.search("hello1"));
 
-  var grid = document.getElementsByClassName("grid")[0];
+  //Initialising 2d array of letters on the page
   let col0 = [];
   let col1 = [];
   let col2 = [];
@@ -163,9 +163,10 @@ $(window).on("load", () => {
     var cells = document.getElementsByClassName("unclicked")[i];
     col4.push(cells.innerHTML);
   }
-
   let arr = [col0, col1, col2, col3, col4];
 
+
+  //removes the clicked letters and shifts every element down the array
   function dropdown() {
     var k = document.getElementsByClassName("clicked");
     for (let index = 0; index < 5; index++) {
@@ -182,9 +183,11 @@ $(window).on("load", () => {
     }
     console.log(arr);
   }
-});
 
-//find index of ''
+  //TODO 
+  //Iterate through divs and replace array string with inner html
+  
+});
 
 /* Menu button */
 function myFunction() {
