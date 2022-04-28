@@ -1,6 +1,10 @@
 "use strict";
 
 $(window).on("load", () => {
+  /**
+   *
+   * @param {interger} numrows - The total number of cells in the grid
+   */
   function createGrid(numrows) {
     var grid = document.getElementsByClassName("grid")[0];
     for (let i = 0; i < numrows; i++) {
@@ -54,6 +58,9 @@ $(window).on("load", () => {
   //Create the grid
   createGrid(40);
 
+  /**
+   *
+   */
   function createInput() {
     var input = document.getElementsByClassName("input")[0];
     // console.log(input);
@@ -71,6 +78,10 @@ $(window).on("load", () => {
   var count = 0;
   // var ind = [];
 
+  /**
+   *
+   * @returns a popup window alerting that the max number of letters has been used
+   */
   function clickedCell() {
     if (count == 5) {
       alert("Already have 5 letters");
@@ -79,8 +90,6 @@ $(window).on("load", () => {
 
     //Add to array
     lettersClicked.push(this.dataset.word);
-    // ind.push(this.row);
-    // ind.push(this.column);
 
     //Declare it to be clicked or unclicked
     if (this.className == "unclicked") {
@@ -89,8 +98,6 @@ $(window).on("load", () => {
       removeLetter(count);
       this.className = "unclicked";
     }
-    // console.log(lettersClicked);
-    // console.log(ind);
 
     //Call a function which inserts it into the input div
     addToInput(this.dataset.word, count);
@@ -102,13 +109,21 @@ $(window).on("load", () => {
     }
   }
 
+  /**
+   *
+   * @param {string} word -
+   * @param {integer} count -
+   */
   function addToInput(word, count) {
     var g = document.getElementsByClassName("inputcells");
-    // console.log(count);
     g[count].innerHTML = word;
   }
 
   //Generating a random letter
+  /**
+   * 
+   * @returns a random letter from the alphabet
+   */
   function generateRandomLetter() {
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     return alphabet[Math.floor(Math.random() * alphabet.length)];
@@ -167,7 +182,11 @@ $(window).on("load", () => {
   }
   let arr = [col0, col1, col2, col3, col4];
 
-  //removes the clicked letters and shifts every element down the array
+  
+  /**
+   * removes the clicked letters and shifts every element down the grid
+   * 
+   */
   function dropdown() {
     var k = document.getElementsByClassName("clicked");
     for (let index = 0; index < 5; index++) {
@@ -198,21 +217,20 @@ $(window).on("load", () => {
     var griddivs = document
       .getElementsByClassName("grid")[0]
       .getElementsByTagName("div");
-    console.log(griddivs);
+
+    //change grid divs inner html to the cells in the temp arrays string
 
     for (let i = 0; i < 40; i++) {
       var element = temp[i];
       griddivs[i].innerHTML = element;
     }
-
-    // console.log(temp);
   }
-
-  //TODO
-  //Iterate through divs and replace array string with inner html
 });
 
-/* Menu button */
+
+/**
+ * Mennu Button
+ */
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
