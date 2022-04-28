@@ -69,7 +69,7 @@ $(window).on("load", () => {
   //Storing every letter clicked
   var lettersClicked = [];
   var count = 0;
-  var ind = [];
+  // var ind = [];
 
   function clickedCell() {
     if (count == 5) {
@@ -79,8 +79,8 @@ $(window).on("load", () => {
 
     //Add to array
     lettersClicked.push(this.dataset.word);
-    ind.push(this.row);
-    ind.push(this.column);
+    // ind.push(this.row);
+    // ind.push(this.column);
 
     //Declare it to be clicked or unclicked
     if (this.className == "unclicked") {
@@ -95,6 +95,8 @@ $(window).on("load", () => {
     //Call a function which inserts it into the input div
     addToInput(this.dataset.word, count);
     count++;
+
+    //initiates the drop down animation - as there is no submit button
     if (lettersClicked.length == 5) {
       dropdown();
     }
@@ -165,7 +167,6 @@ $(window).on("load", () => {
   }
   let arr = [col0, col1, col2, col3, col4];
 
-
   //removes the clicked letters and shifts every element down the array
   function dropdown() {
     var k = document.getElementsByClassName("clicked");
@@ -181,12 +182,34 @@ $(window).on("load", () => {
         arr[column][0] = "";
       }
     }
-    console.log(arr);
+
+    //make 2d array into 1d array
+    //then iterate through 1d array and the divs for the board to edit the inner html
+
+    let temp = [];
+    for (let i = 0; i < 8; i++) {
+      for (let j = 0; j < 5; j++) {
+        var element = arr[j][i];
+        temp.push(element);
+      }
+    }
+
+    //all the divs in the grid
+    var griddivs = document
+      .getElementsByClassName("grid")[0]
+      .getElementsByTagName("div");
+    console.log(griddivs);
+
+    for (let i = 0; i < 40; i++) {
+      var element = temp[i];
+      griddivs[i].innerHTML = element;
+    }
+
+    // console.log(temp);
   }
 
-  //TODO 
+  //TODO
   //Iterate through divs and replace array string with inner html
-  
 });
 
 /* Menu button */
