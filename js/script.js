@@ -63,7 +63,7 @@ $(window).on("load", () => {
    */
   function createInput() {
     var input = document.getElementsByClassName("input")[0];
-    // console.log(input);
+
     for (let j = 0; j < 5; j++) {
       let inputcell = document.createElement("div");
       inputcell.className = "inputcells";
@@ -94,14 +94,24 @@ $(window).on("load", () => {
     //Declare it to be clicked or unclicked
     if (this.className == "unclicked") {
       this.className = "clicked";
+      count++;
     } else {
-      removeLetter(count);
       this.className = "unclicked";
+
+      //Removes the first instance of the selected letter
+      var inputcelllist = document.getElementsByClassName("inputcells");
+      for(let k = 0 ; k < 5 ; k++) {
+        if(inputcelllist[k].dataset.word == this.dataset.word){
+          inputcelllist[k].parentNode.removeChild(inputcelllist[k]);
+          break;
+        }
+      }
+      count--;
     }
 
     //Call a function which inserts it into the input div
     addToInput(this.dataset.word, count);
-    count++;
+    
 
     //initiates the drop down animation - as there is no submit button
     if (lettersClicked.length == 5) {
