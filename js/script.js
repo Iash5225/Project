@@ -139,11 +139,23 @@ $(window).on("load", () => {
   //Generating a random letter
   /**
    * 
-   * @returns a random letter from the alphabet
+   * @returns a random letter from the alphabet based on letter frequency
    */
   function generateRandomLetter() {
-    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    return alphabet[Math.floor(Math.random() * alphabet.length)];
+    const WEIGHTS = [
+    ["A", 4467], ["B", 1162], ["C", 1546], ["D", 1399], ["E", 4255], ["F", 661], ["G", 1102], ["H", 1323], ["I", 2581], ["J", 163], ["K", 882], ["L", 2368], ["M", 1301], ["N", 2214], ["O", 2801], ["P", 1293], ["Q", 84], ["R", 3043], ["S", 2383], ["T", 2381], ["U", 1881], ["V", 466], ["W", 685], ["X", 189], ["Y", 1605], ["Z", 250]];
+    let total_weight = 0;
+    for (let i = 0; i < WEIGHTS.length; i++) {
+      total_weight += WEIGHTS[i][1];
+    }
+    let roll = Math.floor(Math.random() * total_weight);
+    for (let i = 0; i < WEIGHTS.length; i++) {
+      roll -= WEIGHTS[i][1];
+      if (roll < 0) {
+        return WEIGHTS[i][0];
+      }
+    }
+    return "%";
   }
   /** Code for Generating Trie:
    *  to update:
@@ -291,6 +303,7 @@ class Trie {
     };
 
     this.search = function (key) {
+      key = key.toLowerCase();
       let length = key.length,
         next = this.root;
 
@@ -316,10 +329,40 @@ class TrieNode {
   }
 }
 
-class clickedLetter{
+class clickedLetter {
   constructor(letter , column , row){
     this.letter = letter;
     this.column = column;
     this.row = row;
   }
+}
+
+class Enumerator {
+  a = 4467;
+  b = 1162;
+  c = 1546;
+  d = 1399;
+  e = 4255;
+  f = 661;
+  g = 1102;
+  h = 1323;
+  i = 2581;
+  j = 163;
+  k = 882;
+  l = 2368;
+  m = 1301;
+  n = 2214;
+  o = 2801;
+  p = 1293;
+  q = 84;
+  r = 3043;
+  s = 2383;
+  t = 2381;
+  u = 1881;
+  v = 466;
+  w = 685;
+  x = 189;
+  y = 1605;
+  z = 250;
+
 }
