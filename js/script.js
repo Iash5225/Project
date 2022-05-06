@@ -74,61 +74,68 @@ $(window).on("load", () => {
   createInput();
 
   //Storing every letter clicked
-  var lettersClicked = [];
-  var count = 0;
   // var ind = [];
-
+  var lettersClicked = [];
   /**
    *
    * @returns a popup window alerting that the max number of letters has been used
    */
   function clickedCell() {
-    if (count == 5) {
-      alert("Already have 5 letters");
-      return;
-    }
-
-    //Add to array
-    lettersClicked.push(this.dataset.word);
-
+    
     //Declare it to be clicked or unclicked
     if (this.className == "unclicked") {
+      if (lettersClicked.length == 5) {
+        console.log("Already have 5 letters");
+        return;
+      }
       this.className = "clicked";
-      count++;
+      
+      //Add to array
+      lettersClicked.push(new clickedLetter(this.dataset.word , this.column , this.row));
     } else {
       this.className = "unclicked";
+      
+      //Removes the selected letter from the grid
+      // if (lettersClicked.length == 1) {
+        
+        // }
 
-      //Removes the first instance of the selected letter
-      var inputcelllist = document.getElementsByClassName("inputcells");
-      for(let k = 0 ; k < 5 ; k++) {
-        if(inputcelllist[k].dataset.word == this.dataset.word){
-          inputcelllist[k].parentNode.removeChild(inputcelllist[k]);
-          break;
+        for (let i2 = 0; i2 < lettersClicked.length; i2++){
+          if(lettersClicked[i2].row == this.row && lettersClicked[i2].column == this.column){
+            lettersClicked.splice(i2, 1);
+          }
         }
       }
-      count--;
-    }
+      
+      //Call a function which inserts it into the input div
 
-    //Call a function which inserts it into the input div
-    addToInput(this.dataset.word, count);
-    
-
-    //initiates the drop down animation - as there is no submit button
-    if (lettersClicked.length == 5) {
-      dropdown();
+      updateDisplay(lettersClicked);
+      
+      
+      //initiates the drop down animation - as there is no submit button
+      if (lettersClicked.length == 5) {
+        dropdown();
+      }
+      console.log(lettersClicked);
     }
-  }
 
   /**
    *
    * @param {string} word -
    * @param {integer} count -
    */
-  function addToInput(word, count) {
-    var g = document.getElementsByClassName("inputcells");
-    g[count].innerHTML = word;
+  function updateDisplay(lettersClicked) {
+    let g = document.getElementsByClassName("inputcells");
+    for (let i = 0; i < 5; i++){
+      if (i < lettersClicked.length) {
+        g[i].innerHTML = lettersClicked[i].letter;
+      } else {
+        g[i].innerHTML = '';
+      }
+    }
   }
 
+  
   //Generating a random letter
   /**
    * 
@@ -157,8 +164,8 @@ $(window).on("load", () => {
 
   // Intialises RAW_TRIE from trie.js to a Trie datatype that can be searched at runtime
   const TRIE = Object.setPrototypeOf(RAW_TRIE, new Trie());
-  // console.log("hello exists: " + TRIE.search("hello"));
-  // console.log("hello1 does not exist: " + TRIE.search("hello1"));
+  console.log("hello exists: " + TRIE.search("treat"));
+  console.log("hello1 does not exist: " + TRIE.search("hello1"));
 
   //Initialising 2d array of letters on the page
   let col0 = [];
@@ -236,6 +243,21 @@ $(window).on("load", () => {
       griddivs[i].innerHTML = element;
     }
   }
+//Submitting a possible word
+  document.getElementById("submit-button").addEventListener("click", submitWord);
+  function submitWord() {
+    let word = '';
+    for(let i = 0 ; i < lettersClicked.length ; i++){
+      word = word.concat(lettersClicked[i].letter);
+    }
+    console.log(word);
+    if (TRIE.search(word)) {
+      console.log("in the database");
+    } else {
+      console.log("not a word!");
+    }
+  }
+
 });
 
 
@@ -245,6 +267,8 @@ $(window).on("load", () => {
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
+
+
 
 /* Trie for validating words*/
 class Trie {
@@ -289,5 +313,13 @@ class TrieNode {
   constructor() {
     this.c = {};
     this.w = false;
+  }
+}
+
+class clickedLetter{
+  constructor(letter , column , row){
+    this.letter = letter;
+    this.column = column;
+    this.row = row;
   }
 }
