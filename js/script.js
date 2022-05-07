@@ -81,7 +81,6 @@ $(window).on("load", () => {
    * @returns a popup window alerting that the max number of letters has been used
    */
   function clickedCell() {
-    
     //Declare it to be clicked or unclicked
     if (this.className == "unclicked") {
       if (lettersClicked.length == 5) {
@@ -94,28 +93,17 @@ $(window).on("load", () => {
       lettersClicked.push(new clickedLetter(this.dataset.word , this.column , this.row));
     } else {
       this.className = "unclicked";
-      
-      //Removes the selected letter from the grid
-      // if (lettersClicked.length == 1) {
-        
-        // }
 
-        for (let i2 = 0; i2 < lettersClicked.length; i2++){
-          if(lettersClicked[i2].row == this.row && lettersClicked[i2].column == this.column){
-            lettersClicked.splice(i2, 1);
+        for (let i = 0; i < lettersClicked.length; i++){
+          if(lettersClicked[i].row == this.row && lettersClicked[i].column == this.column){
+            lettersClicked.splice(i, 1);
           }
         }
       }
       
       //Call a function which inserts it into the input div
-
       updateDisplay(lettersClicked);
       
-      
-      //initiates the drop down animation - as there is no submit button
-      if (lettersClicked.length == 5) {
-        dropdown();
-      }
       console.log(lettersClicked);
     }
 
@@ -265,6 +253,7 @@ $(window).on("load", () => {
     console.log(word);
     if (TRIE.search(word)) {
       console.log("in the database");
+      dropdown();
     } else {
       console.log("not a word!");
     }
@@ -280,6 +269,9 @@ function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
+
+// =========================================================================================================================
+// Classes
 
 
 /* Trie for validating words*/
@@ -335,34 +327,4 @@ class clickedLetter {
     this.column = column;
     this.row = row;
   }
-}
-
-class Enumerator {
-  a = 4467;
-  b = 1162;
-  c = 1546;
-  d = 1399;
-  e = 4255;
-  f = 661;
-  g = 1102;
-  h = 1323;
-  i = 2581;
-  j = 163;
-  k = 882;
-  l = 2368;
-  m = 1301;
-  n = 2214;
-  o = 2801;
-  p = 1293;
-  q = 84;
-  r = 3043;
-  s = 2383;
-  t = 2381;
-  u = 1881;
-  v = 466;
-  w = 685;
-  x = 189;
-  y = 1605;
-  z = 250;
-
 }
