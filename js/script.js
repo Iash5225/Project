@@ -109,7 +109,7 @@ $(window).on("load", () => {
     //Call a function which inserts it into the input div
     updateDisplay(lettersClicked);
 
-    console.log(lettersClicked);
+    // console.log(lettersClicked);
   }
 
   /**
@@ -193,8 +193,8 @@ $(window).on("load", () => {
 
   // Intialises RAW_TRIE from trie.js to a Trie datatype that can be searched at runtime
   const TRIE = Object.setPrototypeOf(RAW_TRIE, new Trie());
-  console.log("hello exists: " + TRIE.search("treat"));
-  console.log("hello1 does not exist: " + TRIE.search("hello1"));
+  // console.log("hello exists: " + TRIE.search("treat"));
+  // console.log("hello1 does not exist: " + TRIE.search("hello1"));
 
   //Initialising 2d array of letters on the page
   let col0 = [];
@@ -235,7 +235,7 @@ $(window).on("load", () => {
    */
   function dropdown() {
     var k = document.getElementsByClassName("clicked");
-    for (let index = 0; index < 5; index++) {
+    for (let index = 0; index < k.length; index++) {
       var row = k[index].row;
       var column = k[index].column;
       arr[column][row] = "";
@@ -275,13 +275,12 @@ $(window).on("load", () => {
   document
     .getElementById("submit-button")
     .addEventListener("click", submitWord);
-  document.getElementById("submit-button").addEventListener("click", dropdown);
   function submitWord() {
     let word = "";
     for (let i = 0; i < lettersClicked.length; i++) {
       word = word.concat(lettersClicked[i].letter);
     }
-    console.log(word);
+     console.log(word);
     if (TRIE.search(word)) {
       console.log("in the database");
       dropdown();
@@ -292,7 +291,7 @@ $(window).on("load", () => {
 });
 
 /**
- * Mennu Button
+ * Menu Button
  */
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
