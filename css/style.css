@@ -48,8 +48,9 @@ body {
 /* Words: */
 .word-count {
   font-size: xx-large;
-  position: relative;
-  bottom: 30%;
+  position:relative;
+  /* MADE BOTTOM= 100% temporarily so the top row is now fully clickable */
+  bottom: 100%;
   right: 10%;
 }
 
