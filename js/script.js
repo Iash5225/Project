@@ -88,24 +88,29 @@ $(window).on("load", () => {
         return;
       }
       this.className = "clicked";
-      
+
       //Add to array
-      lettersClicked.push(new clickedLetter(this.dataset.word , this.column , this.row));
+      lettersClicked.push(
+        new clickedLetter(this.dataset.word, this.column, this.row)
+      );
     } else {
       this.className = "unclicked";
 
-        for (let i = 0; i < lettersClicked.length; i++){
-          if(lettersClicked[i].row == this.row && lettersClicked[i].column == this.column){
-            lettersClicked.splice(i, 1);
-          }
+      for (let i = 0; i < lettersClicked.length; i++) {
+        if (
+          lettersClicked[i].row == this.row &&
+          lettersClicked[i].column == this.column
+        ) {
+          lettersClicked.splice(i, 1);
         }
       }
-      
-      //Call a function which inserts it into the input div
-      updateDisplay(lettersClicked);
-      
-      console.log(lettersClicked);
     }
+
+    //Call a function which inserts it into the input div
+    updateDisplay(lettersClicked);
+
+    console.log(lettersClicked);
+  }
 
   /**
    *
@@ -114,24 +119,49 @@ $(window).on("load", () => {
    */
   function updateDisplay(lettersClicked) {
     let g = document.getElementsByClassName("inputcells");
-    for (let i = 0; i < 5; i++){
+    for (let i = 0; i < 5; i++) {
       if (i < lettersClicked.length) {
         g[i].innerHTML = lettersClicked[i].letter;
       } else {
-        g[i].innerHTML = '';
+        g[i].innerHTML = "";
       }
     }
   }
 
-  
   //Generating a random letter
   /**
-   * 
+   *
    * @returns a random letter from the alphabet based on letter frequency
    */
   function generateRandomLetter() {
     const WEIGHTS = [
-    ["A", 4467], ["B", 1162], ["C", 1546], ["D", 1399], ["E", 4255], ["F", 661], ["G", 1102], ["H", 1323], ["I", 2581], ["J", 163], ["K", 882], ["L", 2368], ["M", 1301], ["N", 2214], ["O", 2801], ["P", 1293], ["Q", 84], ["R", 3043], ["S", 2383], ["T", 2381], ["U", 1881], ["V", 466], ["W", 685], ["X", 189], ["Y", 1605], ["Z", 250]];
+      ["A", 4467],
+      ["B", 1162],
+      ["C", 1546],
+      ["D", 1399],
+      ["E", 4255],
+      ["F", 661],
+      ["G", 1102],
+      ["H", 1323],
+      ["I", 2581],
+      ["J", 163],
+      ["K", 882],
+      ["L", 2368],
+      ["M", 1301],
+      ["N", 2214],
+      ["O", 2801],
+      ["P", 1293],
+      ["Q", 84],
+      ["R", 3043],
+      ["S", 2383],
+      ["T", 2381],
+      ["U", 1881],
+      ["V", 466],
+      ["W", 685],
+      ["X", 189],
+      ["Y", 1605],
+      ["Z", 250],
+    ];
     let total_weight = 0;
     for (let i = 0; i < WEIGHTS.length; i++) {
       total_weight += WEIGHTS[i][1];
@@ -160,7 +190,6 @@ $(window).on("load", () => {
   // console.log(JSON.stringify(word_dict));
 
   /* End of section */
-
 
   // Intialises RAW_TRIE from trie.js to a Trie datatype that can be searched at runtime
   const TRIE = Object.setPrototypeOf(RAW_TRIE, new Trie());
@@ -200,10 +229,9 @@ $(window).on("load", () => {
   }
   let arr = [col0, col1, col2, col3, col4];
 
-  
   /**
    * removes the clicked letters and shifts every element down the grid
-   * 
+   *
    */
   function dropdown() {
     var k = document.getElementsByClassName("clicked");
@@ -243,11 +271,14 @@ $(window).on("load", () => {
       griddivs[i].innerHTML = element;
     }
   }
-//Submitting a possible word
-  document.getElementById("submit-button").addEventListener("click", submitWord);
+  //Submitting a possible word
+  document
+    .getElementById("submit-button")
+    .addEventListener("click", submitWord);
+  document.getElementById("submit-button").addEventListener("click", dropdown);
   function submitWord() {
-    let word = '';
-    for(let i = 0 ; i < lettersClicked.length ; i++){
+    let word = "";
+    for (let i = 0; i < lettersClicked.length; i++) {
       word = word.concat(lettersClicked[i].letter);
     }
     console.log(word);
@@ -258,9 +289,7 @@ $(window).on("load", () => {
       console.log("not a word!");
     }
   }
-
 });
-
 
 /**
  * Mennu Button
@@ -269,10 +298,8 @@ function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-
 // =========================================================================================================================
 // Classes
-
 
 /* Trie for validating words*/
 class Trie {
@@ -322,7 +349,7 @@ class TrieNode {
 }
 
 class clickedLetter {
-  constructor(letter , column , row){
+  constructor(letter, column, row) {
     this.letter = letter;
     this.column = column;
     this.row = row;
