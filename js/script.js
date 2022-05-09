@@ -288,6 +288,25 @@ $(window).on("load", () => {
       console.log("not a word!");
     }
   }
+
+  //Creating loss condition
+  //-when a letter reaches the top of the grid in any of the columns
+
+  function loss() {
+    var griddivs = document
+      .getElementsByClassName("grid")[0]
+      .getElementsByTagName("div");
+    for (let i = 0; i < 5; i++) {
+      var element = griddivs[i];
+      if (element.innerHTML!="") {
+        console.log("YOU LOST");
+      }
+    }
+  }
+
+
+
+
 });
 
 /**
