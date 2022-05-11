@@ -39,7 +39,9 @@ $(window).on("load", () => {
       }
 
       //Generate random letter
-      const letter = generateRandomLetter();
+      // const letter = generateRandomLetter();
+
+      const letter = "";
 
       //Set the data to the randomly generated letter
       cells.dataset.word = letter;
@@ -53,16 +55,11 @@ $(window).on("load", () => {
       //Append current cell to grid
       grid.appendChild(cells);
     }
-
-    for (let j = 0; j < 5; j++) {
-      const element = array[j];
-      const letter = generateRandomLetter();
-      var cells = grid[i];
-    }
   }
 
   //Create the grid
   createGrid(40);
+  TimedDrop();
 
   /**
    *
@@ -286,7 +283,7 @@ $(window).on("load", () => {
     for (let i = 0; i < lettersClicked.length; i++) {
       word = word.concat(lettersClicked[i].letter);
     }
-     console.log(word);
+    console.log(word);
     if (TRIE.search(word)) {
       console.log("in the database");
       dropdown();
@@ -297,8 +294,33 @@ $(window).on("load", () => {
 
   //Creating a timed tile drop
 
+  setInterval(TimedDrop, 4000);
 
-  
+  function TimedDrop() {
+    let total_weight = 5;
+    let roll = Math.floor(Math.random() * total_weight);
+    // let roll=1;
+
+    var griddivs = document
+      .getElementsByClassName("grid")[0]
+      .getElementsByTagName("div");
+
+    const letter = generateRandomLetter();
+
+    griddivs[roll].innerHTML = letter;
+    griddivs[roll].dataset.word = letter;
+
+    for (let i = roll + 5; i < 40; i = i + 5) {
+      var cell = griddivs[i];
+      if (griddivs[i].innerHTML == "") {
+        cell.innerHTML = letter;
+        cell.dataset.word = letter;
+        griddivs[i - 5].innerHTML = "";
+        griddivs[i - 5].dataset.word = "";
+      }
+    }
+    loss();
+  }
 
   //Creating loss condition
   //-when a letter reaches the top of the grid in any of the columns
@@ -309,15 +331,11 @@ $(window).on("load", () => {
       .getElementsByTagName("div");
     for (let i = 0; i < 5; i++) {
       var element = griddivs[i];
-      if (element.innerHTML!="") {
+      if (element.innerHTML != "") {
         console.log("YOU LOST");
       }
     }
   }
-
-
-
-
 });
 
 /**
