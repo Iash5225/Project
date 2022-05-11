@@ -5,9 +5,9 @@ $(window).on("load", () => {
    *
    * @param {interger} numrows - The total number of cells in the grid
    */
-  function createGrid(numrows) {
+  function createGrid(total) {
     var grid = document.getElementsByClassName("grid")[0];
-    for (let i = 0; i < numrows; i++) {
+    for (let i = 0; i < total; i++) {
       //Create new div
       var cells = document.createElement("div");
 
@@ -52,6 +52,12 @@ $(window).on("load", () => {
 
       //Append current cell to grid
       grid.appendChild(cells);
+    }
+
+    for (let j = 0; j < 5; j++) {
+      const element = array[j];
+      const letter = generateRandomLetter();
+      var cells = grid[i];
     }
   }
 
@@ -288,6 +294,11 @@ $(window).on("load", () => {
       console.log("not a word!");
     }
   }
+
+  //Creating a timed tile drop
+
+
+  
 
   //Creating loss condition
   //-when a letter reaches the top of the grid in any of the columns
