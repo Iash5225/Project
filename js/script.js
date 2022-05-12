@@ -295,7 +295,7 @@ $(window).on("load", () => {
 
   //Creating a timed tile drop
 
-  setInterval(TimedDrop, 4000);
+  var gameStart = setInterval(TimedDrop, 10000);
 
   function TimedDrop() {
     let total_weight = 5;
@@ -334,6 +334,7 @@ $(window).on("load", () => {
       var element = griddivs[i];
       if (element.innerHTML != "") {
         alert("YOU LOSE");
+        clearInterval(gameStart);
       }
     }
   }
