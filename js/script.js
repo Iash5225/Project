@@ -200,43 +200,77 @@ $(window).on("load", () => {
   // console.log("hello1 does not exist: " + TRIE.search("hello1"));
 
   //Initialising 2d array of letters on the page
-  let col0 = [];
-  let col1 = [];
-  let col2 = [];
-  let col3 = [];
-  let col4 = [];
 
-  for (let i = 0; i < 40; i = i + 5) {
-    var cells = document.getElementsByClassName("unclicked")[i];
-    col0.push(cells.innerHTML);
-  }
+  function updateGrid() {
+    let col0 = [];
+    let col1 = [];
+    let col2 = [];
+    let col3 = [];
+    let col4 = [];
 
-  for (let i = 1; i < 40; i = i + 5) {
-    var cells = document.getElementsByClassName("unclicked")[i];
-    col1.push(cells.innerHTML);
-  }
+    for (let i = 0; i < 40; i = i + 5) {
+      var cells = document.getElementsByClassName("unclicked")[i];
+      col0.push(cells.innerHTML);
+    }
 
-  for (let i = 2; i < 40; i = i + 5) {
-    var cells = document.getElementsByClassName("unclicked")[i];
-    col2.push(cells.innerHTML);
-  }
+    for (let i = 1; i < 40; i = i + 5) {
+      var cells = document.getElementsByClassName("unclicked")[i];
+      col1.push(cells.innerHTML);
+    }
 
-  for (let i = 3; i < 40; i = i + 5) {
-    var cells = document.getElementsByClassName("unclicked")[i];
-    col3.push(cells.innerHTML);
-  }
+    for (let i = 2; i < 40; i = i + 5) {
+      var cells = document.getElementsByClassName("unclicked")[i];
+      col2.push(cells.innerHTML);
+    }
 
-  for (let i = 4; i < 40; i = i + 5) {
-    var cells = document.getElementsByClassName("unclicked")[i];
-    col4.push(cells.innerHTML);
+    for (let i = 3; i < 40; i = i + 5) {
+      var cells = document.getElementsByClassName("unclicked")[i];
+      col3.push(cells.innerHTML);
+    }
+
+    for (let i = 4; i < 40; i = i + 5) {
+      var cells = document.getElementsByClassName("unclicked")[i];
+      col4.push(cells.innerHTML);
+    }
+    let arr = [col0, col1, col2, col3, col4];
   }
-  let arr = [col0, col1, col2, col3, col4];
+  // let col0 = [];
+  // let col1 = [];
+  // let col2 = [];
+  // let col3 = [];
+  // let col4 = [];
+
+  // for (let i = 0; i < 40; i = i + 5) {
+  //   var cells = document.getElementsByClassName("unclicked")[i];
+  //   col0.push(cells.innerHTML);
+  // }
+
+  // for (let i = 1; i < 40; i = i + 5) {
+  //   var cells = document.getElementsByClassName("unclicked")[i];
+  //   col1.push(cells.innerHTML);
+  // }
+
+  // for (let i = 2; i < 40; i = i + 5) {
+  //   var cells = document.getElementsByClassName("unclicked")[i];
+  //   col2.push(cells.innerHTML);
+  // }
+
+  // for (let i = 3; i < 40; i = i + 5) {
+  //   var cells = document.getElementsByClassName("unclicked")[i];
+  //   col3.push(cells.innerHTML);
+  // }
+
+  // for (let i = 4; i < 40; i = i + 5) {
+  //   var cells = document.getElementsByClassName("unclicked")[i];
+  //   col4.push(cells.innerHTML);
+  // }
+  // let arr = [col0, col1, col2, col3, col4];
 
   /**
    * removes the clicked letters and shifts every element down the grid
    *
    */
-  function dropdown() {
+  function dropdown(arr) {
     var k = document.getElementsByClassName("clicked");
     for (let index = 0; index < k.length; index++) {
       var row = k[index].row;
@@ -279,6 +313,10 @@ $(window).on("load", () => {
     .getElementById("submit-button")
     .addEventListener("click", submitWord);
   function submitWord() {
+    var cells = document
+      .getElementsByClassName("grid")[0]
+      .getElementsByTagName("div");
+    // var cells = document.getElementsByClassName("unclicked");
     let word = "";
     for (let i = 0; i < lettersClicked.length; i++) {
       word = word.concat(lettersClicked[i].letter);
@@ -286,16 +324,47 @@ $(window).on("load", () => {
     console.log(word);
     if (TRIE.search(word)) {
       console.log("in the database");
-      dropdown();
+
+      let col0 = [];
+      let col1 = [];
+      let col2 = [];
+      let col3 = [];
+      let col4 = [];
+
+      for (let i = 0; i < 40; i = i + 5) {
+        // var cells = document.getElementsByClassName("unclicked")[i];
+        col0.push(cells[i].innerHTML);
+      }
+
+      for (let i = 1; i < 40; i = i + 5) {
+        // var cells = document.getElementsByClassName("unclicked")[i];
+        col1.push(cells[i].innerHTML);
+      }
+
+      for (let i = 2; i < 40; i = i + 5) {
+        // var cells = document.getElementsByClassName("unclicked")[i];
+        col2.push(cells[i].innerHTML);
+      }
+
+      for (let i = 3; i < 40; i = i + 5) {
+        // var cells = document.getElementsByClassName("unclicked")[i];
+        col3.push(cells[i].innerHTML);
+      }
+
+      for (let i = 4; i < 40; i = i + 5) {
+        // var cells = document.getElementsByClassName("unclicked")[i];
+        col4.push(cells[i].innerHTML);
+      }
+      let arr = [col0, col1, col2, col3, col4];
+      dropdown(arr);
     } else {
-      console.log("not a word!");
       alert("Not a Word");
     }
   }
 
   //Creating a timed tile drop
 
-  var gameStart = setInterval(TimedDrop, 10000);
+  var gameStart = setInterval(TimedDrop, 4000);
 
   function TimedDrop() {
     let total_weight = 5;
