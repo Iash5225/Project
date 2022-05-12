@@ -289,6 +289,7 @@ $(window).on("load", () => {
       dropdown();
     } else {
       console.log("not a word!");
+      alert("Not a Word");
     }
   }
 
@@ -332,7 +333,7 @@ $(window).on("load", () => {
     for (let i = 0; i < 5; i++) {
       var element = griddivs[i];
       if (element.innerHTML != "") {
-        console.log("YOU LOST");
+        alert("YOU LOSE");
       }
     }
   }
