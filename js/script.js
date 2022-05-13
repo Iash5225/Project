@@ -3,7 +3,7 @@
 $(window).on("load", () => {
   /**
    *
-   * @param {interger} numrows - The total number of cells in the grid
+   * @param {integer} numrows - The total number of cells in the grid
    */
   function createGrid(total) {
     var grid = document.getElementsByClassName("grid")[0];
@@ -60,9 +60,10 @@ $(window).on("load", () => {
   //Create the grid
   createGrid(40);
   TimedDrop();
+  createInput();
 
   /**
-   *
+   *Add all clicked cells to the input box
    */
   function createInput() {
     var input = document.getElementsByClassName("input")[0];
@@ -74,16 +75,17 @@ $(window).on("load", () => {
     }
   }
 
-  createInput();
 
-  //Storing every letter clicked
-  // var ind = [];
   var lettersClicked = [];
   /**
    *
    * @returns a popup window alerting that the max number of letters has been used
    */
   function clickedCell() {
+    if(this.dataset.word == ""){
+      return;
+    }
+
     //Declare it to be clicked or unclicked
     if (this.className == "unclicked") {
       if (lettersClicked.length == 5) {
@@ -112,14 +114,12 @@ $(window).on("load", () => {
     //Call a function which inserts it into the input div
     updateDisplay(lettersClicked);
 
-    // console.log(lettersClicked);
   }
 
   /**
    *
-   * @param {string} word -
-   * @param {integer} count -
-   */
+   * 
+   *    */
   function updateDisplay(lettersClicked) {
     let g = document.getElementsByClassName("inputcells");
     for (let i = 0; i < 5; i++) {
@@ -178,93 +178,17 @@ $(window).on("load", () => {
     }
     return "%";
   }
-  /** Code for Generating Trie:
-   *  to update:
-   *    modify the array in wordlist.js
-   *    uncomment the below code and reload the webpage
-   *    copy and paste the output from the console to the trie.js replacing everything in the {}
-   */
-
-  // const word_dict = new Trie();
-
-  // for (let i = 0; i < wordlist.length; i++) {
-  //   word_dict.insert(wordlist[i]);
-  // }
-  // console.log(JSON.stringify(word_dict));
-
-  /* End of section */
-
-  // Intialises RAW_TRIE from trie.js to a Trie datatype that can be searched at runtime
-  const TRIE = Object.setPrototypeOf(RAW_TRIE, new Trie());
-  // console.log("hello exists: " + TRIE.search("treat"));
-  // console.log("hello1 does not exist: " + TRIE.search("hello1"));
 
   //Initialising 2d array of letters on the page
 
-  function updateGrid() {
-    let col0 = [];
-    let col1 = [];
-    let col2 = [];
-    let col3 = [];
-    let col4 = [];
-
-    for (let i = 0; i < 40; i = i + 5) {
-      var cells = document.getElementsByClassName("unclicked")[i];
-      col0.push(cells.innerHTML);
+  function updateGrid(cells) {
+    let arr = [[], [], [], [], []];
+    
+    for (let i = 0; i < 40; i++) {
+      arr[i % 5].push(cells[i].innerHTML);
     }
-
-    for (let i = 1; i < 40; i = i + 5) {
-      var cells = document.getElementsByClassName("unclicked")[i];
-      col1.push(cells.innerHTML);
-    }
-
-    for (let i = 2; i < 40; i = i + 5) {
-      var cells = document.getElementsByClassName("unclicked")[i];
-      col2.push(cells.innerHTML);
-    }
-
-    for (let i = 3; i < 40; i = i + 5) {
-      var cells = document.getElementsByClassName("unclicked")[i];
-      col3.push(cells.innerHTML);
-    }
-
-    for (let i = 4; i < 40; i = i + 5) {
-      var cells = document.getElementsByClassName("unclicked")[i];
-      col4.push(cells.innerHTML);
-    }
-    let arr = [col0, col1, col2, col3, col4];
+    return arr;
   }
-  // let col0 = [];
-  // let col1 = [];
-  // let col2 = [];
-  // let col3 = [];
-  // let col4 = [];
-
-  // for (let i = 0; i < 40; i = i + 5) {
-  //   var cells = document.getElementsByClassName("unclicked")[i];
-  //   col0.push(cells.innerHTML);
-  // }
-
-  // for (let i = 1; i < 40; i = i + 5) {
-  //   var cells = document.getElementsByClassName("unclicked")[i];
-  //   col1.push(cells.innerHTML);
-  // }
-
-  // for (let i = 2; i < 40; i = i + 5) {
-  //   var cells = document.getElementsByClassName("unclicked")[i];
-  //   col2.push(cells.innerHTML);
-  // }
-
-  // for (let i = 3; i < 40; i = i + 5) {
-  //   var cells = document.getElementsByClassName("unclicked")[i];
-  //   col3.push(cells.innerHTML);
-  // }
-
-  // for (let i = 4; i < 40; i = i + 5) {
-  //   var cells = document.getElementsByClassName("unclicked")[i];
-  //   col4.push(cells.innerHTML);
-  // }
-  // let arr = [col0, col1, col2, col3, col4];
 
   /**
    * removes the clicked letters and shifts every element down the grid
@@ -272,6 +196,7 @@ $(window).on("load", () => {
    */
   function dropdown(arr) {
     var k = document.getElementsByClassName("clicked");
+
     for (let index = 0; index < k.length; index++) {
       var row = k[index].row;
       var column = k[index].column;
@@ -283,6 +208,10 @@ $(window).on("load", () => {
         }
         arr[column][0] = "";
       }
+    }
+
+    while (k.length > 0) {
+      k[0].className="unclicked";
     }
 
     //make 2d array into 1d array
@@ -306,12 +235,18 @@ $(window).on("load", () => {
     for (let i = 0; i < 40; i++) {
       var element = temp[i];
       griddivs[i].innerHTML = element;
+      griddivs[i].dataset.word = element;
     }
   }
   //Submitting a possible word
   document
     .getElementById("submit-button")
     .addEventListener("click", submitWord);
+  
+    /**
+     * Function that checks the submitted word with database, and outputs result of checking
+     * 
+   */
   function submitWord() {
     var cells = document
       .getElementsByClassName("grid")[0]
@@ -321,50 +256,34 @@ $(window).on("load", () => {
     for (let i = 0; i < lettersClicked.length; i++) {
       word = word.concat(lettersClicked[i].letter);
     }
-    console.log(word);
+    // console.log(word);
     if (TRIE.search(word)) {
-      console.log("in the database");
-
-      let col0 = [];
-      let col1 = [];
-      let col2 = [];
-      let col3 = [];
-      let col4 = [];
-
-      for (let i = 0; i < 40; i = i + 5) {
-        // var cells = document.getElementsByClassName("unclicked")[i];
-        col0.push(cells[i].innerHTML);
-      }
-
-      for (let i = 1; i < 40; i = i + 5) {
-        // var cells = document.getElementsByClassName("unclicked")[i];
-        col1.push(cells[i].innerHTML);
-      }
-
-      for (let i = 2; i < 40; i = i + 5) {
-        // var cells = document.getElementsByClassName("unclicked")[i];
-        col2.push(cells[i].innerHTML);
-      }
-
-      for (let i = 3; i < 40; i = i + 5) {
-        // var cells = document.getElementsByClassName("unclicked")[i];
-        col3.push(cells[i].innerHTML);
-      }
-
-      for (let i = 4; i < 40; i = i + 5) {
-        // var cells = document.getElementsByClassName("unclicked")[i];
-        col4.push(cells[i].innerHTML);
-      }
-      let arr = [col0, col1, col2, col3, col4];
+      //The chosen word exists
+ 
+      // unclick cells in grid:
+      let arr = updateGrid(cells);
       dropdown(arr);
+      updateScore(word.length);
+
+      // clear rack
+      lettersClicked = [];
+      updateDisplay(lettersClicked);
     } else {
       alert("Not a Word");
     }
   }
 
+  var score = 0;
+  updateScore(0);
+  //Updating the score
+  function updateScore (length){
+    score += length;
+    document.getElementById("count").innerHTML = "Score: " + score;
+  }
+  
   //Creating a timed tile drop
 
-  var gameStart = setInterval(TimedDrop, 4000);
+  var gameStart = setInterval(TimedDrop, 1000);
 
   function TimedDrop() {
     let total_weight = 5;
@@ -379,6 +298,7 @@ $(window).on("load", () => {
 
     griddivs[roll].innerHTML = letter;
     griddivs[roll].dataset.word = letter;
+    // griddivs[roll].className = unclickedWord;
 
     for (let i = roll + 5; i < 40; i = i + 5) {
       var cell = griddivs[i];
@@ -407,12 +327,43 @@ $(window).on("load", () => {
       }
     }
   }
+
+
+
+
+
+
+
+
+
+
+
+    /** Code for Generating Trie:
+   *  to update:
+   *    modify the array in wordlist.js
+   *    uncomment the below code and reload the webpage
+   *    copy and paste the output from the console to the trie.js replacing everything in the {}
+   */
+
+  // const word_dict = new Trie();
+
+  // for (let i = 0; i < wordlist.length; i++) {
+  //   word_dict.insert(wordlist[i]);
+  // }
+  // console.log(JSON.stringify(word_dict));
+
+  /* End of section */
+
+  // Intialises RAW_TRIE from trie.js to a Trie datatype that can be searched at runtime
+  const TRIE = Object.setPrototypeOf(RAW_TRIE, new Trie());
+  // console.log("hello exists: " + TRIE.search("treat"));
+  // console.log("hello1 does not exist: " + TRIE.search("hello1"));
 });
 
 /**
- * Menu Button
+ * Menu Button D
  */
-function myFunction() {
+function menuDropdown() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
