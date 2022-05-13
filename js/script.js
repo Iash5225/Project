@@ -283,9 +283,10 @@ $(window).on("load", () => {
     for (let i = 0; i < lettersClicked.length; i++) {
       word = word.concat(lettersClicked[i].letter);
     }
-    console.log(word);
+    
     if (TRIE.search(word)) {
       console.log("in the database");
+      updateScore(word.length);
       dropdown();
     } else {
       console.log("not a word!");
@@ -293,9 +294,18 @@ $(window).on("load", () => {
     }
   }
 
+  var score = 0;
+  updateScore(0);
+  //Updating the score
+  function updateScore (length){
+    score += length;
+    document.getElementById("count").innerHTML = "Score: " + score;
+  }
+
+
   //Creating a timed tile drop
 
-  var gameStart = setInterval(TimedDrop, 10000);
+  var gameStart = setInterval(TimedDrop, 2000);
 
   function TimedDrop() {
     let total_weight = 5;
@@ -320,8 +330,13 @@ $(window).on("load", () => {
         griddivs[i - 5].dataset.word = "";
       }
     }
+    // var droppingDown = setInterval(droppingDownAnimation , 100);
     loss();
   }
+
+  // function droppingDownAnimation(){
+ 
+  // }
 
   //Creating loss condition
   //-when a letter reaches the top of the grid in any of the columns
@@ -335,6 +350,7 @@ $(window).on("load", () => {
       if (element.innerHTML != "") {
         alert("YOU LOSE");
         clearInterval(gameStart);
+        clearInterval(droppingDown);
       }
     }
   }
@@ -343,7 +359,7 @@ $(window).on("load", () => {
 /**
  * Menu Button
  */
-function myFunction() {
+function menuDropdown() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 

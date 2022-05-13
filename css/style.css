@@ -35,31 +35,25 @@ body {
   border: none;
   background-color: transparent;
   position: relative;
-  right: 32%;
-  bottom: 1%;
+  right: 0%;
+  bottom: 0%;
   padding: 0%;
   height: 46px;
-  width: 55px;
+  width: 50px;
+  float: left;
 }
 
 /* Menu button background colour on hover*/
 .menu-button:hover { background-color: rgba(255, 255, 255, 0.8); }
 
 /* Words: */
-.word-count {
-  font-size: xx-large;
-  position:relative;
-  /* MADE BOTTOM= 100% temporarily so the top row is now fully clickable */
-  bottom: 100%;
-  right: 10%;
-}
-
-/* The count number */
-.count-number{
+.count {
   position: relative;
-  text-align: left;
-  left: 67%;
-  bottom: 102%;
+  text-align: center;
+  padding: 0px;
+  float: right;
+  right: 35%;
+  font-size: xx-large;
 }
 
 /* Menu Content */
