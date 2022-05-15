@@ -1,0 +1,10 @@
+clone git
+
+open in wsl
+
+python3 -m venv auth
+source auth/bin/activate
+pip install flask flask-sqlalchemy flask-login
+
+FLASK_APP=project
+FLASK_DEBUG=1
