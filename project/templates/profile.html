@@ -32,18 +32,62 @@ crossorigin="anonymous"
       rel="stylesheet"
       href="https://www.w3schools.com/w3css/4/w3.css"
     />
-    <button onclick="menuDropdown()" class="menu-button">
+    <button id="menuButton" class="menu-button">
       <i class="material-icons w3-xxxlarge">menu</i>
     </button>
-    <div id="myDropdown" class="dropdown-content">
-      <a href="#">Leaderboard</a>
-      <a href="#">Share</a>
+    <div id="menuDropdown" class="dropdown-content" style="display: none;">
+
+      <button id="leaderboard">Leaderboard</button>
+      <button id="instructions">How to play</button>
+      <button id="share">Share</button>
+
+      <div id="leaderboard-modal" class="modal">
+        <div class="leaderboard-content">
+            <span class="close">&times;</span>
+            <h1>Leaderboard</h1>
+            <table id="leaderboard">
+              <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Score</th>
+              </tr>
+            </table>
+        </div>
+      </div>
+      <div id="instructions-modal" class="modal">
+          <div class="instructions-content">
+              <span class="close">&times;</span>
+              <h1>How to play!</h1>
+              <p>This game is a mixture of tetris and scrabble, and the objective of 
+                the game is to make as many words as possible before the letters reach 
+                the top row. You can make any word from 2 letters long to 5 letters long
+                simply by clicking each green tile containing the letter, and each letter
+                you remove will add one point to the total score.
+              </p>
+              <p>
+                You can see other people's high scores using the leaderboard
+              </p>
+              <p>
+                Now just click start to start your game!
+              </p>
+          </div>
+      </div>
+      <div id="share-modal" class="modal">
+          <div class="share-content">
+              <span class="close">&times;</span>
+              <p id="share-sentence">You haven't played today!</p>
+          </div>
+      </div>
+
     </div>
     <div class="count" id="count"></div>
   </div>
 <div class="grid"></div>
 <div class="input"></div>
 <div class="submit">
-  <button class="button" id="submit-button">submit</button>
+  <button class="button" id="submit-button">Submit</button>
+</div>
+<div class="start">
+  <button class="button" id="start-button">Start</button>
 </div>
 {% endblock %}

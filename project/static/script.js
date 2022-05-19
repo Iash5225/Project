@@ -60,7 +60,6 @@ $(window).on("load", () => {
 
     //Create the grid
     createGrid(40);
-    TimedDrop();
     createInput();
 
     /**
@@ -288,8 +287,14 @@ $(window).on("load", () => {
         document.getElementById("count").innerHTML = "Score: " + score;
     }
 
-    //Creating a timed tile drop
-    var gameStart = setInterval(TimedDrop, 1000);
+    //create variable which start or stops the game
+    var gameStart;
+
+    //Creating a timed tile drop when start is clicked
+    document.getElementById("start-button").onclick = function (){
+        TimedDrop();
+        gameStart = setInterval(TimedDrop, 1000);
+    }
 
 
     function TimedDrop() {
@@ -331,14 +336,74 @@ $(window).on("load", () => {
             if (element.innerHTML != "") {
                 alert("YOU LOSE");
                 clearInterval(gameStart);
+                updateShare();
             }
         }
     }
 
+/**
+ * Menu Button
+ */
 
+ document.getElementById("menuButton").onclick = function () {
+    var menuDrop = document.getElementById("menuDropdown");
+    console.log(menuDrop.style.display);
+    if (menuDrop.style.display === "none") {
+      menuDrop.style.display = "block";
+    } else {
+      menuDrop.style.display = "none";
+    }
+  }
+  
+  /**
+   * Leaderboard and instructions dropdown
+   */
+  var leaderboard = document.getElementById("leaderboard-modal");
+  var instructions = document.getElementById("instructions-modal");
+  var share = document.getElementById("share-modal");
+  
+  
+   document.getElementById("leaderboard").onclick =  function (){
+    leaderboard.style.display = "block";
+  }
+   document.getElementById("instructions").onclick = function (){
+    instructions.style.display = "block";
+  }
+  document.getElementById("share").onclick = function (){
+    share.style.display = "block";
+  }
+  
+  /**
+   * Leaderboard and instructions close button
+   */
+  
+   document.getElementsByClassName("close")[0].onclick = function (){
+    leaderboard.style.display = "none";
+   }
+   document.getElementsByClassName("close")[1].onclick = function (){
+    instructions.style.display = "none";
+   }
+   document.getElementsByClassName("close")[2].onclick = function (){
+    share.style.display = "none";
+   }
+  
+   window.onclick = function(event) {
+    if (event.target == leaderboard) {
+      leaderboard.style.display = "none";
+    }
+    else if(event.target == instructions){
+      instructions.style.display = "none";
+    } else if(event.target == share){
+        share.style.display = "none";
+    }
+  }
 
-
-
+    /**
+     * Dynamically update the share sentence
+     */
+    function updateShare(){
+        document.getElementById("share-sentence").innerHTML = "My score was " + score + " today!";
+    }
 
 
     /** Code for Generating Trie:
@@ -362,12 +427,6 @@ $(window).on("load", () => {
 
 });
 
-/**
- * Menu Button D
- */
-function menuDropdown() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
 
 // =========================================================================================================================
 // Classes
