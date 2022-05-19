@@ -288,12 +288,18 @@ $(window).on("load", () => {
     }
 
     //create variable which start or stops the game
-    var gameStart;
+    var gameStart = false;
+    var start;
 
     //Creating a timed tile drop when start is clicked
     document.getElementById("start-button").onclick = function (){
-        TimedDrop();
-        gameStart = setInterval(TimedDrop, 1000);
+        if (!gameStart) {
+            TimedDrop();
+            start = setInterval(TimedDrop, 1000);
+            gameStart = true;
+        } else{
+            alert("Game has already started!");
+        }
     }
 
 
@@ -335,7 +341,7 @@ $(window).on("load", () => {
             var element = griddivs[i];
             if (element.innerHTML != "") {
                 alert("YOU LOSE");
-                clearInterval(gameStart);
+                clearInterval(start);
                 updateShare();
             }
         }
