@@ -15,7 +15,7 @@ crossorigin="anonymous"
 <script src="{{ url_for('static', filename='script.js')}}"></script>
 <script src="{{ url_for('static', filename='trie.js')}}"></script>
 <script src="{{ url_for('static', filename='wordlist.js')}}"></script>
-{% endblock %}
+{% endblock head %}
 
 {% block content %}
 <h1 class="title">
@@ -90,4 +90,4 @@ crossorigin="anonymous"
 <div class="start">
   <button class="button" id="start-button">Start</button>
 </div>
-{% endblock %}
+{% endblock content %}

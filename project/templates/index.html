@@ -1,21 +1,21 @@
 {% extends "base.html" %}
-
 {% block content %}
-<h1 class="title">
-  Welcome to Wordris
-</h1>
-<h2 class="subtitle">
-  By David Wang, Jean-Pierre le Breton and Iash Bashir
-</h2>
-{% if not current_user.is_authenticated %}
-<p class="text-center">
-  Please <a href="{{ url_for('auth.signup') }}">create an account</a> or <a href="{{ url_for('auth.login') }}">login</a> to play!
-</p>
-{% endif %}
-{% if current_user.is_authenticated %}
-<p class="text-center">
-  To play go to <a href="{{ url_for('main.profile') }}">Profile</a>
-</p>
-{% endif %}
+<div class="p-5">
+
+    <h1 class="display-3">Welcome to Wordris</h1>
+    <hr class="my-2">
+    <p class="lead">By David Wang, Jean-Pierre le Breton and Iash Bashir</p>
+    {% if not current_user.is_authenticated %}
+    <p>
+      Please <a href="{{ url_for('auth.signup') }}">create an account</a> or <a href="{{ url_for('auth.login') }}">login</a> to play!
+    </p>
+    {% endif %}
+    {% if current_user.is_authenticated %}
+    <p>
+      To play go to <a href="{{ url_for('main.profile') }}">Profile</a>
+    </p>
+    {% endif %}
+
+</div>
 
 {% endblock %}
