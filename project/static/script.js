@@ -1,5 +1,6 @@
 "use strict";
 var cur_col = 0;
+const MAX_WORD_LENGTH = 15
 
 $(window).on("load", () => {
     /**
@@ -68,7 +69,7 @@ $(window).on("load", () => {
     function createInput() {
         var input = document.getElementsByClassName("input")[0];
 
-        for (let j = 0; j < 5; j++) {
+        for (let j = 0; j < MAX_WORD_LENGTH; j++) {
             let inputcell = document.createElement("div");
             inputcell.className = "inputcells";
             input.appendChild(inputcell);
@@ -88,8 +89,8 @@ $(window).on("load", () => {
 
         //Declare it to be clicked or unclicked
         if (this.className == "unclicked") {
-            if (lettersClicked.length == 5) {
-                console.log("Already have 5 letters");
+            if (lettersClicked.length == MAX_WORD_LENGTH) {
+                console.log("Already have " + MAX_WORD_LENGTH + " letters");
                 return;
             }
             this.className = "clicked";
@@ -122,7 +123,7 @@ $(window).on("load", () => {
      *    */
     function updateDisplay(lettersClicked) {
         let g = document.getElementsByClassName("inputcells");
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < MAX_WORD_LENGTH; i++) {
             if (i < lettersClicked.length) {
                 g[i].innerHTML = lettersClicked[i].letter;
             } else {
@@ -292,12 +293,12 @@ $(window).on("load", () => {
     var start;
 
     //Creating a timed tile drop when start is clicked
-    document.getElementById("start-button").onclick = function (){
+    document.getElementById("start-button").onclick = function() {
         if (!gameStart) {
             TimedDrop();
             start = setInterval(TimedDrop, 1000);
             gameStart = true;
-        } else{
+        } else {
             alert("Game has already started!");
         }
     }
@@ -347,67 +348,66 @@ $(window).on("load", () => {
         }
     }
 
-/**
- * Menu Button
- */
+    /**
+     * Menu Button
+     */
 
- document.getElementById("menuButton").onclick = function () {
-    var menuDrop = document.getElementById("menuDropdown");
-    console.log(menuDrop.style.display);
-    if (menuDrop.style.display === "none") {
-      menuDrop.style.display = "block";
-    } else {
-      menuDrop.style.display = "none";
+    document.getElementById("menuButton").onclick = function() {
+        var menuDrop = document.getElementById("menuDropdown");
+        console.log(menuDrop.style.display);
+        if (menuDrop.style.display === "none") {
+            menuDrop.style.display = "block";
+        } else {
+            menuDrop.style.display = "none";
+        }
     }
-  }
-  
-  /**
-   * Leaderboard and instructions dropdown
-   */
-  var leaderboard = document.getElementById("leaderboard-modal");
-  var instructions = document.getElementById("instructions-modal");
-  var share = document.getElementById("share-modal");
-  
-  
-   document.getElementById("leaderboard").onclick =  function (){
-    leaderboard.style.display = "block";
-  }
-   document.getElementById("instructions").onclick = function (){
-    instructions.style.display = "block";
-  }
-  document.getElementById("share").onclick = function (){
-    share.style.display = "block";
-  }
-  
-  /**
-   * Leaderboard and instructions close button
-   */
-  
-   document.getElementsByClassName("close")[0].onclick = function (){
-    leaderboard.style.display = "none";
-   }
-   document.getElementsByClassName("close")[1].onclick = function (){
-    instructions.style.display = "none";
-   }
-   document.getElementsByClassName("close")[2].onclick = function (){
-    share.style.display = "none";
-   }
-  
-   window.onclick = function(event) {
-    if (event.target == leaderboard) {
-      leaderboard.style.display = "none";
+
+    /**
+     * Leaderboard and instructions dropdown
+     */
+    var leaderboard = document.getElementById("leaderboard-modal");
+    var instructions = document.getElementById("instructions-modal");
+    var share = document.getElementById("share-modal");
+
+
+    document.getElementById("leaderboard").onclick = function() {
+        leaderboard.style.display = "block";
     }
-    else if(event.target == instructions){
-      instructions.style.display = "none";
-    } else if(event.target == share){
+    document.getElementById("instructions").onclick = function() {
+        instructions.style.display = "block";
+    }
+    document.getElementById("share").onclick = function() {
+        share.style.display = "block";
+    }
+
+    /**
+     * Leaderboard and instructions close button
+     */
+
+    document.getElementsByClassName("close")[0].onclick = function() {
+        leaderboard.style.display = "none";
+    }
+    document.getElementsByClassName("close")[1].onclick = function() {
+        instructions.style.display = "none";
+    }
+    document.getElementsByClassName("close")[2].onclick = function() {
         share.style.display = "none";
     }
-  }
+
+    window.onclick = function(event) {
+        if (event.target == leaderboard) {
+            leaderboard.style.display = "none";
+        } else if (event.target == instructions) {
+            instructions.style.display = "none";
+        } else if (event.target == share) {
+            share.style.display = "none";
+        }
+    }
 
     /**
      * Dynamically update the share sentence
      */
-    function updateShare(){
+    function updateShare() {
         document.getElementById("share-sentence").innerHTML = "My score was " + score + " today!";
     }
 
@@ -422,7 +422,7 @@ $(window).on("load", () => {
     // const word_dict = new Trie();
 
     // for (let i = 0; i < wordlist.length; i++) {
-    //   word_dict.insert(wordlist[i]);
+    //     word_dict.insert(wordlist[i]);
     // }
     // console.log(JSON.stringify(word_dict));
 
@@ -458,7 +458,7 @@ class Trie {
         };
 
         this.search = function(key) {
-            key = key.toLowerCase();
+            key = key.toUpperCase();
             let length = key.length,
                 next = this.root;
 
