@@ -62,7 +62,7 @@ def logout():
 
 @auth.route('/delete')
 @login_required
-def delete():
+def delete(): 
     user = User.query.get(current_user.id)
     db.session.delete(user)
     db.session.commit()

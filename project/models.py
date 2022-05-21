@@ -7,4 +7,12 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String(100))
     name = db.Column(db.String(1000))
     highscore = db.Column(db.Integer)
+    lastplayed = db.Column(db.Date)
     
+    
+class Scores(db.Model):
+    score_log_id = db.Column(db.Integer, primary_key=True)
+    userid = db.Column(db.Integer)
+    score = db.Column(db.Integer)
+    date = db.Column(db.Date)
+
