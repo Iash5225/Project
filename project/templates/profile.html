@@ -1,25 +1,22 @@
-{% extends "base.html" %}
-
-{% block head %}
+{% extends "base.html" %} {% block head %}
 <!-- JS -->
 <script
-src="https://code.jquery.com/jquery-1.12.4.min.js"
-integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
-crossorigin="anonymous"
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+  crossorigin="anonymous"
 ></script>
 <script
-src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-crossorigin="anonymous"
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+  crossorigin="anonymous"
 ></script>
 <script src="{{ url_for('static', filename='script.js')}}"></script>
 <script src="{{ url_for('static', filename='trie.js')}}"></script>
 <script src="{{ url_for('static', filename='wordlist.js')}}"></script>
-{% endblock head %}
-
-{% block content %}
+{% endblock head %} {% block content %}
 <h1 class="title">
   Welcome, {{ name }}!
+  <button class="button" id="start-button">Start</button>
 </h1>
 <div class="outline">
   <div class="NavBar">
@@ -28,116 +25,107 @@ crossorigin="anonymous"
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
-    <link
-      rel="stylesheet"
-      href="https://www.w3schools.com/w3css/4/w3.css"
-    />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <button id="menuButton" class="menu-button">
       <i class="material-icons w3-xxxlarge">menu</i>
     </button>
-    <div id="menuDropdown" class="dropdown-content" style="display: none;">
-
+    <div id="menuDropdown" class="dropdown-content" style="display: none">
       <button id="leaderboard">Leaderboard</button>
       <button id="instructions">How to play</button>
       <button id="share">Share</button>
 
       <div id="leaderboard-modal" class="modal">
         <div class="leaderboard-content">
-            <span class="close">&times;</span>
-            <h1>Leaderboard</h1>
-            <table id="leaderboard">
-              <tr>
-                <th>Rank</th>
-                <th>Name</th>
-                <th>Score</th>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>{{ name }}</td>
-                <td>{{ highscore }}</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>7</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>8</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>9</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>10</td>
-                <td></td>
-                <td></td>
-              </tr>
-            </table>
+          <span class="close">&times;</span>
+          <h1>Leaderboard</h1>
+          <table id="leaderboard">
+            <tr>
+              <th>Rank</th>
+              <th>Name</th>
+              <th>Score</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>{{ name }}</td>
+              <td>{{ highscore }}</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
         </div>
       </div>
       <div id="instructions-modal" class="modal">
-          <div class="instructions-content">
-              <span class="close">&times;</span>
-              <h1>How to play!</h1>
-              <p>This game is a mixture of tetris and scrabble, and the objective of 
-                the game is to make as many words as possible before the letters reach 
-                the top row. You can make any word from 2 letters long to 5 letters long
-                simply by clicking each green tile containing the letter, and each letter
-                you remove will add one point to the total score.
-              </p>
-              <p>
-                You can see other people's high scores using the leaderboard
-              </p>
-              <p>
-                Now just click start to start your game!
-              </p>
-          </div>
+        <div class="instructions-content">
+          <span class="close">&times;</span>
+          <h1>How to play!</h1>
+          <p>
+            This game is a mixture of tetris and scrabble, and the objective of
+            the game is to make as many words as possible before the letters
+            reach the top row. You can make any word from 2 letters long to 5
+            letters long simply by clicking each green tile containing the
+            letter, and each letter you remove will add one point to the total
+            score.
+          </p>
+          <p>You can see other people's high scores using the leaderboard</p>
+          <p>Now just click start to start your game!</p>
+        </div>
       </div>
       <div id="share-modal" class="modal">
-          <div class="share-content">
-              <span class="close">&times;</span>
-              <p id="share-sentence">You haven't played today!</p>
-          </div>
+        <div class="share-content">
+          <span class="close">&times;</span>
+          <p id="share-sentence">You haven't played today!</p>
+        </div>
       </div>
-
     </div>
     <div class="count" id="count"></div>
   </div>
-<div class="grid"></div>
-<div class="input"></div>
-<div class="submit">
-  <button class="button" id="submit-button">Submit</button>
-</div>
-<div class="start">
-  <button class="button" id="start-button">Start</button>
+  <div class="grid"></div>
+  <div class="input"></div>
+  <div class="submit">
+    <button class="button" id="submit-button">Submit</button>
+  </div>
 </div>
 {% endblock content %}
