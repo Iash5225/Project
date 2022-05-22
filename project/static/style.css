@@ -15,7 +15,8 @@ body {
     margin-right: auto;
     padding: 12px;
     border: 2px solid;
-    border-color: black;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 .NavBar,
@@ -29,8 +30,8 @@ body {
     margin-bottom: 10px;
     padding: 0px;
     border: 2px solid;
-    border-color: black;
     text-align: center;
+    border-radius: 5px;
 }
 
 .NavBar {
@@ -57,7 +58,7 @@ body {
 /* Menu button background colour on hover*/
 
 .menu-button:hover {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 
@@ -78,8 +79,8 @@ body {
 
 .dropdown-content {
     position: absolute;
-    background-color: rgba(255, 255, 255, 1);
     min-width: 160px;
+    border: 2px;
     border-color: black;
     z-index: 2;
     margin-top: 47px;
@@ -89,7 +90,8 @@ body {
 /* Links inside the menu */
 
 .dropdown-content button {
-    color: black;
+    background-color: #333;
+    color: rgb(255, 255, 255);
     padding: 16px;
     text-decoration: none;
     display: block;
@@ -101,7 +103,7 @@ body {
 /* Change color of menu links on hover */
 
 .dropdown-content button:hover {
-    background-color: #ddd
+    background-color: #525252;
 }
 
 
@@ -126,11 +128,13 @@ body {
 }
 
 .grid div {
-    background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.8);
     text-align: center;
     margin: 2.5px;
     height: 50px;
+    border-radius: 5px;
+    position: relative;
+    resize: none;
 }
 
 div.unclicked {
@@ -176,11 +180,13 @@ div.clicked {
 .leaderboard-content,
 .instructions-content,
 .share-content {
-    background-color: #fefefe;
+    background-color: #333;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
     width: 65%;
+    border-radius: 5px;
+    color: #ddd;
 }
 
 .close {
@@ -208,7 +214,7 @@ div.clicked {
 }
 
 #leaderboard tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #525252;
 }
 
 #leaderboard th {
