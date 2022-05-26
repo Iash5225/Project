@@ -1,21 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="p-5">
-
     <h1 class="display-3">Welcome to Wordris</h1>
     <hr class="my-2">
     <p class="lead">By David Wang, Jean-Pierre le Breton and Iash Bashir</p>
-    {% if not current_user.is_authenticated %}
     <p>
-      Please <a href="{{ url_for('auth.signup') }}">create an account</a> or <a href="{{ url_for('auth.login') }}">login</a> to play!
+        {% if current_user.is_authenticated %}
+        To play go to <a href="{{ url_for('main.profile') }}">Profile</a>
+        {% else %}
+        Please <a href="{{ url_for('auth.signup') }}">create an account</a> or <a href="{{ url_for('auth.login') }}">login</a> to play!
+        {% endif %}
     </p>
-    {% endif %}
-    {% if current_user.is_authenticated %}
-    <p>
-      To play go to <a href="{{ url_for('main.profile') }}">Profile</a>
-    </p>
-    {% endif %}
-
 </div>
 
 {% endblock %}

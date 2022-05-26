@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Wordris</title>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='logo.png') }}">
+
   <!-- CSS -->
 
   <!-- <link
@@ -50,13 +52,7 @@
         {% endif %}
       </nav>
   </div>
-
-  <div class="hero-body">
-    <div  class="px-4 py-2 text-center">
-      {% block content %} {% endblock content %}
-    </div>
-  </div>
-  </section>
+  {% block content %} {% endblock content %}
 </body>
 
 </html>

@@ -76,7 +76,6 @@ $(window).on("load", () => {
     createGrid(40);
     createInput();
 
-
     var lettersClicked = [];
     /**
      *
@@ -127,7 +126,6 @@ $(window).on("load", () => {
 
         // key was a letter?
         if (/[a-zA-Z]/.test(char)) {
-
             // let arr = updateGrid(cells)
             for (let i = 0; i < cells.length; i++) {
                 if (cells[i].innerHTML == char && cells[i].className == "unclicked") {
@@ -382,6 +380,7 @@ $(window).on("load", () => {
                 alert("YOU LOSE");
                 clearInterval(start);
                 updateShare();
+                document.getElementById("submit-score").style.visibility = "visible"
             }
         }
     }
@@ -448,6 +447,14 @@ $(window).on("load", () => {
         document.getElementById("share-sentence").innerHTML =
             "My score was " + score + " today!";
     }
+
+
+
+    // function submitScore(score) {
+    //     const body = new FormData();
+    //     body.append("key", score);
+    //     return fetch("/submit", { method: "POST", body, credentials: "include" });
+    // }
 
     /** Code for Generating Trie:
      *  to update:

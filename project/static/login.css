@@ -86,12 +86,16 @@ header a img {
     margin: 0 auto;
 }
 
-html,
-body {
-    background-color: #328f8a;
-    background-image: linear-gradient(45deg, #328f8a, #08ac4b);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-size: cover;
-    height: 100%;
+.checkbox label {
+    display: inline-block;
+    padding-right: 10px;
+    white-space: nowrap;
+}
+
+.checkbox input {
+    vertical-align: middle;
+}
+
+.checkbox label span {
+    vertical-align: middle;
 }

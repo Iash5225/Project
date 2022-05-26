@@ -1,4 +1,6 @@
-from flask import Blueprint, render_template, redirect, url_for, request, flash
+from datetime import date
+from flask import Blueprint, render_template, redirect, url_for, request, flash, Response
+from sqlalchemy import Date
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, logout_user, current_user
 from .models import User
@@ -71,5 +73,8 @@ def delete():
 @auth.route('/submit', methods=['POST'])
 @login_required
 def submit():
-    # print("test")
+    score = request.get_data()
+    cur_date = date.today();
+    print(score)
+    
     return redirect(url_for('main.index'))

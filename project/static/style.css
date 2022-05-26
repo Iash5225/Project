@@ -45,13 +45,12 @@ body {
     border: none;
     background-color: transparent;
     position: relative;
-    right: 0%;
+    right: 140%;
     bottom: 0%;
     padding: 0%;
-    height: 46px;
+    height: 45px;
     width: 50px;
     float: left;
-    z-index: 1;
 }
 
 
@@ -65,11 +64,8 @@ body {
 /* Words: */
 
 .count {
-    position: relative;
-    text-align: center;
-    padding: 0px;
-    float: right;
-    right: 35%;
+    /* position: relative; */
+    padding-left: 40px;
     font-size: xx-large;
     color: black;
 }
@@ -83,7 +79,7 @@ body {
     border-color: black;
     border-width: 10px;
     z-index: 2;
-    margin-top: 47px;
+    margin-top: 0px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
@@ -252,4 +248,47 @@ div.clicked {
 
 #submit-button {
     background-color: cornflowerblue;
+}
+
+#overlay {
+    position: fixed;
+    /* Sit on top of the page content */
+    /* display: none; */
+    /* Hidden by default */
+    width: 100%;
+    /* Full width (cover the whole page) */
+    height: 100%;
+    /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Black background with opacity */
+    z-index: 2;
+    /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer;
+    /* Add a pointer on hover */
+}
+
+#text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.inline {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.submit-score {
+    visibility: hidden;
+    padding-inline: 5px;
+    position: relative;
+    left: 60px;
 }
