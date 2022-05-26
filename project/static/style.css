@@ -80,10 +80,11 @@ body {
 .dropdown-content {
     position: absolute;
     min-width: 160px;
-    border: 2px;
     border-color: black;
+    border-width: 10px;
     z-index: 2;
     margin-top: 47px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 
@@ -196,6 +197,13 @@ div.clicked {
     width: 65%;
     border-radius: 5px;
     color: #ddd;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    font-size: large;
+}
+
+.current-user {
+    color: #4cd87b;
+    font-weight: bold;
 }
 
 .close {

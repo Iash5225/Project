@@ -12,7 +12,7 @@
 ></script>
 <script src="{{ url_for('static', filename='script.js')}}"></script>
 <script src="{{ url_for('static', filename='trie.js')}}"></script>
-<script src="{{ url_for('static', filename='wordlist.js')}}"></script>
+<!--<script src="{{ url_for('static', filename='wordlist.js')}}"></script>-->
 {% endblock head %} {% block content %}
 <h1 class="title">
   Welcome, {{ name }}!
@@ -44,56 +44,13 @@
               <th>Name</th>
               <th>Score</th>
             </tr>
-            <tr>
-              <td>1</td>
-              <td>{{ name }}</td>
-              <td>{{ highscore }}</td>
+            {% for row in lb_names %}
+            <tr {% if row == name %} class="current-user" {% endif %}>
+              <td>{{ loop.index }}</td>
+              <td>{{ row }}</td>
+              <td>{{ lb_scores[loop.index0] }}</td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>7</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>8</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>9</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>10</td>
-              <td></td>
-              <td></td>
-            </tr>
+            {% endfor %}
           </table>
         </div>
       </div>
