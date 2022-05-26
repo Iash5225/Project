@@ -67,3 +67,9 @@ def delete():
     db.session.delete(user)
     db.session.commit()
     return redirect(url_for('auth.signup'))
+
+@auth.route('/submit', methods=['POST'])
+@login_required
+def submit():
+    # print("test")
+    return redirect(url_for('main.index'))

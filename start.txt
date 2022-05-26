@@ -1,0 +1,6 @@
+to start the site run the following commands in bash:
+
+python3 -m venv auth
+source auth/bin/activate
+pip install -r requirements.txt
+flask run

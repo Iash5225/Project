@@ -2,5 +2,7 @@
     "python.analysis.extraPaths": [
         "./project",
         "./project"
-    ]
+    ],
+    "emmet.showSuggestionsAsSnippets": true,
+    "html.autoClosingTags": true,
 }
