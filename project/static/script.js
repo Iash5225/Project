@@ -1,6 +1,6 @@
 "use strict";
 var cur_col = 0;
-const MAX_WORD_LENGTH = 15
+const MAX_WORD_LENGTH = 15;
 
 $(window).on("load", () => {
     /**
@@ -57,11 +57,7 @@ $(window).on("load", () => {
             //Append current cell to grid
             grid.appendChild(cells);
         }
-    }
-
-    //Create the grid
-    createGrid(40);
-    createInput();
+    };
 
     /**
      *Add all clicked cells to the input box
@@ -76,6 +72,10 @@ $(window).on("load", () => {
         }
     }
 
+    //Create the grid
+    createGrid(40);
+    createInput();
+
 
     var lettersClicked = [];
     /**
@@ -83,7 +83,7 @@ $(window).on("load", () => {
      * @returns a popup window alerting that the max number of letters has been used
      */
     function clickedCell() {
-        if (this.dataset.word == "") {
+        if (this.innerHTML == "") {
             return;
         }
 
@@ -114,12 +114,50 @@ $(window).on("load", () => {
 
         //Call a function which inserts it into the input div
         updateDisplay(lettersClicked);
-
     }
 
+    document.addEventListener("keydown", KeyHandler);
+
+    function KeyHandler(e) {
+        let cells = document
+            .getElementsByClassName("grid")[0]
+            .getElementsByTagName("div");
+
+        let char = String.fromCharCode(e.keyCode);
+
+        // key was a letter?
+        if (/[a-zA-Z]/.test(char)) {
+
+            // let arr = updateGrid(cells)
+            for (let i = 0; i < cells.length; i++) {
+                if (cells[i].innerHTML == char && cells[i].className == "unclicked") {
+                    let keyedCell = clickedCell.bind(cells[i]);
+                    keyedCell();
+                    return;
+                }
+            }
+        }
+        // key was Enter?
+        else if (e.keyCode == 13) {
+            submitWord();
+        }
+
+        // key was Backspace?
+        else if (e.keyCode == 8) {
+            if (lettersClicked.length == 0) {
+                return;
+            }
+            let c = lettersClicked.pop();
+            console.log(c.row, c.column);
+            cells[5 * c.row + c.column].className = "unclicked";
+            let keyedCell = clickedCell.bind(c);
+            keyedCell();
+            return;
+        }
+    }
     /**
      *
-     * 
+     *
      *    */
     function updateDisplay(lettersClicked) {
         let g = document.getElementsByClassName("inputcells");
@@ -252,7 +290,7 @@ $(window).on("load", () => {
 
     /**
      * Function that checks the submitted word with database, and outputs result of checking
-     * 
+     *
      */
     function submitWord() {
         var cells = document
@@ -299,15 +337,15 @@ $(window).on("load", () => {
             start = setInterval(TimedDrop, 1000);
             gameStart = true;
         } else {
-            alert("Game has already started!");
+            // alert("Game has already started!");
+            return;
         }
-    }
-
+    };
 
     function TimedDrop() {
         let n_cols = 5;
         // let roll = Math.floor(Math.random() * n_cols);
-        var roll = cur_col
+        var roll = cur_col;
         var griddivs = document
             .getElementsByClassName("grid")[0]
             .getElementsByTagName("div");
@@ -360,7 +398,7 @@ $(window).on("load", () => {
         } else {
             menuDrop.style.display = "none";
         }
-    }
+    };
 
     /**
      * Leaderboard and instructions dropdown
@@ -369,16 +407,15 @@ $(window).on("load", () => {
     var instructions = document.getElementById("instructions-modal");
     var share = document.getElementById("share-modal");
 
-
     document.getElementById("leaderboard").onclick = function() {
         leaderboard.style.display = "block";
-    }
+    };
     document.getElementById("instructions").onclick = function() {
         instructions.style.display = "block";
-    }
+    };
     document.getElementById("share").onclick = function() {
         share.style.display = "block";
-    }
+    };
 
     /**
      * Leaderboard and instructions close button
@@ -386,13 +423,13 @@ $(window).on("load", () => {
 
     document.getElementsByClassName("close")[0].onclick = function() {
         leaderboard.style.display = "none";
-    }
+    };
     document.getElementsByClassName("close")[1].onclick = function() {
         instructions.style.display = "none";
-    }
+    };
     document.getElementsByClassName("close")[2].onclick = function() {
         share.style.display = "none";
-    }
+    };
 
     window.onclick = function(event) {
         if (event.target == leaderboard) {
@@ -402,15 +439,15 @@ $(window).on("load", () => {
         } else if (event.target == share) {
             share.style.display = "none";
         }
-    }
+    };
 
     /**
      * Dynamically update the share sentence
      */
     function updateShare() {
-        document.getElementById("share-sentence").innerHTML = "My score was " + score + " today!";
+        document.getElementById("share-sentence").innerHTML =
+            "My score was " + score + " today!";
     }
-
 
     /** Code for Generating Trie:
      *  to update:
@@ -430,9 +467,7 @@ $(window).on("load", () => {
 
     // Intialises RAW_TRIE from trie.js to a Trie datatype that can be searched at runtime
     const TRIE = Object.setPrototypeOf(RAW_TRIE, new Trie());
-
 });
-
 
 // =========================================================================================================================
 // Classes
