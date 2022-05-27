@@ -72,9 +72,21 @@ $(window).on("load", () => {
         }
     }
 
-    //Create the grid
-    createGrid(40);
-    createInput();
+    //create variable which start or stops the game
+    var gameStart = false;
+
+    //Create the grid when the game starts
+    document.addEventListener('keydown', initialise);
+
+    function initialise(e) {
+        if(e.keyCode == 13 && !gameStart) {
+            createGrid(40);
+            createInput();
+            TimedDrop();
+            start = setInterval(TimedDrop, 1000);
+        }
+    }
+
 
     var lettersClicked = [];
     /**
@@ -136,8 +148,11 @@ $(window).on("load", () => {
             }
         }
         // key was Enter?
-        else if (e.keyCode == 13) {
+        else if (e.keyCode == 13 && gameStart) {
             submitWord();
+        }
+        else if(e.keyCode == 13 && !gameStart){
+            gameStart = true;
         }
 
         // key was Backspace?
@@ -324,21 +339,13 @@ $(window).on("load", () => {
         document.getElementById("count").innerHTML = "Score: " + score;
     }
 
-    //create variable which start or stops the game
-    var gameStart = false;
+
     var start;
 
     //Creating a timed tile drop when start is clicked
-    document.getElementById("start-button").onclick = function() {
-        if (!gameStart) {
-            TimedDrop();
-            start = setInterval(TimedDrop, 1000);
-            gameStart = true;
-        } else {
-            // alert("Game has already started!");
-            return;
-        }
-    };
+    // function startGame() {
+            
+    // };
 
     function TimedDrop() {
         let n_cols = 5;
@@ -379,11 +386,20 @@ $(window).on("load", () => {
             if (element.innerHTML != "") {
                 alert("YOU LOSE");
                 clearInterval(start);
-                updateShare();
                 document.getElementById("submit-score").style.visibility = "visible"
+                gameStart = false;
             }
         }
     }
+
+
+    // document.getElementById("submit-score").onclick = resetGame();
+    // function resetGame(){
+    //     var grids = document.getElementsByClassName("unclicked");
+    //         for(let m = 0 ; m < 40 ; m++){
+    //             document.getElementsByClassName("grid")[0].removeChild(grids[m]);
+    //         }
+    // }
 
     /**
      * Menu Button
@@ -403,17 +419,17 @@ $(window).on("load", () => {
      */
     var leaderboard = document.getElementById("leaderboard-modal");
     var instructions = document.getElementById("instructions-modal");
-    var share = document.getElementById("share-modal");
+    // var share = document.getElementById("share-modal");
 
     document.getElementById("leaderboard").onclick = function() {
         leaderboard.style.display = "block";
     };
     document.getElementById("instructions").onclick = function() {
         instructions.style.display = "block";
-    };
-    document.getElementById("share").onclick = function() {
-        share.style.display = "block";
-    };
+    }
+    // document.getElementById("share").onclick = function() {
+    //     share.style.display = "block";
+    // }
 
     /**
      * Leaderboard and instructions close button
@@ -425,27 +441,28 @@ $(window).on("load", () => {
     document.getElementsByClassName("close")[1].onclick = function() {
         instructions.style.display = "none";
     };
-    document.getElementsByClassName("close")[2].onclick = function() {
-        share.style.display = "none";
-    };
+    // document.getElementsByClassName("close")[2].onclick = function() {
+    //     share.style.display = "none";
+    // };
 
     window.onclick = function(event) {
         if (event.target == leaderboard) {
             leaderboard.style.display = "none";
         } else if (event.target == instructions) {
             instructions.style.display = "none";
-        } else if (event.target == share) {
-            share.style.display = "none";
         }
-    };
+        // } else if (event.target == share) {
+        //     share.style.display = "none";
+        // }
+    }
 
     /**
      * Dynamically update the share sentence
      */
-    function updateShare() {
-        document.getElementById("share-sentence").innerHTML =
-            "My score was " + score + " today!";
-    }
+        document.getElementById("share").onclick = function (){
+            navigator.clipboard.writeText("My final score was " + score + " today!");
+            document.getElementById("copy-popup").innerHTML = "Hi";
+        }
 
 
 
