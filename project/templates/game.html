@@ -15,7 +15,7 @@
 {% endblock head %} {% block content %}
 <h1 class="title">
   Welcome, {{ name }}!
-  <button class="button" id="start-button">Start</button>
+  
 </h1>
 <div class="outline">
   <div class="NavBar">
@@ -41,7 +41,13 @@
     <div id="menuDropdown" class="dropdown-content" style="display: none">
       <button id="leaderboard">Leaderboard</button>
       <button id="instructions">How to play</button>
-      <button id="share">Share</button>
+      <div class="copy">
+        <button id="share">
+          <span class="copy-popup" id="share-popup">Copy to clipboard</span>
+          Share
+        </button>
+      </div>
+
       <div id="leaderboard-modal" class="modal">
         <div class="leaderboard-content">
           <span class="close">&times;</span>
@@ -78,15 +84,18 @@
           <p>Now just click start to start your game!</p>
         </div>
       </div>
-      <div id="share-modal" class="modal">
+      <!-- <div id="share-modal" class="modal">
         <div class="share-content">
           <span class="close">&times;</span>
           <p id="share-sentence">You haven't played today!</p>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
-  <div class="grid"></div>
+    </div>
+  <div class="grid">
+    <!-- <p>Press enter to start the game!</p> -->
+  </div>
   <div class="input"></div>
   <div class="submit">
     <button class="button" id="submit-button">Submit</button>
