@@ -12,9 +12,9 @@ main = Blueprint('main', __name__)
 def index():
     return render_template('index.html')
 
-@main.route('/profile')
+@main.route('/game')
 @login_required
-def profile():
+def game():
     leaderboard = db.session.execute(select(User.name, User.highscore)
                                      .order_by(User.highscore, User.name)
                                      .limit(10))
@@ -24,7 +24,7 @@ def profile():
         leaderboard_names.append(row.name)
         leaderboard_scores.append(row.highscore)
         
-    return render_template('profile.html',
+    return render_template('game.html',
                            name = current_user.name,
                            lb_names = leaderboard_names,
                            lb_scores = leaderboard_scores)

@@ -469,6 +469,10 @@ $(window).on("load", () => {
     // }
     // console.log(JSON.stringify(word_dict));
 
+    // move this into profile.html header
+    // <script src="{{ url_for('static', filename='wordlist.js')}}"></script>
+
+
     /* End of section */
 
     // Intialises RAW_TRIE from trie.js to a Trie datatype that can be searched at runtime

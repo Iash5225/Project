@@ -6,7 +6,7 @@
     <p class="lead">By David Wang, Jean-Pierre le Breton and Iash Bashir</p>
     <p>
         {% if current_user.is_authenticated %}
-        To play go to <a href="{{ url_for('main.profile') }}">Profile</a>
+        To play go to <a href="{{ url_for('main.game') }}">Game</a>
         {% else %}
         Please <a href="{{ url_for('auth.signup') }}">create an account</a> or <a href="{{ url_for('auth.login') }}">login</a> to play!
         {% endif %}
