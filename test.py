@@ -9,14 +9,18 @@ class UserModelCase(unittest.TestCase):
         app.app_context().push()
         db.create_all
         LastUser = User.query.order_by(User.id.desc()).first()
+        #LastScore = Scores.query.order_by(Scores.score_log_id.desc()).first()
+        
+        ##As there is no score in the db (will change to ^^^ Last score)
+        LastScore = 0
         
         U1 = User(id = LastUser.id +1, email="iash@iash", name ="iash", password = "1234");
         U2 = User(id = LastUser.id +2, email="jp@jp", name ="jp", password = "ilikeCITS3403");
         U3 = User(id = LastUser.id +3, email="david@david", name ="david", password = "idon'tlikeCITS3403");
         
-        S1 = Scores(score_log_id = 1, userid = 1, score = 10)
-        S2 = Scores(score_log_id = 2, userid = 2, score = 20)
-        S3 = Scores(score_log_id = 3, userid = 3, score = 30)
+        S1 = Scores(score_log_id = LastScore +1, userid = 1, score = 10)
+        S2 = Scores(score_log_id = LastScore +2, userid = 2, score = 20)
+        S3 = Scores(score_log_id = LastScore +3, userid = 3, score = 30)
         
         db.session.add(U1)
         db.session.add(U2)
@@ -30,7 +34,7 @@ class UserModelCase(unittest.TestCase):
     def tearDown(self):
         LastUser = User.query.order_by(User.id.desc()).first()
         LastScore = Scores.query.order_by(Scores.score_log_id.desc()).first()
-        
+            
         User.query.filter_by(id=LastUser.id).delete()
         User.query.filter_by(id=LastUser.id-1).delete()
         User.query.filter_by(id=LastUser.id-2).delete()
