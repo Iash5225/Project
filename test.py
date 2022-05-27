@@ -1,6 +1,6 @@
 import unittest
 from project import create_app, db
-from project.models import User
+from project.models import Scores, User
 
 class UserModelCase(unittest.TestCase):
     def setUp(self):        
@@ -14,16 +14,31 @@ class UserModelCase(unittest.TestCase):
         U2 = User(id = LastUser.id +2, email="jp@jp", name ="jp", password = "ilikeCITS3403");
         U3 = User(id = LastUser.id +3, email="david@david", name ="david", password = "idon'tlikeCITS3403");
         
+        S1 = Scores(score_log_id = 1, userid = 1, score = 10)
+        S2 = Scores(score_log_id = 2, userid = 2, score = 20)
+        S3 = Scores(score_log_id = 3, userid = 3, score = 30)
+        
         db.session.add(U1)
         db.session.add(U2)
         db.session.add(U3)
+        db.session.add(S1)
+        db.session.add(S2)
+        db.session.add(S3)
+        
         db.session.commit()
 
     def tearDown(self):
-        temp = User.query.order_by(User.id.desc()).first()
-        User.query.filter_by(id=temp.id).delete()
-        User.query.filter_by(id=temp.id-1).delete()
-        User.query.filter_by(id=temp.id-2).delete()
+        LastUser = User.query.order_by(User.id.desc()).first()
+        LastScore = Scores.query.order_by(Scores.score_log_id.desc()).first()
+        
+        User.query.filter_by(id=LastUser.id).delete()
+        User.query.filter_by(id=LastUser.id-1).delete()
+        User.query.filter_by(id=LastUser.id-2).delete()
+        
+        Scores.query.filter_by(score_log_id=LastScore.score_log_id).delete()
+        Scores.query.filter_by(score_log_id=LastScore.score_log_id-1).delete()
+        Scores.query.filter_by(score_log_id=LastScore.score_log_id-2).delete()
+        
         db.session.commit()
 
     def test_users(self):
@@ -53,5 +68,31 @@ class UserModelCase(unittest.TestCase):
         self.assertNotEqual(U2.email,"bob@builder")
         self.assertNotEqual(U3.password,"test")
         
+    def test_scores(self):
+        temp = Scores.query.order_by(Scores.score_log_id.desc()).first()
+        
+        S1 = Scores.query.get(temp.score_log_id-2)
+        S2 = Scores.query.get(temp.score_log_id-1)
+        S3 = Scores.query.get(temp.score_log_id)
+
+        ##Test should return True
+        self.assertEqual(S1.score_log_id,1)
+        self.assertEqual(S1.userid,1)
+        self.assertEqual(S1.score,10)
+        
+        ##Test should return True
+        self.assertEqual(S2.score_log_id,2)
+        self.assertEqual(S2.userid,2)
+        self.assertEqual(S2.score,20)
+        
+        ##Test should return True
+        self.assertEqual(S3.score_log_id,3)
+        self.assertEqual(S3.userid,3)
+        self.assertEqual(S3.score,30)
+        
+        ##Test False values
+        self.assertNotEqual(S1.score_log_id,4)
+        self.assertNotEqual(S2.userid,6)
+        self.assertNotEqual(S3.score,100)
 if __name__ == '__main__':
     unittest.main(verbosity=2)
