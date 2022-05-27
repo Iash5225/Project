@@ -146,7 +146,7 @@ $(window).on("load", () => {
                 return;
             }
             let c = lettersClicked.pop();
-            console.log(c.row, c.column);
+            // console.log(c.row, c.column);
             cells[5 * c.row + c.column].className = "unclicked";
             let keyedCell = clickedCell.bind(c);
             keyedCell();
@@ -391,7 +391,6 @@ $(window).on("load", () => {
 
     document.getElementById("menuButton").onclick = function() {
         var menuDrop = document.getElementById("menuDropdown");
-        console.log(menuDrop.style.display);
         if (menuDrop.style.display === "none") {
             menuDrop.style.display = "block";
         } else {
