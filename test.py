@@ -1,6 +1,7 @@
 import unittest
 from project import create_app, db
 from project.models import Scores, User
+from werkzeug.security import generate_password_hash, check_password_hash
 
 class UserModelCase(unittest.TestCase):
     def setUp(self):        
@@ -14,9 +15,9 @@ class UserModelCase(unittest.TestCase):
         ##As there is no score in the db (will change to ^^^ Last score)
         LastScore = 0
         
-        U1 = User(id = LastUser.id +1, email="iash@iash", name ="iash", password = "1234");
-        U2 = User(id = LastUser.id +2, email="jp@jp", name ="jp", password = "ilikeCITS3403");
-        U3 = User(id = LastUser.id +3, email="david@david", name ="david", password = "idon'tlikeCITS3403");
+        U1 = User(email="iash@iash", name ="iash", password = generate_password_hash("1234", method='sha256'));
+        U2 = User(email="jp@jp", name ="jp", password = generate_password_hash("ilikeCITS3403", method='sha256'));
+        U3 = User(email="david@david", name ="david", password = generate_password_hash("idon'tlikeCITS3403", method='sha256'));
         
         S1 = Scores(score_log_id = LastScore +1, userid = 1, score = 10)
         S2 = Scores(score_log_id = LastScore +2, userid = 2, score = 20)
@@ -55,17 +56,17 @@ class UserModelCase(unittest.TestCase):
         ##Test should return True
         self.assertEqual(U1.name,"iash")
         self.assertEqual(U1.email,"iash@iash")
-        self.assertEqual(U1.password,"1234")
+        self.assertTrue(check_password_hash(U1.password, "1234"))
         
         ##Test should return True
         self.assertEqual(U2.name,"jp")
         self.assertEqual(U2.email,"jp@jp")
-        self.assertEqual(U2.password,"ilikeCITS3403")
+        self.assertTrue(check_password_hash(U2.password, "ilikeCITS3403"))
         
         ##Test should return True
         self.assertEqual(U3.name,"david")
         self.assertEqual(U3.email,"david@david")
-        self.assertEqual(U3.password,"idon'tlikeCITS3403")
+        self.assertTrue(check_password_hash(U3.password, "idon'tlikeCITS3403"))
         
         ##Test False values
         self.assertNotEqual(U1.name,"tim")
