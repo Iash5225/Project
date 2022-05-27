@@ -126,7 +126,6 @@ $(window).on("load", () => {
 
         // key was a letter?
         if (/[a-zA-Z]/.test(char)) {
-            // let arr = updateGrid(cells)
             for (let i = 0; i < cells.length; i++) {
                 if (cells[i].innerHTML == char && cells[i].className == "unclicked") {
                     let keyedCell = clickedCell.bind(cells[i]);
@@ -146,7 +145,6 @@ $(window).on("load", () => {
                 return;
             }
             let c = lettersClicked.pop();
-            // console.log(c.row, c.column);
             cells[5 * c.row + c.column].className = "unclicked";
             let keyedCell = clickedCell.bind(c);
             keyedCell();
