@@ -11,9 +11,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.core.utils import ChromeType
 from selenium.webdriver.chrome.options import Options
 
-chrome_options = Options()
-chrome_options.add_argument("--headless")
-chrome_options.add_argument('--no-sandbox')
+
 
 
 
@@ -22,8 +20,13 @@ class SystemTest(unittest.TestCase):
     
     def setUp(self):
   
-        self.driver = webdriver.Chrome('/usr/lib/chromium-browser/chromedriver', options=chrome_options)
-        self.driver.get('http://www.google.com')
+  
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument("--headless")
+        chrome_options.add_argument("--disable-gpu")
+
+        self.driver = webdriver.Chrome(options=chrome_options)
+        #self.driver.get('http://www.google.com')
         print('test')
     
         if not self.driver:
