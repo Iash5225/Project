@@ -1,4 +1,5 @@
 from flask_login import UserMixin
+from sqlalchemy import ForeignKey
 from . import db
 
 class User(UserMixin, db.Model):
@@ -12,7 +13,7 @@ class User(UserMixin, db.Model):
     
 class Scores(db.Model):
     score_log_id = db.Column(db.Integer, primary_key=True)
-    userid = db.Column(db.Integer)
+    userid = db.Column(db.Integer, db.ForeignKey(User.id))
     score = db.Column(db.Integer)
     date = db.Column(db.Date)
 

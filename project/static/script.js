@@ -1,60 +1,53 @@
 "use strict";
 var cur_col = 0;
 const MAX_WORD_LENGTH = 15;
+const NO_LETTER = " ";
 
 $(window).on("load", () => {
     /**
      * @param {integer} numrows - The total number of cells in the grid
      */
     let createGrid = (total) => {
-        var grid = document.getElementsByClassName("grid")[0];
+        let grid = document.getElementsByClassName("grid")[0];
         for (let i = 0; i < total; i++) {
             //Create new div
-            var cells = document.createElement("div");
+            let new_cell = document.createElement("div");
 
             //Set divs created to all have a classname "cell"
-            cells.className = "unclicked";
+            new_cell.className = "unclicked";
 
             //adding index to every div in grid
-            cells.index = i;
+            new_cell.index = i;
 
             if (i % 5 == 0) {
-                cells.column = 0;
-                cells.row = i / 5;
+                new_cell.column = 0;
+                new_cell.row = i / 5;
             }
             if (i % 5 == 1) {
-                cells.column = 1;
-                cells.row = (i - 1) / 5;
+                new_cell.column = 1;
+                new_cell.row = (i - 1) / 5;
             }
             if (i % 5 == 2) {
-                cells.column = 2;
-                cells.row = (i - 2) / 5;
+                new_cell.column = 2;
+                new_cell.row = (i - 2) / 5;
             }
             if (i % 5 == 3) {
-                cells.column = 3;
-                cells.row = (i - 3) / 5;
+                new_cell.column = 3;
+                new_cell.row = (i - 3) / 5;
             }
             if (i % 5 == 4) {
-                cells.column = 4;
-                cells.row = (i - 4) / 5;
+                new_cell.column = 4;
+                new_cell.row = (i - 4) / 5;
             }
 
-            //Generate random letter
-            // const letter = generateRandomLetter();
-
-            const letter = "";
-
-            //Set the data to the randomly generated letter
-            cells.dataset.word = letter;
-
-            //Display the randomly generated letter
-            cells.innerHTML = letter;
+            new_cell.dataset.word = NO_LETTER;
+            new_cell.innerHTML = NO_LETTER;
 
             //Call clickedCell function on click
-            cells.onclick = clickedCell;
+            new_cell.onclick = clickedCell;
 
             //Append current cell to grid
-            grid.appendChild(cells);
+            grid.appendChild(new_cell);
         }
     };
 
@@ -93,7 +86,7 @@ $(window).on("load", () => {
      * @returns a popup window alerting that the max number of letters has been used
      */
     function clickedCell() {
-        if (this.innerHTML == "") {
+        if (this.innerHTML == NO_LETTER) {
             return;
         }
 
@@ -174,7 +167,7 @@ $(window).on("load", () => {
             if (i < lettersClicked.length) {
                 g[i].innerHTML = lettersClicked[i].letter;
             } else {
-                g[i].innerHTML = "";
+                g[i].innerHTML = NO_LETTER;
             }
         }
     }
@@ -224,6 +217,8 @@ $(window).on("load", () => {
                 return WEIGHTS[i][0];
             }
         }
+
+        // something has gone wrong
         return "%";
     }
 
@@ -254,13 +249,13 @@ $(window).on("load", () => {
         for (let index = 0; index < k.length; index++) {
             var row = k[index].row;
             var column = k[index].column;
-            arr[column][row] = "";
+            arr[column][row] = NO_LETTER;
 
             if (row != 0) {
                 for (let j = row; j > 0; j--) {
                     arr[column][j] = arr[column][j - 1];
                 }
-                arr[column][0] = "";
+                arr[column][0] = NO_LETTER;
             }
         }
 
@@ -359,11 +354,11 @@ $(window).on("load", () => {
 
         for (let i = roll + 5; i < 40; i = i + 5) {
             var cell = griddivs[i];
-            if (griddivs[i].innerHTML == "") {
+            if (griddivs[i].innerHTML == NO_LETTER) {
                 cell.innerHTML = letter;
                 cell.dataset.word = letter;
-                griddivs[i - 5].innerHTML = "";
-                griddivs[i - 5].dataset.word = "";
+                griddivs[i - 5].innerHTML = NO_LETTER;
+                griddivs[i - 5].dataset.word = NO_LETTER;
             }
         }
         loss();
@@ -379,7 +374,7 @@ $(window).on("load", () => {
             .getElementsByTagName("div");
         for (let i = 0; i < 5; i++) {
             var element = griddivs[i];
-            if (element.innerHTML != "") {
+            if (element.innerHTML != NO_LETTER) {
                 alert("YOU LOSE");
                 clearInterval(start);
                 document.getElementById("submit-score").style.visibility = "visible"
@@ -460,11 +455,12 @@ $(window).on("load", () => {
     }
 
 
-    document.getElementById("submit-score").onclick = function() {
+    document.getElementById("submit-score").onclick = async function() {
         let score = document.getElementById('count').innerHTML.split(' ')[1];
         let body = new FormData();
         body.append("score", score);
-        return fetch("/submit", { method: "POST", body, credentials: "include" });
+        console.log(fetch("/submit", { method: "POST", body, credentials: "include" }));
+        return
     }
 
     /** Code for Generating Trie:

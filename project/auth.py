@@ -3,7 +3,7 @@ from flask import Blueprint, render_template, redirect, session, url_for, reques
 from sqlalchemy import Date
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, logout_user, current_user
-from .models import User
+from .models import Scores, User
 from . import db
 
 auth = Blueprint('auth', __name__)
@@ -53,7 +53,7 @@ def signup_post():
         return redirect(url_for('auth.signup'))
 
     # create a new user with the form data. Hash the password so the plaintext version isn't saved.
-    new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'))
+    new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'), highscore=0)
 
     # add the new user to the database
     db.session.add(new_user)
@@ -77,20 +77,29 @@ def delete():
     return redirect(url_for('auth.signup'))
 
 
-@auth.route('/submit', methods=['POST'])
+@auth.route('/submit', methods=['POST', 'GET'])
 @login_required
 def submit():
-    score = int(request.form.get('score'))
-    cur_date = date.today()
-    
+    cur_score = int(request.form.get('score'))
+    cur_date = date.today()  
     user: User = User.query.get(current_user.id)
     
-    print(user, "submitted a score of", score, "on", cur_date)
-    if not user.highscore or user.highscore < score:
-        user.highscore = score
+    # Have they already played today?
+    if (user.lastplayed == cur_date):
+        return redirect(url_for('main.index'))
+    
+    # Log their score
+    new_score = Scores(userid=user.id, score=cur_score, date=cur_date)
+    db.session.add(new_score)
+    
+    print(user, "submitted a score of", cur_score, "on", cur_date)
+    
+    # Was it a personal highscore?
+    if not user.highscore or user.highscore < cur_score:
+        user.highscore = cur_score
     
     user.lastplayed = cur_date;
-    
+
     db.session.commit()
     
     return redirect(url_for('main.index'))

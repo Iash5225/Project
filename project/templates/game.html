@@ -58,11 +58,11 @@
               <th>Name</th>
               <th>Score</th>
             </tr>
-            {% for n, s in lb_names, lb_scores %}
+            {% for n in lb_names %}
             <tr {% if n == name %} class="current-user" {% endif %}>
               <td>{{ loop.index }}</td>
               <td>{{ n }}</td>
-              <td>{{ s }}</td>
+              <td>{{ lb_scores[loop.index0] }}</td>
             </tr>
             {% endfor %}
           </table>
