@@ -11,6 +11,50 @@ $(window).on("load", () => {
     document.getElementById("start-button").addEventListener("click", initialise)
 
 
+    window.addEventListener("keydown", KeyHandler);
+
+    function KeyHandler(e) {
+        let cells = document
+            .getElementsByClassName("grid")[0]
+            .getElementsByTagName("div");
+
+        let char = String.fromCharCode(e.keyCode);
+
+        // key was a letter?
+        if (/[a-zA-Z]/.test(char)) {
+            for (let i = 0; i < cells.length; i++) {
+                if (cells[i].innerHTML == char && cells[i].className == "unclicked") {
+                    let keyedCell = clickedCell.bind(cells[i]);
+                    keyedCell();
+                    return;
+                }
+            }
+        }
+        // key was Enter?
+        else if (e.keyCode == 13) {
+            console.log(e.code);
+            if (!gameStart) {
+                initialise();
+                return;
+            } else {
+                submitWord();
+            }
+        }
+
+        // key was Backspace?
+        else if (e.keyCode == 8) {
+            if (lettersClicked.length == 0) {
+                return;
+            }
+            let c = lettersClicked.pop();
+            cells[5 * c.row + c.column].className = "unclicked";
+            let keyedCell = clickedCell.bind(c);
+            keyedCell();
+            return;
+        }
+    }
+
+
     let createGrid = (total) => {
         let grid = document.getElementsByClassName("grid")[0];
         for (let i = 0; i < total; i++) {
@@ -79,6 +123,7 @@ $(window).on("load", () => {
         createInput();
         TimedDrop();
         start = setInterval(TimedDrop, 1000);
+        gameStart = true;
     }
 
 
@@ -121,44 +166,6 @@ $(window).on("load", () => {
         updateDisplay(lettersClicked);
     }
 
-    document.addEventListener("keydown", KeyHandler);
-
-    function KeyHandler(e) {
-        let cells = document
-            .getElementsByClassName("grid")[0]
-            .getElementsByTagName("div");
-
-        let char = String.fromCharCode(e.keyCode);
-
-        // key was a letter?
-        if (/[a-zA-Z]/.test(char)) {
-            for (let i = 0; i < cells.length; i++) {
-                if (cells[i].innerHTML == char && cells[i].className == "unclicked") {
-                    let keyedCell = clickedCell.bind(cells[i]);
-                    keyedCell();
-                    return;
-                }
-            }
-        }
-        // key was Enter?
-        else if (e.keyCode == 13 && gameStart) {
-            submitWord();
-        } else if (e.keyCode == 13 && !gameStart) {
-            initialise();
-        }
-
-        // key was Backspace?
-        else if (e.keyCode == 8) {
-            if (lettersClicked.length == 0) {
-                return;
-            }
-            let c = lettersClicked.pop();
-            cells[5 * c.row + c.column].className = "unclicked";
-            let keyedCell = clickedCell.bind(c);
-            keyedCell();
-            return;
-        }
-    }
     /**
      *
      *
@@ -443,9 +450,6 @@ $(window).on("load", () => {
         } else if (event.target == instructions) {
             instructions.style.display = "none";
         }
-        // } else if (event.target == share) {
-        //     share.style.display = "none";
-        // }
     }
 
     /**
@@ -465,7 +469,7 @@ $(window).on("load", () => {
         return
     }
 
-    /** Code for Generating Trie:
+    /** ============================ Code for Generating Trie: ====================================
      *  to update:
      *    modify the array in wordlist.js
      *    uncomment the below code and reload the webpage
@@ -489,7 +493,7 @@ $(window).on("load", () => {
     const TRIE = Object.setPrototypeOf(RAW_TRIE, new Trie());
 });
 
-// =========================================================================================================================
+// ================================================================================================
 // Classes
 
 /* Trie for validating words*/
