@@ -5,4 +5,8 @@ source auth/bin/activate
 pip install -r requirements.txt
 flask run
 
+##To run unit test:
 python3 -m test
+
+##To run selenium test:
+python3 -m systemtests
