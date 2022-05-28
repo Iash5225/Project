@@ -460,12 +460,12 @@ $(window).on("load", () => {
     }
 
 
-
-    // function submitScore(score) {
-    //     const body = new FormData();
-    //     body.append("key", score);
-    //     return fetch("/submit", { method: "POST", body, credentials: "include" });
-    // }
+    document.getElementById("submit-score").onclick = function() {
+        let score = document.getElementById('count').innerHTML.split(' ')[1];
+        let body = new FormData();
+        body.append("score", score);
+        return fetch("/submit", { method: "POST", body, credentials: "include" });
+    }
 
     /** Code for Generating Trie:
      *  to update:

@@ -1,5 +1,5 @@
 from datetime import date
-from flask import Blueprint, render_template, redirect, url_for, request, flash, Response
+from flask import Blueprint, render_template, redirect, session, url_for, request, flash, Response
 from sqlalchemy import Date
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, logout_user, current_user
@@ -8,9 +8,11 @@ from . import db
 
 auth = Blueprint('auth', __name__)
 
+
 @auth.route('/login')
 def login():
     return render_template('login.html')
+
 
 @auth.route('/login', methods=['POST'])
 def login_post():
@@ -31,9 +33,11 @@ def login_post():
     login_user(user, remember=remember)
     return redirect(url_for('main.game'))
 
+
 @auth.route('/signup')
 def signup():
     return render_template('signup.html')
+
 
 @auth.route('/signup', methods=['POST'])
 def signup_post():
@@ -56,11 +60,13 @@ def signup_post():
     db.session.commit()
     return redirect(url_for('auth.login'))
 
+
 @auth.route('/logout')
 @login_required
 def logout():
     logout_user()
     return redirect(url_for('main.index'))
+
 
 @auth.route('/delete')
 @login_required
@@ -70,11 +76,21 @@ def delete():
     db.session.commit()
     return redirect(url_for('auth.signup'))
 
+
 @auth.route('/submit', methods=['POST'])
 @login_required
 def submit():
-    score = request.get_data()
-    cur_date = date.today();
-    print(score)
+    score = int(request.form.get('score'))
+    cur_date = date.today()
+    
+    user: User = User.query.get(current_user.id)
+    
+    print(user, "submitted a score of", score, "on", cur_date)
+    if not user.highscore or user.highscore < score:
+        user.highscore = score
+    
+    user.lastplayed = cur_date;
+    
+    db.session.commit()
     
     return redirect(url_for('main.index'))

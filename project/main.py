@@ -25,12 +25,12 @@ def game():
     # user_scores1 = [row.score for row in user_score_history]
 
     # get leaderboard from db to render leaderboard
-    leaderboard = db.session.execute(select(User.name, User.highscore)
-                                     .order_by(User.highscore, User.name)
+    leaderboard_names, leaderboard_scores = db.session.execute(select(User.name, User.highscore)
+                                     .order_by(User.highscore.desc(), User.name)
                                      .limit(10))
 
-    leaderboard_names = [row.name for row in leaderboard]
-    leaderboard_scores = [row.highscore for row in leaderboard]
+    # leaderboard_names = [row.name for row in leaderboard]
+    # leaderboard_scores = [row.highscore for row in leaderboard]
 
     return render_template('game.html',
                            name = current_user.name,
