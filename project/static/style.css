@@ -67,7 +67,7 @@ body {
 
 .count {
     /* position: relative; */
-    padding-left: 50px;
+    padding-left: 20px;
     font-size: xx-large;
     color: black;
     /* resize: none; */
@@ -284,7 +284,7 @@ table#leaderboard {
 }
 
 .submit-score {
-    visibility: hidden;
+    /* visibility: hidden; */
     vertical-align: middle;
     width: 70px;
     padding-inline: 0;
@@ -296,12 +296,12 @@ table#leaderboard {
     padding-inline: 10px;
 }
 
-.copy{
+.copy {
     position: relative;
     display: block;
-} 
+}
 
-.copy-popup{
+.copy-popup {
     visibility: hidden;
     width: 140px;
     background-color: #555;
@@ -318,8 +318,8 @@ table#leaderboard {
     transition: opacity 0.3s;
 }
 
-.copy-popup::after{
-    content: ""; 
+.copy-popup::after {
+    content: "";
     position: absolute;
     top: 100%;
     left: 50%;
@@ -329,7 +329,7 @@ table#leaderboard {
     border-color: #555 transparent transparent transparent;
 }
 
-.start-game{
+.start-game {
     background-color: #00000028;
     border-radius: 10px;
     text-align: center;
@@ -337,4 +337,10 @@ table#leaderboard {
     height: 60px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.submit-score-form {
+    width: 360px;
+    display: flex;
+    justify-content: space-between;
 }
