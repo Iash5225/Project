@@ -94,6 +94,8 @@ body {
     text-decoration: none;
     display: block;
     min-width: 160px;
+    border-width: 1px;
+    border-color: #222;
 }
 
 
