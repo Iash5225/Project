@@ -4,3 +4,5 @@ python3 -m venv auth
 source auth/bin/activate
 pip install -r requirements.txt
 flask run
+
+python3 -m test

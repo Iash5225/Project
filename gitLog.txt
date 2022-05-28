@@ -1,0 +1,626 @@
+commit 861951beb9248350894f4e30b2c1f0f4d6780be4
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Fri May 27 14:31:05 2022 +0800
+
+    commented out buggy code
+
+commit 6c9c627de46a6fa531ce043a3b3614d533a6a95a
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Fri May 27 14:25:09 2022 +0800
+
+    added stats as var your displaying user scores
+
+commit 9ed7784fcf7e85f766830904e2adfdc7e603ce37
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Fri May 27 12:41:14 2022 +0800
+
+    changed top navbar highlighting
+
+commit ea0bac7402e4cc70fd4f1088ac7f5b7f73b5880f
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Fri May 27 12:22:35 2022 +0800
+
+    fixed crash on login
+
+commit fbc4b16a79ce8e61dfcad9dad9d0a426fbe02c04
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Fri May 27 12:03:58 2022 +0800
+
+    fixed mobile resizing and changed profile to game
+
+commit 44c0d18dbb4eb14c42d58df50044c2095d1843f7
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Fri May 27 10:52:19 2022 +0800
+
+    further fixes to css, and added logo
+
+commit 76739faef49d9c9b75ffb4d5313d8cf803e70e87
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Thu May 26 22:58:47 2022 +0800
+
+    fixed css, made Icon
+
+commit 00b211b904c1184c0b77c97de16bb9a28f8c1d6b
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Thu May 26 16:08:53 2022 +0800
+
+    implemented playing the game with keyboard
+
+commit 672ee3ac79b8c6cd847333c3dd4323044a078960
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Thu May 26 13:42:15 2022 +0800
+
+    leaderboard highlighting
+
+commit c1559dbd13fd6a11305f996683b83c86286b3f9f
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Thu May 26 10:35:56 2022 +0800
+
+    implemented leaderboard db access
+
+commit 02ee1dbeeef300654ce9aaf76458a87a9ede64a1
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Wed May 25 11:02:08 2022 +0800
+
+    Unit tests for Database Logins
+
+commit ad75cbb9a815b0d2092371323d65e9985393acae
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sun May 22 17:38:46 2022 +0800
+
+    css stuff for game
+
+commit 0ff06b16330fc073e68ff4704351c40695bd2374
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sun May 22 11:00:29 2022 +0800
+
+    sneaky css stuff
+
+commit d80a81969001a264c39fa59def960c3ca57ff87c
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sun May 22 01:25:30 2022 +0800
+
+    added rounded corners and hover to login forms
+
+commit da20b78138dc423cba0b5849b82089cf44568db7
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sun May 22 00:28:51 2022 +0800
+
+    updated sql scema to include scores and dates
+
+commit f552ab339b1b4d82c830982b201ddb9d240b3a96
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Fri May 20 20:56:05 2022 +0800
+
+    updated wordlist to contain all scrabble words up to 15 letters long
+
+commit 815e16800c807d7c5ca5459ee316ca6a658e8bc7
+Author: David <david.holt2002@gmail.com>
+Date:   Thu May 19 22:13:11 2022 +0800
+
+    Fixed clicking on start button multiple times
+
+commit d8f0faef7e17d2ee3fa25b2fc8b679ab8d32eecc
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Thu May 19 21:55:36 2022 +0800
+
+    changed title to Wordris
+
+commit 4df39cf4ac932d57b211dfc0520e5efcd5265f0c
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Thu May 19 21:53:20 2022 +0800
+
+    restyled landing page and fixed background tiling
+
+commit 36b9e613f482844cef2a802f99e430d2e2b731d0
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Thu May 19 21:02:57 2022 +0800
+
+    Updated nav
+
+commit f279490b40846919a159cb22603b620a8798d7c4
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Thu May 19 19:43:02 2022 +0800
+
+    Updated Sign Up css
+
+commit 3f5ad41e505b2f403005112afdde3bf1c82d182d
+Author: David <david.holt2002@gmail.com>
+Date:   Thu May 19 12:37:19 2022 +0800
+
+    Almost finished pop ups, merged to main
+
+commit c1df559aff8c196bcbbfd64fb1bd2d0d5d980593
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Wed May 18 18:20:12 2022 +0800
+
+    updated gitignore
+
+commit d6e07d6b854080bb0862800c21f93daed09fdf2e
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Tue May 17 20:02:40 2022 +0800
+
+    Removed Import Fonts + Fixed Base html
+
+commit 64e33e73a0bf95833f01d255b8c1496c449213d3
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Tue May 17 19:07:56 2022 +0800
+
+    Working with front end (removing bulma css)
+
+commit e9f488204631c065bea3fca416e0fe7966c1af28
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sun May 15 22:48:45 2022 +0800
+
+    added start.sh
+
+commit f52cee54c80cd6a897024c26e44bd32b706b833a
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sun May 15 20:17:03 2022 +0800
+
+    fixed pip command
+
+commit 16896dc1a7180ba8b5d5ae43c506807a794f323c
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sun May 15 20:15:25 2022 +0800
+
+    added requirements and getting started
+
+commit 0c8807cb62969f0d7ff14356e625c0396b3d0181
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sun May 15 19:27:06 2022 +0800
+
+    Flask and SQL Testing
+
+commit 61c43109ffbc1483471a863dae13e91ea01c99a6
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sat May 14 16:30:09 2022 +0800
+
+    moved to flask
+
+commit a3281fc8b03785adbb15f4f47fc3d16aeee3a05f
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sat May 14 16:29:59 2022 +0800
+
+    moved to flask
+
+commit ba8adccc20d2697228cfa167e3fb3244aeaf077c
+Merge: e8fdb08 1ba659a
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sat May 14 16:29:17 2022 +0800
+
+    merge
+
+commit e8fdb08f91e33d2c59098de274187bd17149462e
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sat May 14 16:25:47 2022 +0800
+
+    Moved project into Flask
+
+commit 1ba659af1210f677d90654056b113ae5a588936e
+Author: David <david.holt2002@gmail.com>
+Date:   Fri May 13 21:03:32 2022 +0800
+
+    Co-authored-by: j-plebreton <j-plebreton@users.noreply.github.com>
+    Co-authored-by: Iash5225 <Iash5225@users.noreply.github.com>
+
+commit 68e3328cd9c28ee2bcb9919d4f43f2fd50f2304b
+Author: David <david.holt2002@gmail.com>
+Date:   Fri May 13 18:55:36 2022 +0800
+
+    Revert to older version
+
+commit d91bcc88562c72f2e027ede35224508a031dd651
+Merge: dbd35b6 e25b547
+Author: David <david.holt2002@gmail.com>
+Date:   Fri May 13 18:46:14 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project
+
+commit dbd35b626592304d935a2f0a5b385184597e91f5
+Author: David <david.holt2002@gmail.com>
+Date:   Fri May 13 18:41:50 2022 +0800
+
+    fixed scoring system
+
+commit e25b54714a640bfeeeb55fa9a39f7d26e93ac06d
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Thu May 12 20:46:37 2022 +0800
+
+    Fixed Submit Dropdown
+
+commit e93d0e1074dce71d10d23698398cc5a6037df857
+Author: David <david.holt2002@gmail.com>
+Date:   Thu May 12 15:02:29 2022 +0800
+
+    Improved loss condition
+
+commit 9385b9b3456fbbf6cc6388fe81ecfb4e2c7c5303
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Thu May 12 08:47:31 2022 +0800
+
+    submit is buggy + loss condition works
+
+commit 8f229cbead6392737a37e10cd944ecffbf494e2a
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Thu May 12 06:49:56 2022 +0800
+
+    timed drop down + loss condition
+
+commit f4cc96639a3bd41e945813012e694d85ba6d2326
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Thu May 12 06:02:41 2022 +0800
+
+    update script.js
+
+commit dd521aa97cee0eda10edc4aa09959d7d28701c9a
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Mon May 9 08:53:26 2022 +0800
+
+    Loss condition- still yet to be tested
+
+commit 56a93df2ce67d5029138c3213523a88d1be66cee
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Sun May 8 22:55:16 2022 +0800
+
+    Fixed Dropdown- now can handle les than 5 letters
+
+commit 11ba23725b4d220d54565c7e4b4e9cb839c1dc61
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Sun May 8 21:54:47 2022 +0800
+
+    Made Submit Button initiate Dropdown
+
+commit 98a9fb6a7d25768d98eec6420f2402a6ebcdd288
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Sun May 8 21:46:34 2022 +0800
+
+    Moved word count-so top row is clickable
+
+commit 1d5ae8a54b2172743a3607b9fa3150044488a0d9
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sat May 7 09:26:06 2022 +0800
+
+    modifed submitword()
+
+commit 90039ac9121ec2ab5837bab2b19ead625da71d3b
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sat May 7 00:11:32 2022 +0800
+
+    Fixed TRIE searching and made random letter weighted
+
+commit 2dadb50265b23dda0848a4397f1b69246338b520
+Merge: b4fbe85 91651a4
+Author: Anonymoose-0 <david.holt2002@gmail.com>
+Date:   Fri May 6 21:40:17 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project
+
+commit b4fbe8529109cb001f8351f8178b345cf25c718f
+Author: Anonymoose-0 <david.holt2002@gmail.com>
+Date:   Fri May 6 21:39:57 2022 +0800
+
+    Co-authored-by: j-plebreton <j-plebreton@users.noreply.github.com>
+
+commit 91651a4a8cb9ba43c191fca9d3c84e9aa9c049ea
+Merge: a3a940c 4ff5195
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Fri May 6 19:32:10 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project
+
+commit a3a940c658a24868ada652042edfa1b2ed1334b5
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Fri May 6 19:32:07 2022 +0800
+
+    updated trie and wordlist
+
+commit 4ff51955f12618ce05b335a37b76fe74c0a6e93a
+Merge: a6636e8 73a5bba
+Author: Anonymoose-0 <david.holt2002@gmail.com>
+Date:   Fri May 6 19:30:22 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project
+
+commit a6636e86ccbbd136f72d9e30a10f3e1254b18756
+Author: Anonymoose-0 <david.holt2002@gmail.com>
+Date:   Fri May 6 19:30:15 2022 +0800
+
+    merge input
+
+commit 73a5bba4c2eac0dc6f6afb8ee5d5cd066892014d
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Fri May 6 11:21:57 2022 +0800
+
+    added html
+
+commit e7ef91a4d9bee27a30efdc860c192c807a521503
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Fri May 6 11:21:48 2022 +0800
+
+    Added finished login page with html + css
+
+commit d3bd1eb8a749448e041c06d859ad2192aac3d9de
+Merge: 7f3a656 977161a
+Author: Anonymoose-0 <david.holt2002@gmail.com>
+Date:   Fri Apr 29 19:27:16 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project
+
+commit 7f3a656a92c97994053acf90a69d49a989634626
+Author: Anonymoose-0 <david.holt2002@gmail.com>
+Date:   Fri Apr 29 19:02:20 2022 +0800
+
+    Improved input
+
+commit 977161a323e8962c4a0c57d79344511c9d447e07
+Merge: 317588c 683aef1
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Fri Apr 29 18:49:58 2022 +0800
+
+    Merge branch 'Drop-down-animation'
+
+commit 683aef1203762d07deb504c5ea571517062a6914
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Thu Apr 28 19:20:27 2022 +0800
+
+    Fixed cell height + Added JsDoc Cmments + finished
+
+commit 8c0661241183eea2eeac15c1e024da3025fc520d
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Thu Apr 28 11:28:57 2022 +0800
+
+    Added visual drop- still needs to fix css
+
+commit 8679602d03cbaff5d447b4bf72b70012dd0762f6
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Thu Apr 28 08:51:07 2022 +0800
+
+    Update script.js
+    
+    cleaned up abit of the script.js
+
+commit c95439cd5e7dc708e6f51285a000ec237b94f63e
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Mon Apr 25 23:19:40 2022 +0800
+
+    Successful test for drop down- array shifts down 1
+
+commit ee4c59b29e34ceb4282de2d13fed048b73bcf1ed
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Mon Apr 25 23:04:33 2022 +0800
+
+    slight changes to drop down-still buggy
+
+commit b71ea43bbdcc88fb7a66ee2d2876e46493e923f9
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Mon Apr 25 22:43:21 2022 +0800
+
+    Trying to shift all elements down in array
+
+commit 759bc5443631704b30da09ff803aa973cb13a268
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Sun Apr 24 21:40:42 2022 +0800
+
+    Working on the shuffle for loop
+
+commit 307465c7ef0ffca072a66bc7c347f8b5e59571d9
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Sun Apr 24 20:18:10 2022 +0800
+
+    added row+column index to every cell
+
+commit 3b0780875d7ab43a4138019408cdb3f50d1f9b39
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Sun Apr 24 20:10:45 2022 +0800
+
+    Stored every column into separate arrays, now adding row and colum property into every data cell
+
+commit 317588cb3b024a9213bd90aa271691370c3757f1
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sun Apr 24 16:18:31 2022 +0800
+
+    changed variable names to reduce file size
+
+commit 211f72bb88c9f189ca5981c0b055dd1d83c8af36
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Fri Apr 22 12:17:13 2022 +0800
+
+    Implimented Trie of 5 letter words
+
+commit d963947952722f5f6ae527ebfcd381786546ca26
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Fri Apr 22 12:16:00 2022 +0800
+
+    Implimented Trie for word validation (for 5 letter words)
+
+commit 9fe36231d2e7d1b45fe45f73aacd501466d77453
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Fri Apr 22 09:48:00 2022 +0800
+
+    test commit
+
+commit def6ab80f3de29ac931fa259653195260635dbac
+Merge: 2f1d41c ef78a59
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Fri Apr 22 09:47:33 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project
+
+commit 2f1d41cc293fe59a78ff5cfc5a7d7b5ed37f423c
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Fri Apr 22 09:38:18 2022 +0800
+
+    test commit
+
+commit ef78a59a6692e00095750fc4fa4a64e34efecc9d
+Merge: 76c34bf 5199175
+Author: Anonymoose-0 <david.holt2002@gmail.com>
+Date:   Fri Apr 22 09:12:43 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project
+
+commit 76c34bf12eb11e58ffd1023379db31a263f43c47
+Author: Anonymoose-0 <david.holt2002@gmail.com>
+Date:   Fri Apr 22 09:05:46 2022 +0800
+
+    Merge changes?
+
+commit 51991753992e360b870a3cfb9a9e9050561b587a
+Merge: 29ee65c f2cb18a
+Author: JeremyB2000 <jtbaird@bigpond.com>
+Date:   Thu Apr 21 15:53:30 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project
+
+commit 29ee65c4d78044897ef826dfade728dd2ed41c0b
+Author: JeremyB2000 <jtbaird@bigpond.com>
+Date:   Thu Apr 21 15:33:29 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project
+
+commit f2cb18a359e6f300389ac02256bb20b6bd5bcd5c
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Wed Apr 20 22:23:45 2022 +0800
+
+    adjusted formatting of authors
+
+commit 8b8294d4f33dcfade20c1167aab61e043088704e
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Wed Apr 20 22:22:30 2022 +0800
+
+    moved script tags to head
+
+commit 64515f5838bfa73ed5ffa45e34c835de6a5b8619
+Merge: c28fcff e3a4ff1
+Author: JeremyB2000 <jtbaird@bigpond.com>
+Date:   Wed Apr 20 11:25:10 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project
+
+commit e556a34c37b113c803abe83b7ce50d9875e5ca8c
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Wed Apr 20 07:46:16 2022 +0800
+
+    trimmed bloat from readme
+
+commit b38fdb21d0564867d2663fffdb26f951d723472b
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Tue Apr 19 16:18:06 2022 +0800
+
+    Added skeleton for readme
+
+commit f339405721452df9ae122dbc99336a3224a8bed6
+Merge: 899efbc e3a4ff1
+Author: Anonymoose-0 <david.holt2002@gmail.com>
+Date:   Tue Apr 19 12:11:23 2022 +0800
+
+    Updated major functionality and inserted jquery and bootstrap to html
+
+commit 899efbc5148583f8a2561bccddb8360b6c2ab60f
+Author: Anonymoose-0 <david.holt2002@gmail.com>
+Date:   Tue Apr 19 12:06:22 2022 +0800
+
+    Updated basic functionality of the game + jqery and bootstrap links
+
+commit c28fcffe1410e7c070394a65616c3825f29379b4
+Author: JeremyB2000 <jtbaird@bigpond.com>
+Date:   Tue Apr 19 10:50:24 2022 +0800
+
+    test
+
+commit e3a4ff1e13bed0b5eeb11d29a214db696b574b4e
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Sat Apr 16 23:28:27 2022 +0800
+
+    Grid completed
+
+commit 63225108f0312255e6daecd36ee90281c79c074a
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Sat Apr 16 23:23:35 2022 +0800
+
+    JS creategrid function is working
+
+commit 328611c501b8bbfcdf053dee594cbc0938a0f6e9
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Sat Apr 16 23:12:23 2022 +0800
+
+    Trying to dynamically use DOM to create grid
+
+commit b5eb82574073a2c4efe2145f96b7227478a51709
+Author: Anonymoose-0 <david.holt2002@gmail.com>
+Date:   Sat Apr 16 17:01:00 2022 +0800
+
+    Updated css to reflect basic structure
+
+commit 13402103616368f521a6709d3a38ce2ebd127954
+Author: Anonymoose-0 <david.holt2002@gmail.com>
+Date:   Fri Apr 15 19:33:46 2022 +0800
+
+    Structuring html sections
+
+commit 4217f07279a3590e8211ce1457c364df66ed43f6
+Author: Anonymoose-0 <david.holt2002@gmail.com>
+Date:   Fri Apr 15 18:43:17 2022 +0800
+
+    testing
+
+commit 7d1ca86a81a29f8e405d80578dd87af9ff562a97
+Author: JeremyB2000 <jtbaird@bigpond.com>
+Date:   Fri Apr 15 17:24:50 2022 +0800
+
+    test jeremy
+
+commit 774d3ad3d8f0c2c99f4d60954f9944f146b73df1
+Author: David Wang <101696493+daviid-wang@users.noreply.github.com>
+Date:   Fri Apr 15 11:32:23 2022 +0800
+
+    Update index.html
+
+commit 4de3fb239fee1937ed18422fd5c4e4bc7d848a5c
+Author: David Wang <101696493+daviid-wang@users.noreply.github.com>
+Date:   Fri Apr 15 11:30:58 2022 +0800
+
+    Update README.md
+
+commit eef8f3b741812a10800ee95339f4de9072ec40a8
+Author: Iash5225 <83926045+Iash5225@users.noreply.github.com>
+Date:   Thu Apr 14 19:18:24 2022 +0800
+
+    Testing integration with Vscode
+
+commit 6bf2789afb7572d7d3527c3897be9486eff904e2
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sat Apr 9 12:22:06 2022 +0800
+
+    Added some basic file structure to project
+
+commit 479153b0219bcbd99c94f103424109dd71880f7a
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sat Apr 9 12:18:16 2022 +0800
+
+    added text to readme
+
+commit 98eb47b8204ead1da43a58074148905e68fdc23d
+Author: j-plebreton <103037704+j-plebreton@users.noreply.github.com>
+Date:   Sat Apr 9 12:15:34 2022 +0800
+
+    Create index.html
+
+commit a1dcf117cfa82cc101b04c0c5bfa910000812521
+Author: JeremyB2000 <101437554+JeremyB2000@users.noreply.github.com>
+Date:   Fri Apr 8 18:42:14 2022 +0800
+
+    Update README.md
+
+commit ab1a9cffe9df906d3e4977d926a8d2645f6b00de
+Author: j-plebreton <103037704+j-plebreton@users.noreply.github.com>
+Date:   Fri Apr 8 18:39:50 2022 +0800
+
+    Update README.md
+
+commit dfec46392a63b8c816ff42be53a18f25095b1baf
+Author: Iash5225 <83926045+Iash5225@users.noreply.github.com>
+Date:   Thu Apr 7 12:00:02 2022 +0800
+
+    Initial commit
