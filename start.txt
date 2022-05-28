@@ -7,6 +7,9 @@ flask run
 
 ##To run unit test:
 python3 -m test
+coverage run -m test
+coverage report -m
+
 
 ##To run selenium test:
 python3 -m systemtests
