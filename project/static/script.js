@@ -4,7 +4,6 @@ const MAX_WORD_LENGTH = 15;
 
 $(window).on("load", () => {
     /**
-     *
      * @param {integer} numrows - The total number of cells in the grid
      */
     let createGrid = (total) => {
@@ -79,7 +78,7 @@ $(window).on("load", () => {
     document.addEventListener('keydown', initialise);
 
     function initialise(e) {
-        if(e.keyCode == 13 && !gameStart) {
+        if (e.keyCode == 13 && !gameStart) {
             createGrid(40);
             createInput();
             TimedDrop();
@@ -149,8 +148,7 @@ $(window).on("load", () => {
         // key was Enter?
         else if (e.keyCode == 13 && gameStart) {
             submitWord();
-        }
-        else if(e.keyCode == 13 && !gameStart){
+        } else if (e.keyCode == 13 && !gameStart) {
             gameStart = true;
         }
 
@@ -230,7 +228,7 @@ $(window).on("load", () => {
     }
 
     //Initialising 2d array of letters on the page
-
+    // arrayToMatrix
     function updateGrid(cells) {
         let arr = [
             [],
@@ -342,7 +340,7 @@ $(window).on("load", () => {
 
     //Creating a timed tile drop when start is clicked
     // function startGame() {
-            
+
     // };
 
     function TimedDrop() {
@@ -385,7 +383,6 @@ $(window).on("load", () => {
                 alert("YOU LOSE");
                 clearInterval(start);
                 document.getElementById("submit-score").style.visibility = "visible"
-                gameStart = false;
             }
         }
     }
@@ -423,11 +420,11 @@ $(window).on("load", () => {
         leaderboard.style.display = "block";
     };
     document.getElementById("instructions").onclick = function() {
-        instructions.style.display = "block";
-    }
-    // document.getElementById("share").onclick = function() {
-    //     share.style.display = "block";
-    // }
+            instructions.style.display = "block";
+        }
+        // document.getElementById("share").onclick = function() {
+        //     share.style.display = "block";
+        // }
 
     /**
      * Leaderboard and instructions close button
@@ -457,10 +454,10 @@ $(window).on("load", () => {
     /**
      * Dynamically update the share sentence
      */
-        document.getElementById("share").onclick = function (){
-            navigator.clipboard.writeText("My final score was " + score + " today!");
-            document.getElementById("copy-popup").innerHTML = "Hi";
-        }
+    document.getElementById("share").onclick = function() {
+        navigator.clipboard.writeText("My final score was " + score + " today!");
+        document.getElementById("copy-popup").innerHTML = "Hi";
+    }
 
 
 
