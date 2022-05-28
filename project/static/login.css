@@ -30,11 +30,12 @@ header a img {
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     border-radius: 5px;
+    font-family: Segoe UI Light, Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .form .title {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding-bottom: 5px;
+    font-weight: bold;
 }
 
 .form input {
@@ -45,7 +46,7 @@ header a img {
     margin: 0 0 15px;
     padding: 15px;
     box-sizing: border-box;
-    font-size: 14px;
+    font-size: 18px;
     border-radius: 5px;
 }
 

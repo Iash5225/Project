@@ -7,6 +7,10 @@ $(window).on("load", () => {
     /**
      * @param {integer} numrows - The total number of cells in the grid
      */
+
+    document.getElementById("start-button").addEventListener("click", initialise)
+
+
     let createGrid = (total) => {
         let grid = document.getElementsByClassName("grid")[0];
         for (let i = 0; i < total; i++) {
@@ -68,15 +72,13 @@ $(window).on("load", () => {
     var gameStart = false;
 
     //Create the grid when the game starts
-    document.addEventListener('keydown', initialise);
-
-    function initialise(e) {
-        if (e.keyCode == 13 && !gameStart) {
-            createGrid(40);
-            createInput();
-            TimedDrop();
-            start = setInterval(TimedDrop, 1000);
-        }
+    function initialise() {
+        let start_button = document.getElementById("start-button");
+        start_button.parentNode.removeChild(start_button);
+        createGrid(40);
+        createInput();
+        TimedDrop();
+        start = setInterval(TimedDrop, 1000);
     }
 
 
@@ -142,7 +144,7 @@ $(window).on("load", () => {
         else if (e.keyCode == 13 && gameStart) {
             submitWord();
         } else if (e.keyCode == 13 && !gameStart) {
-            gameStart = true;
+            initialise();
         }
 
         // key was Backspace?

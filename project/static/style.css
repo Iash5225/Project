@@ -1,6 +1,7 @@
 body {
     text-align: center;
     background-color: rgba(0, 255, 255, 0.5);
+    font-family: Segoe UI Light;
 }
 
 .navbar-menu {
@@ -63,9 +64,11 @@ body {
 .count {
     /* position: relative; */
     padding-left: 20px;
-    font-size: xx-large;
+    font-size: 40px;
     color: black;
-    /* resize: none; */
+    font-family: Segoe UI Light, Verdana, Geneva, Tahoma, sans-serif;
+    line-height: normal;
+    font-weight: bold;
 }
 
 
@@ -108,6 +111,10 @@ body {
     grid-template-columns: auto auto auto auto auto;
     font-size: 40px;
     color: black;
+}
+
+.start-msg {
+    margin-top: 35%;
 }
 
 .input {
@@ -236,24 +243,24 @@ table#leaderboard {
 }
 
 .button {
-    background-color: #00000028;
+    background-color: rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     text-align: center;
     padding-inline: 50px;
 }
 
 .button:hover {
-    background-color: #00000042;
+    background-color: rgba(0, 0, 0, 0.15);
 }
 
 #submit-button {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.3);
     padding-top: 5px;
     padding-bottom: 5px;
 }
 
 #submit-button:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 #text {
@@ -286,7 +293,8 @@ table#leaderboard {
 }
 
 #start-button {
-    padding-inline: 10px;
+    font-size: 45px;
+    font-family: Segoe UI Light;
 }
 
 .copy {
