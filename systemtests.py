@@ -32,7 +32,6 @@ class SystemTest(unittest.TestCase):
         if self.driver:
             
             LastUser = User.query.order_by(User.id.desc()).first()
-            LastScore = Scores.query.order_by(Scores.score_log_id.desc()).first()
             
             User.query.filter_by(id=LastUser.id).delete()
         
@@ -58,16 +57,16 @@ class SystemTest(unittest.TestCase):
         Password = self.driver.find_element(By.ID,'password')
         Password.send_keys('1234')
 
-        sleep(1)
+        sleep(5)
         
         LoginButton.click() 
 
         WelcomeMessage = self.driver.find_element(By.ID,'welcomemessage')
         self.assertEqual(WelcomeMessage.get_attribute('innerHTML'),"\n  Welcome, bob!\n  \n")
-        sleep(2)
+        sleep(5)
         
     def test_unsuccessfullogin(self):
-            ##Assuming the user has signed up and is now incorrectly login in 
+            ##Assuming user has an account, and is inputting an incorrect password
         U2 = User(email="jane@jane", password = generate_password_hash("1234", method='sha256'),name ="jane");
 
         db.session.add(U2)
@@ -90,6 +89,8 @@ class SystemTest(unittest.TestCase):
         LoginButton.click() 
 
         ErrorMessage = self.driver.find_element(By.ID,'errormessage')
+        
+        ##Test should return True
         self.assertEqual(ErrorMessage.get_attribute('innerHTML'),'Please check your login details and try again.')
         sleep(5)
     
@@ -122,7 +123,7 @@ class SystemTest(unittest.TestCase):
         sleep(5)
         
     def test_incorrectsignup(self):
-         ##Incorrectly signing up by already having an account assocaited with the email
+         ##Incorrectly signing up by already having an account associated with the email
         U2 = User(email="jane@jane", password = generate_password_hash("1234", method='sha256'),name ="jane");
 
         db.session.add(U2)
@@ -148,6 +149,8 @@ class SystemTest(unittest.TestCase):
         sleep(5)
         
         ErrorMessage = self.driver.find_element(By.ID,'errormessage')
+        
+        ##Test should return True
         self.assertTrue("Email address already exists." in ErrorMessage.get_attribute('innerHTML'))
         self.assertEqual(self.driver.current_url,'http://localhost:5000/signup')
         sleep(5)
