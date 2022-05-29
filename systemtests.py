@@ -73,10 +73,29 @@ class SystemTest(unittest.TestCase):
         Password.send_keys('PasswordTester')
         
         self.driver.implicitly_wait(5)
-        #sleep(10)
-        
+                
         SignUpButton = self.driver.find_element_by_class_name("Login")
         SignUpButton.click()  
+
+        sleep(2)
+
+        ##to check if user typing in wrong password
+
+        LoginButton = self.driver.find_element_by_class_name("Login")
+
+        Email = self.driver.find_element_by_id('email')
+        Email.send_keys('SystemTest@SystemTest')
+
+        Password = self.driver.find_element_by_id('password')
+        Password.send_keys('Wrong Password')
+
+        sleep(2)
+        
+        LoginButton.click() 
+
+        ErrorMessage = self.driver.find_element_by_id('errormessage')
+        print(ErrorMessage.get_attribute('innerHTML'))
+        sleep(2)
 
         #check login success
         #self.driver.implicitly_wait(5)
