@@ -93,8 +93,7 @@ class SystemTest(unittest.TestCase):
         
         LoginButton.click() 
 
-        ErrorMessage = self.driver.find_element_by_id('errormessage')
-        print(ErrorMessage.get_attribute('innerHTML'))
+        ErrorMessage = self.driver.find_element_by_id('errormessage').get_attribute('innerHTML')
         sleep(2)
 
         #check login success
