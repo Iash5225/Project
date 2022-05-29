@@ -11,22 +11,22 @@
         </div>
         {% endif %}
         {% endwith %}
-        <form class="login-form" method="POST" action="/signup">
+        <form class="login-form" method="post" action={{ url_for('auth.signup') }}>
             <div class="email">
                 <div class="control">
-                    <input class="input is-large" type="email" name="email" placeholder="Email" autofocus="">
+                    <input class="input is-large" type="email" name="email" placeholder="Email" autofocus=""/>
                 </div>
             </div>
 
             <div class="name">
                 <div class="control">
-                    <input class="input is-large" type="text" name="name" placeholder="Name" autofocus="">
+                    <input class="input is-large" type="text" name="name" placeholder="Name" autofocus=""/>
                 </div>
             </div>
 
             <div class="password">
                 <div class="control">
-                    <input class="input is-large" type="password" name="password" placeholder="Password">
+                    <input class="input is-large" type="password" name="password" placeholder="Password"/>
                 </div>
             </div>
 
@@ -34,4 +34,4 @@
         </form>
     </div>
 </div>
-{% endblock %}
+{% endblock content %}
