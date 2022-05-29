@@ -406,7 +406,7 @@ $(window).on("load", () => {
 
     document.getElementById("menuButton").onclick = function() {
         var menuDrop = document.getElementById("menuDropdown");
-        if (menuDrop.style.display === "none") {
+        if (menuDrop.style.display != "block") {
             menuDrop.style.display = "block";
         } else {
             menuDrop.style.display = "none";
