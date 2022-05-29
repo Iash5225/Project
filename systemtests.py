@@ -4,27 +4,20 @@ from project import create_app, db
 from project.models import Scores, User
 from werkzeug.security import generate_password_hash, check_password_hash
 from selenium import webdriver
-from webdriver_manager.firefox import GeckoDriverManager
 basedir = os.path.abspath(os.path.dirname(__file__))
 from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.core.utils import ChromeType
 from selenium.webdriver.chrome.options import Options
-
-
-
-
 
 class SystemTest(unittest.TestCase):
     driver = None
     
+
     
     def setUp(self):
         
-        self.driver = webdriver.Chrome(executable_path="/mnt/c/Program Files/Google/Chrome/Application/chromedriver.exe")
+        self.driver = webdriver.Chrome(executable_path=r'C:\Users\iashb\OneDrive - education.wa.edu.au\Documents\GitHub\Project\chromedriver.exe')
         #self.driver.get('http://www.google.com')
         print('test')
-    
         if not self.driver:
           self.skipTest('Web browser not available')
         else:
