@@ -20,7 +20,7 @@ def game():
     # get user's score history from db to render personal stats
     user_score_history = db.session.execute(select(Scores.score, Scores.date)
                                             .filter_by(userid=current_user.id)
-                                            .order_by(Scores.date))
+                                            .order_by(Scores.date.desc()))
     user_scores = [[], []]
     for row in user_score_history:
         user_scores[0].append(row.score)
