@@ -9,19 +9,14 @@ class UserModelCase(unittest.TestCase):
         self.app = app.test_client()     
         app.app_context().push()
         db.create_all
-        LastUser = User.query.order_by(User.id.desc()).first()
-        #LastScore = Scores.query.order_by(Scores.score_log_id.desc()).first()
-        
-        ##As there is no score in the db (will change to ^^^ Last score)
-        LastScore = 0
         
         U1 = User(email="iash@iash", name ="iash", password = generate_password_hash("1234", method='sha256'));
         U2 = User(email="jp@jp", name ="jp", password = generate_password_hash("ilikeCITS3403", method='sha256'));
         U3 = User(email="david@david", name ="david", password = generate_password_hash("idon'tlikeCITS3403", method='sha256'));
         
-        S1 = Scores(score_log_id = LastScore +1, userid = 1, score = 10)
-        S2 = Scores(score_log_id = LastScore +2, userid = 2, score = 20)
-        S3 = Scores(score_log_id = LastScore +3, userid = 3, score = 30)
+        S1 = Scores( userid = 1, score = 10)
+        S2 = Scores( userid = 2, score = 20)
+        S3 = Scores( userid = 3, score = 30)
         
         db.session.add(U1)
         db.session.add(U2)
@@ -81,22 +76,18 @@ class UserModelCase(unittest.TestCase):
         S3 = Scores.query.get(temp.score_log_id)
 
         ##Test should return True
-        self.assertEqual(S1.score_log_id,1)
         self.assertEqual(S1.userid,1)
         self.assertEqual(S1.score,10)
         
         ##Test should return True
-        self.assertEqual(S2.score_log_id,2)
         self.assertEqual(S2.userid,2)
         self.assertEqual(S2.score,20)
         
         ##Test should return True
-        self.assertEqual(S3.score_log_id,3)
         self.assertEqual(S3.userid,3)
         self.assertEqual(S3.score,30)
         
         ##Test False values
-        self.assertNotEqual(S1.score_log_id,4)
         self.assertNotEqual(S2.userid,6)
         self.assertNotEqual(S3.score,100)
 if __name__ == '__main__':
