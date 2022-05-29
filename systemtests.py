@@ -8,6 +8,8 @@ from time import sleep
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 
+from selenium.webdriver.common.keys import Keys
+
 class SystemTest(unittest.TestCase):
     driver = None
        
@@ -83,15 +85,15 @@ class SystemTest(unittest.TestCase):
         Password = self.driver.find_element(By.ID,'password')
         Password.send_keys('4567')
 
-        sleep(1)
+        sleep(5)
         
         LoginButton.click() 
 
         ErrorMessage = self.driver.find_element(By.ID,'errormessage')
         self.assertEqual(ErrorMessage.get_attribute('innerHTML'),'Please check your login details and try again.')
-        sleep(1)
+        sleep(5)
     
-    def test_signup(self):
+    def test_correctsignup(self):
         self.driver.get('http://localhost:5000/signup')
         
         self.driver.implicitly_wait(5)
@@ -108,8 +110,47 @@ class SystemTest(unittest.TestCase):
         self.driver.implicitly_wait(5)
                 
         SignUpButton = self.driver.find_element(by=By.CLASS_NAME, value="Login")
+        SignUpButton.click()
+        
+        temp = User.query.order_by(User.id.desc()).first()  
+        U1 = User.query.get(temp.id)
+        
+        ##Test should return True
+        self.assertEqual(U1.name,'SystemTest')
+        self.assertEqual(U1.email,'SystemTest@SystemTest')
+        self.assertTrue(check_password_hash(U1.password, 'PasswordTester'))
+        sleep(5)
+        
+    def test_incorrectsignup(self):
+         ##Incorrectly signing up by already having an account assocaited with the email
+        U2 = User(email="jane@jane", password = generate_password_hash("1234", method='sha256'),name ="jane");
+
+        db.session.add(U2)
+        db.session.commit()
+        
+        self.driver.get('http://localhost:5000/signup')
+        
+        self.driver.implicitly_wait(5)
+        
+        Email = self.driver.find_element(By.ID,'email')
+        Email.send_keys('jane@jane')
+        
+        Name = self.driver.find_element(By.ID,'name')
+        Name.send_keys('jane')
+        
+        Password = self.driver.find_element(By.ID,'password')
+        Password.send_keys('1234')
+        
+        self.driver.implicitly_wait(5)
+                
+        SignUpButton = self.driver.find_element(by=By.CLASS_NAME, value="Login")
         SignUpButton.click()  
-        sleep(1)
+        sleep(5)
+        
+        ErrorMessage = self.driver.find_element(By.ID,'errormessage')
+        self.assertTrue("Email address already exists." in ErrorMessage.get_attribute('innerHTML'))
+        self.assertEqual(self.driver.current_url,'http://localhost:5000/signup')
+        sleep(5)
 
 
 if __name__ == '__main__':
