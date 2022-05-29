@@ -5,13 +5,14 @@ from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from werkzeug.security import generate_password_hash, check_password_hash
 from time import sleep
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 
 class SystemTest(unittest.TestCase):
     driver = None
        
     def setUp(self):
-        self.driver = webdriver.Chrome(ChromeDriverManager().install())
+        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
         if not self.driver:
           self.skipTest('Web browser not available')
         else:    
