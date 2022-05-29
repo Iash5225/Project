@@ -25,9 +25,11 @@ class SystemTest(unittest.TestCase):
         if not self.driver:
           self.skipTest('Web browser not available')
         else:    
+            app=create_app()
             self.app = app.test_client()     
             app.app_context().push()
-            db.create_all(app=create_app())
+            db.create_all()
+            
         
             U1 = User(email="smith@smith",  password = generate_password_hash("1234", method='sha256'),name ="smith");
             U2 = User(email="Z@Z", password = generate_password_hash("ilikeCITS3403", method='sha256'),name ="Z");
@@ -51,21 +53,24 @@ class SystemTest(unittest.TestCase):
 
     def tearDown(self):
         if self.driver:
-            self.driver.close()
+            
             LastUser = User.query.order_by(User.id.desc()).first()
             LastScore = Scores.query.order_by(Scores.score_log_id.desc()).first()
             
             User.query.filter_by(id=LastUser.id).delete()
             User.query.filter_by(id=LastUser.id-1).delete()
             User.query.filter_by(id=LastUser.id-2).delete()
+            User.query.filter_by(id=LastUser.id-3).delete()
         
             Scores.query.filter_by(score_log_id=LastScore.score_log_id).delete()
             Scores.query.filter_by(score_log_id=LastScore.score_log_id-1).delete()
             Scores.query.filter_by(score_log_id=LastScore.score_log_id-2).delete()
         
             db.session.commit()
+            self.driver.close()            
 
     def test_users(self):
+        ##SIGN UP A USER
         temp = User.query.order_by(User.id.desc()).first()
         
         U1 = User.query.get(temp.id-2)
@@ -99,6 +104,11 @@ class SystemTest(unittest.TestCase):
         SignUpButton = self.driver.find_element_by_class_name("Login")
         SignUpButton.click()
         
+
+        
+
+
+
         #check login success
         #self.driver.implicitly_wait(5)
         #logout = self.driver.find_element_by_partial_link_text('Logout')
