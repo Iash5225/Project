@@ -18,14 +18,10 @@ from selenium.webdriver.chrome.options import Options
 class SystemTest(unittest.TestCase):
     driver = None
     
+    
     def setUp(self):
-  
-  
-        chrome_options = webdriver.ChromeOptions()
-        chrome_options.add_argument("--headless")
-        chrome_options.add_argument("--disable-gpu")
-
-        self.driver = webdriver.Chrome(options=chrome_options)
+        
+        self.driver = webdriver.Chrome(executable_path="/mnt/c/Program Files/Google/Chrome/Application/chromedriver.exe")
         #self.driver.get('http://www.google.com')
         print('test')
     
