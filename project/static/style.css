@@ -299,12 +299,12 @@ table#leaderboard {
     font-family: Segoe UI Light;
 }
 
-.copy-popup{
+.copy-popup, .wrong-word-popup{
     position: relative;
     display: block;
 }
 
-.copy-popup{
+.copy-popup, .wrong-word-popup{
     visibility: hidden;
     width: 140px;
     background-color: #555;
@@ -315,14 +315,21 @@ table#leaderboard {
     padding: 2px;
     position: absolute;
     z-index: 1;
-    top: 105%;
-    left: 55%;
     margin-left: -75px;
     opacity: 1;
     transition: opacity 0.3s;
 }
+.copy-popup{
+    top: 105%;
+    left: 55%;
+}
 
-.copy-popup::after {
+.wrong-word-popup{
+    top: 102%;
+    left: 50.3%;
+}
+
+.copy-popup::after .wrong-word-popup::after{
     content: "";
     position: absolute;
     bottom: 100%;
@@ -341,4 +348,16 @@ table#leaderboard {
     height: 60px;
     margin-left: auto;
     margin-right: auto;
+}
+
+#personal-statistics{
+    overflow: hidden;
+}
+
+#average{
+    float:left;
+}
+
+#games-played{
+    overflow: hidden;
 }

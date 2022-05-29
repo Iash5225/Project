@@ -43,7 +43,7 @@
       <button id="instructions">How to play</button>
       <button id="statistics">Statistics</button>
       <div class="copy">
-        <button id="share" onmouseout="disappear()">
+        <button id="share" onmouseout="shareDisappear()">
           <span class="copy-popup" id="copy-popup">Copied to clipboard!</span>
           Share Score
         </button>
@@ -98,6 +98,14 @@
         <div class="statistics-content">
           <span class="close"></span>
           <h1>Statistics</h1>
+
+          <div id="personal-statistics">
+            <div id="average">
+              {{ user_scores[0]|tojson }}
+            </div>
+            <div id="games-played"></div>
+          </div>
+
           <table id="leaderboard">
             <tr>
               <th>Date</th>
@@ -120,7 +128,10 @@
   </div>
   <div class="input"></div>
   <div class="submit">
-    <button class="button" id="submit-button">Submit</button>
+    <button class="button" id="submit-button" onmouseout="wrongButtonDisappear()">
+      <span class="wrong-word-popup" id="wrong-word-popup">Not a word!</span>
+      Submit
+    </button>
   </div>
 </div>
 {% endblock content %}

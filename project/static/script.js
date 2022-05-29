@@ -32,7 +32,6 @@ $(window).on("load", () => {
         }
         // key was Enter?
         else if (e.keyCode == 13) {
-            console.log(e.code);
             if (!gameStart) {
                 initialise();
                 return;
@@ -327,7 +326,10 @@ $(window).on("load", () => {
             lettersClicked = [];
             updateDisplay(lettersClicked);
         } else {
-            alert("Not a Word");
+            //Incorrect word
+            let lose = document.getElementById("wrong-word-popup");
+            lose.style.visibility = "visible";
+            lose.style.opacity = "1";
         }
     }
 
@@ -472,6 +474,14 @@ $(window).on("load", () => {
         share.style.opacity = "1";
     }
 
+    let lifetimeGames = JSON.parse(document.getElementById("average").innerHTML);
+    let total = 0;
+    for (let l = 0 ; l < lifetimeGames.length ; l++){
+        total += lifetimeGames[l];
+    }
+    document.getElementById("average").innerHTML = "Career average: " + total/lifetimeGames.length;
+    document.getElementById("games-played").innerHTML = "Games played: " + lifetimeGames.length;
+
     document.getElementById("submit-score").onclick = async function() {
         let score = document.getElementById('count').innerHTML.split(' ')[1];
         let body = new FormData();
@@ -504,10 +514,16 @@ $(window).on("load", () => {
     const TRIE = Object.setPrototypeOf(RAW_TRIE, new Trie());
 });
 
-function disappear(){
+function shareDisappear(){
     let share = document.getElementById("copy-popup")
     share.style.visibility = "hidden";
     share.style.opacity = "0";
+}
+
+function wrongButtonDisappear(){
+    let lose = document.getElementById("wrong-word-popup")
+    lose.style.visibility = "hidden";
+    lose.style.opacity = "0";
 }
 
 // ================================================================================================
