@@ -456,10 +456,18 @@ $(window).on("load", () => {
      * Dynamically update the share sentence
      */
     document.getElementById("share").onclick = function() {
-        navigator.clipboard.writeText("My final score was " + score + " today!");
-        document.getElementById("copy-popup").innerHTML = "Hi";
-    }
 
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0');
+        let yyyy = today.getFullYear();
+        today = mm + '/' + dd + '/' + yyyy;
+
+        navigator.clipboard.writeText("I got a score of " + score + " on " + today + " while playing Wordris!");
+        let share = document.getElementById("copy-popup");
+        share.style.visibility = "visible";
+        share.style.opacity = "1";
+    }
 
     document.getElementById("submit-score").onclick = async function() {
         let score = document.getElementById('count').innerHTML.split(' ')[1];
@@ -492,6 +500,12 @@ $(window).on("load", () => {
     // Intialises RAW_TRIE from trie.js to a Trie datatype that can be searched at runtime
     const TRIE = Object.setPrototypeOf(RAW_TRIE, new Trie());
 });
+
+function disappear(){
+    let share = document.getElementById("copy-popup")
+    share.style.visibility = "hidden";
+    share.style.opacity = "0";
+}
 
 // ================================================================================================
 // Classes
