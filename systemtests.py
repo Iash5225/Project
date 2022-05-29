@@ -1,23 +1,21 @@
-from lib2to3.pgen2 import driver
 import unittest,os
 from project import create_app, db
 from project.models import Scores, User
-from werkzeug.security import generate_password_hash, check_password_hash
 from selenium import webdriver
 basedir = os.path.abspath(os.path.dirname(__file__))
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
 class SystemTest(unittest.TestCase):
     driver = None
-    
-
-    
+       
     def setUp(self):
-        
-        self.driver = webdriver.Chrome(executable_path=r'C:\Users\iashb\OneDrive - education.wa.edu.au\Documents\GitHub\Project\chromedriver.exe')
-        #self.driver.get('http://www.google.com')
-        print('test')
+        options = Options()
+        options.add_argument("start-maximized")
+        #s = Service("C:\Users\iashb\OneDrive - education.wa.edu.au\Documents\GitHub\Project\chromedriver.exe")
+       # op = webdriver.ChromeOptions()
+        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
         if not self.driver:
           self.skipTest('Web browser not available')
         else:
