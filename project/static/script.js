@@ -414,24 +414,24 @@ $(window).on("load", () => {
     };
 
     /**
-     * Leaderboard and instructions dropdown
+     * Leaderboard, instructions and statistics dropdown
      */
     var leaderboard = document.getElementById("leaderboard-modal");
     var instructions = document.getElementById("instructions-modal");
-    // var share = document.getElementById("share-modal");
+    var statistics = document.getElementById("statistics-modal");
 
     document.getElementById("leaderboard").onclick = function() {
         leaderboard.style.display = "block";
     };
     document.getElementById("instructions").onclick = function() {
-            instructions.style.display = "block";
-        }
-        // document.getElementById("share").onclick = function() {
-        //     share.style.display = "block";
-        // }
+        instructions.style.display = "block";
+    };
+    document.getElementById("statistics").onclick = function() {
+        statistics.style.display = "block";
+    };
 
     /**
-     * Leaderboard and instructions close button
+     * Leaderboard, instructions and statistics close button
      */
 
     document.getElementsByClassName("close")[0].onclick = function() {
@@ -440,15 +440,17 @@ $(window).on("load", () => {
     document.getElementsByClassName("close")[1].onclick = function() {
         instructions.style.display = "none";
     };
-    // document.getElementsByClassName("close")[2].onclick = function() {
-    //     share.style.display = "none";
-    // };
+    document.getElementsByClassName("close")[2].onclick = function() {
+        statistics.style.display = "none";
+    };
 
     window.onclick = function(event) {
         if (event.target == leaderboard) {
             leaderboard.style.display = "none";
         } else if (event.target == instructions) {
             instructions.style.display = "none";
+        } else if(event.target == statistics) {
+            statistics.style.display = "none";
         }
     }
 
@@ -465,6 +467,7 @@ $(window).on("load", () => {
 
         navigator.clipboard.writeText("I got a score of " + score + " on " + today + " while playing Wordris!");
         let share = document.getElementById("copy-popup");
+
         share.style.visibility = "visible";
         share.style.opacity = "1";
     }

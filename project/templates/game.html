@@ -41,6 +41,7 @@
     <div id="menuDropdown" class="dropdown-content">
       <button id="leaderboard">Leaderboard</button>
       <button id="instructions">How to play</button>
+      <button id="statistics">Statistics</button>
       <div class="copy">
         <button id="share" onmouseout="disappear()">
           <span class="copy-popup" id="copy-popup">Copied to clipboard!</span>
@@ -75,13 +76,40 @@
           <p>
             This game is a mixture of tetris and scrabble, and the objective of
             the game is to make as many words as possible before the letters
-            reach the top row. You can make any word from 2 letters long to 5
+            reach the top row. You can make any word from 2 letters long to 10
             letters long simply by clicking each green tile containing the
-            letter, and each letter you remove will add one point to the total
-            score.
+            letter, and each letter you remove from the board will add one point 
+            to the total score. 
           </p>
-          <p>You can see other people's high scores using the leaderboard</p>
-          <p>Now just click start to start your game!</p>
+          <p>
+            When the Letters reach the top row, the letters stop falling down but 
+            you can still make words to add to your total score before you submit
+            your score!
+          </p>
+          <p>
+            You can see other people's high scores using the leaderboard, and
+            your own statistics from the menu.
+          </p>
+          <p>Just press enter start to start your game!</p>
+        </div>
+      </div>
+
+      <div id="statistics-modal" class="modal">
+        <div class="statistics-content">
+          <span class="close"></span>
+          <h1>Statistics</h1>
+          <table id="leaderboard">
+            <tr>
+              <th>Date</th>
+              <th>Score</th>
+            </tr>
+            {% for x in user_scores %}
+              <tr>
+                <td>{{ user_scores[1][loop.index0] }}</td>
+                <td>{{ user_scores[0][loop.index0] }}</td>
+              </tr>
+            {% endfor %}
+          </table>
         </div>
       </div>
 
