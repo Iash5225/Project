@@ -472,6 +472,14 @@ $(window).on("load", () => {
         share.style.opacity = "1";
     }
 
+    let lifetimeGames = JSON.parse(document.getElementById("average").innerHTML);
+    let total = 0;
+    for (let l = 0 ; l < lifetimeGames.length ; l++){
+        total += lifetimeGames[l];
+    }
+    document.getElementById("average").innerHTML = "Career average: " + total/lifetimeGames.length;
+    document.getElementById("games-played").innerHTML = "Games played: " + lifetimeGames.length;
+
     document.getElementById("submit-score").onclick = async function() {
         let score = document.getElementById('count').innerHTML.split(' ')[1];
         let body = new FormData();

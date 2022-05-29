@@ -342,3 +342,15 @@ table#leaderboard {
     margin-left: auto;
     margin-right: auto;
 }
+
+#personal-statistics{
+    overflow: hidden;
+}
+
+#average{
+    float:left;
+}
+
+#games-played{
+    overflow: hidden;
+}

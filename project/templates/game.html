@@ -98,6 +98,14 @@
         <div class="statistics-content">
           <span class="close"></span>
           <h1>Statistics</h1>
+
+          <div id="personal-statistics">
+            <div id="average">
+              {{ user_scores[0]|tojson }}
+            </div>
+            <div id="games-played"></div>
+          </div>
+
           <table id="leaderboard">
             <tr>
               <th>Date</th>
