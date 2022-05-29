@@ -1,20 +1,10 @@
-import unittest,os
+import unittest
 from project import create_app, db
 from project.models import Scores, User
 from selenium import webdriver
-#basedir = os.path.abspath(os.path.dirname(__file__))
-#from selenium.webdriver.chrome.options import Options
-#from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from werkzeug.security import generate_password_hash, check_password_hash
-
-import hashlib
 from time import sleep
-
-import unittest
-
-#from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 
 class SystemTest(unittest.TestCase):
@@ -30,22 +20,12 @@ class SystemTest(unittest.TestCase):
             app.app_context().push()
             db.create_all()
             
-        
             U1 = User(email="smith@smith",  password = generate_password_hash("1234", method='sha256'),name ="smith");
-            U2 = User(email="Z@Z", password = generate_password_hash("ilikeCITS3403", method='sha256'),name ="Z");
-            U3 = User(email="D@D",password = generate_password_hash("idon'tlikeCITS3403", method='sha256'), name ="D");
-        
             S1 = Scores( userid = 1, score = 10)
-            S2 = Scores( userid = 2, score = 20)
-            S3 = Scores( userid = 3, score = 30)
         
             db.session.add(U1)
-            db.session.add(U2)
-            db.session.add(U3)
             db.session.add(S1)
-            db.session.add(S2)
-            db.session.add(S3)
-        
+
             db.session.commit()
             self.driver.maximize_window()
             self.driver.get('http://localhost:5000/')
@@ -59,23 +39,17 @@ class SystemTest(unittest.TestCase):
             
             User.query.filter_by(id=LastUser.id).delete()
             User.query.filter_by(id=LastUser.id-1).delete()
-            User.query.filter_by(id=LastUser.id-2).delete()
-            User.query.filter_by(id=LastUser.id-3).delete()
         
             Scores.query.filter_by(score_log_id=LastScore.score_log_id).delete()
-            Scores.query.filter_by(score_log_id=LastScore.score_log_id-1).delete()
-            Scores.query.filter_by(score_log_id=LastScore.score_log_id-2).delete()
         
             db.session.commit()
             self.driver.close()            
 
-    def test_users(self):
+    def test_signup(self):
         ##SIGN UP A USER
         temp = User.query.order_by(User.id.desc()).first()
         
-        U1 = User.query.get(temp.id-2)
-        U2 = User.query.get(temp.id-1)
-        U3 = User.query.get(temp.id)
+        U1 = User.query.get(temp.id)
         
         ##Test should return True
         self.assertEqual(U1.name,"smith")
@@ -98,22 +72,16 @@ class SystemTest(unittest.TestCase):
         Password = self.driver.find_element_by_id('password')
         Password.send_keys('PasswordTester')
         
-       # self.driver.implicitly_wait(5)
-        sleep(10)
+        self.driver.implicitly_wait(5)
+        #sleep(10)
         
         SignUpButton = self.driver.find_element_by_class_name("Login")
-        SignUpButton.click()
-        
-
-        
-
-
+        SignUpButton.click()  
 
         #check login success
         #self.driver.implicitly_wait(5)
         #logout = self.driver.find_element_by_partial_link_text('Logout')
-       # self.assertEqual(logout.get_attribute('innerHTML'), 'Logout Testy', msg='Logged in')
-
-        
+        #self.assertEqual(logout.get_attribute('innerHTML'), 'Logout Testy', msg='Logged in')
+ 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
