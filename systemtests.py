@@ -20,7 +20,7 @@ class SystemTest(unittest.TestCase):
             self.app = app.test_client()     
             app.app_context().push()
             db.create_all()
-
+        
             db.session.commit()
             self.driver.maximize_window()
             self.driver.get('http://localhost:5000/')
@@ -37,6 +37,33 @@ class SystemTest(unittest.TestCase):
             db.session.commit()
             self.driver.close()            
 
+    def test_zogin(self):
+          ##Assuming the user has signed up and is now correctly login in 
+        U1 = User(email="bob@bob",  password = generate_password_hash("1234", method='sha256'),name ="bob");
+
+        db.session.add(U1)
+        db.session.commit()
+          
+        self.driver.get('http://localhost:5000/login')
+        
+        self.driver.implicitly_wait(5)
+        
+        LoginButton = self.driver.find_element(by=By.CLASS_NAME, value="Login")
+
+        Email = self.driver.find_element(By.ID,'email')
+        Email.send_keys('bob@bob')
+
+        Password = self.driver.find_element(By.ID,'password')
+        Password.send_keys('1234')
+
+        sleep(2)
+        
+        LoginButton.click() 
+
+        WelcomeMessage = self.driver.find_element(By.ID,'welcomemessage')
+        self.assertEqual(WelcomeMessage.get_attribute('innerHTML'),"\n  Welcome, bob!\n  \n")
+        sleep(2)
+    
     def test_signup(self):
         self.driver.get('http://localhost:5000/signup')
         
@@ -76,6 +103,6 @@ class SystemTest(unittest.TestCase):
         self.assertEqual(ErrorMessage.get_attribute('innerHTML'),'Please check your login details and try again.')
         sleep(2)
 
- 
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)
