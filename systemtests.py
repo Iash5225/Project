@@ -2,31 +2,36 @@ import unittest,os
 from project import create_app, db
 from project.models import Scores, User
 from selenium import webdriver
-basedir = os.path.abspath(os.path.dirname(__file__))
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
+#basedir = os.path.abspath(os.path.dirname(__file__))
+#from selenium.webdriver.chrome.options import Options
+#from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+from werkzeug.security import generate_password_hash, check_password_hash
+
+import hashlib
+from time import sleep
+
+import unittest
+
+#from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
 
 class SystemTest(unittest.TestCase):
     driver = None
        
     def setUp(self):
-        options = Options()
-        options.add_argument("start-maximized")
-        #s = Service("C:\Users\iashb\OneDrive - education.wa.edu.au\Documents\GitHub\Project\chromedriver.exe")
-       # op = webdriver.ChromeOptions()
-        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+        self.driver = webdriver.Chrome(ChromeDriverManager().install())
         if not self.driver:
           self.skipTest('Web browser not available')
-        else:
-            app = create_app()      
+        else:    
             self.app = app.test_client()     
             app.app_context().push()
-            db.create_all
+            db.create_all(app=create_app())
         
-            U1 = User(email="iash@iash", name ="iash", password = generate_password_hash("1234", method='sha256'));
-            U2 = User(email="jp@jp", name ="jp", password = generate_password_hash("ilikeCITS3403", method='sha256'));
-            U3 = User(email="david@david", name ="david", password = generate_password_hash("idon'tlikeCITS3403", method='sha256'));
+            U1 = User(email="smith@smith",  password = generate_password_hash("1234", method='sha256'),name ="smith");
+            U2 = User(email="Z@Z", password = generate_password_hash("ilikeCITS3403", method='sha256'),name ="Z");
+            U3 = User(email="D@D",password = generate_password_hash("idon'tlikeCITS3403", method='sha256'), name ="D");
         
             S1 = Scores( userid = 1, score = 10)
             S2 = Scores( userid = 2, score = 20)
@@ -42,6 +47,7 @@ class SystemTest(unittest.TestCase):
             db.session.commit()
             self.driver.maximize_window()
             self.driver.get('http://localhost:5000/')
+
 
     def tearDown(self):
         if self.driver:
@@ -67,24 +73,28 @@ class SystemTest(unittest.TestCase):
         U3 = User.query.get(temp.id)
         
         ##Test should return True
-        self.assertEqual(U1.name,"iash")
-        self.assertEqual(U1.email,"iash@iash")
+        self.assertEqual(U1.name,"smith")
+        self.assertEqual(U1.email,"smith@smith")
         self.assertTrue(check_password_hash(U1.password, "1234"))
         
         self.driver.get('http://localhost:5000/signup')
         
         self.driver.implicitly_wait(5)
         
-        Email = self.driver.find_element_by_class_name("email")
+        #Email = self.driver.find_element(by=By.CLASS_NAME, value="email")
+        Email = self.driver.find_element_by_id('email')
         Email.send_keys('SystemTest@SystemTest')
         
-        Name = self.driver.find_element_by_class_name("name")
+        #Name = self.driver.find_element(by=By.CLASS_NAME, value="name")
+        Name = self.driver.find_element_by_id('name')
         Name.send_keys('SystemTest')
         
-        Password = self.driver.find_element_by_class_name("password")
+       # Password = self.driver.find_element(by=By.CLASS_NAME, value="password")
+        Password = self.driver.find_element_by_id('password')
         Password.send_keys('PasswordTester')
         
-        self.driver.implicitly_wait(5)
+       # self.driver.implicitly_wait(5)
+        sleep(10)
         
         SignUpButton = self.driver.find_element_by_class_name("Login")
         SignUpButton.click()
