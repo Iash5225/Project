@@ -100,10 +100,14 @@
           <h1>Statistics</h1>
 
           <div id="personal-statistics">
-            <div id="average">
-              {{ user_scores[0]|tojson }}
+            <div class="inline">
+              <div id="average">
+                {{ user_scores[0]|tojson }}
+              </div>
             </div>
-            <div id="games-played"></div>
+            <div class="inline">
+              <div id="games-played"></div>
+            </div>
           </div>
 
           <table id="leaderboard">
