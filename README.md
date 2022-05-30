@@ -1,7 +1,5 @@
 <div id="top"></div>
 
-
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -103,6 +101,27 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt -y install ./google-chrome-stable_current_amd64.deb
 ```
 
+In another terminal 
+
+Then activate the virtual environment
+
+```
+source auth/bin/activate
+```
+
+Next install the necessary requirements with the following:
+
+```
+pip install -r requirements.txt
+```
+
+Navigate to the cloned repository and then run the server with the following, additionally you can specify the host ip and port number with the --host and --port flags:
+
+```
+flask run
+```
+
+Then in another terminal
 To run unit tests
 
 ```
