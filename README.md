@@ -33,9 +33,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-The project brief is linked [here](https://teaching.csse.uwa.edu.au/units/CITS3403/) however the goal was tio build a general daily game similar to Wordle
+The project brief is linked [here](https://teaching.csse.uwa.edu.au/units/CITS3403/) however the goal was to build a general daily game similar to Wordle
 
 The primary principles that were the key focus of our game are as follows :
 
@@ -144,9 +142,6 @@ coverage report -m
 * [Flask](https://flask.palletsprojects.com/)
 * [Bootstrap](https://getbootstrap.com)
 * [JQuery](https://jquery.com)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
