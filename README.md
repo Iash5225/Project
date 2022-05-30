@@ -1,7 +1,5 @@
 <div id="top"></div>
 
-
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -31,21 +29,6 @@
   <p>Jean-Pierre le Breton (21118434)</p>
   <p>Iash Bashir (23059859)</p>
 </div>
-
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ol>
-</details>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
@@ -118,12 +101,27 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt -y install ./google-chrome-stable_current_amd64.deb
 ```
 
-To install numpy for the selenium
+In another terminal 
+
+Then activate the virtual environment
 
 ```
-pip install numpy
+source auth/bin/activate
 ```
 
+Next install the necessary requirements with the following:
+
+```
+pip install -r requirements.txt
+```
+
+Navigate to the cloned repository and then run the server with the following, additionally you can specify the host ip and port number with the --host and --port flags:
+
+```
+flask run
+```
+
+Then in another terminal
 To run unit tests
 
 ```
