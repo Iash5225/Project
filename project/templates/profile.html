@@ -1,2 +1,81 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block head %}
 
+<script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+  crossorigin="anonymous"
+></script>
+
+<script src="{{ url_for('static', filename='profile.js') }}"></script>
+
+{% endblock head %} {% block content %} 
+<h1 class="profile-heading"> {{ name }}'s Profile</h1>
+
+<div class="container">
+  <div class="statistics-button" id="statistics">Statistics</div>   
+  <div class="leaderboard-button" id="leaderboard">Leaderboard</div>
+  <a href="{{ url_for('auth.delete') }}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+  </svg>
+    Delete Account
+</a>
+</div>
+
+<div id="statistics-modal" class="modal">
+    <div class="statistics-content">
+      <span class="close"></span>
+      <h1>Statistics</h1>
+
+      <div id="personal-statistics">
+        <div class="inline">
+          <div id="average">
+            {{ user_scores[0]|tojson }}
+          </div>
+        </div>
+        <div class="inline">
+          <div id="games-played"></div>
+        </div>
+      </div>
+
+      <table id="leaderboard">
+        <tr>
+          <th>Date</th>
+          <th>Score</th>
+        </tr>
+        {% for x in user_scores %}
+          <tr>
+            <td>{{ user_scores[1][loop.index0] }}</td>
+            <td>{{ user_scores[0][loop.index0] }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+
+  <div id="leaderboard-modal" class="modal">
+    <div class="leaderboard-content">
+      <span class="close"></span>
+      <h1>Leaderboard</h1>
+      <table id="leaderboard">
+        <tr>
+          <th>Rank</th>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
+        {% for n in lb_names %}
+        <tr {% if n == name %} class="current-user" {% endif %}>
+          <td>{{ loop.index }}</td>
+          <td>{{ n }}</td>
+          <td>{{ lb_scores[loop.index0] }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+
+{% endblock content %}
