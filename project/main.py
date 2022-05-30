@@ -1,6 +1,7 @@
+from datetime import date
 import importlib
 from select import select
-from flask import Blueprint, render_template, session
+from flask import Blueprint, redirect, render_template, session, url_for
 from flask_login import login_required, current_user
 from .models import User, Scores
 from . import db
@@ -16,6 +17,9 @@ def index():
 @login_required
 def game():
 
+    cur_date = date.today()
+    if cur_date == current_user.lastplayed:
+        return redirect(url_for('main.index'))
 
     # get user's score history from db to render personal stats
     user_score_history = db.session.execute(select(Scores.score, Scores.date)
@@ -42,4 +46,4 @@ def game():
                            name = current_user.name,
                            lb_names = leaderboard_names,
                            lb_scores = leaderboard_scores,
-                           user_scores=user_scores)
+                           user_scores = user_scores)
