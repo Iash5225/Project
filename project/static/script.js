@@ -37,6 +37,7 @@ $(window).on("load", () => {
                 return;
             } else {
                 submitWord();
+                setTimeout(wrongButtonDisappear , 1000);
             }
         }
 
@@ -386,21 +387,13 @@ $(window).on("load", () => {
         for (let i = 0; i < 5; i++) {
             var element = griddivs[i];
             if (element.innerHTML != NO_LETTER) {
-                alert("YOU LOSE");
                 clearInterval(start);
-                document.getElementById("submit-score").style.visibility = "visible"
+                document.getElementById("submit-score").style.visibility = "visible";
+                document.getElementsByClassName("NavBar")[0].style.backgroundImage = "linear-gradient(0deg, rgb(160, 82, 82) , rgb(182, 139, 139))";
             }
         }
     }
 
-
-    // document.getElementById("submit-score").onclick = resetGame();
-    // function resetGame(){
-    //     var grids = document.getElementsByClassName("unclicked");
-    //         for(let m = 0 ; m < 40 ; m++){
-    //             document.getElementsByClassName("grid")[0].removeChild(grids[m]);
-    //         }
-    // }
 
     /**
      * Menu Button
