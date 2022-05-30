@@ -6,10 +6,10 @@ pip install -r requirements.txt
 flask run
 
 ##To run unit test:
-python3 -m test
 coverage run -m test
-coverage report -m
-
 
 ##To run selenium test:
-python3 -m systemtests
+coverage run -m systemtests
+
+##To check coverage of tests
+coverage report -m
