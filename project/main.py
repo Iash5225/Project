@@ -47,3 +47,9 @@ def game():
                            lb_names = leaderboard_names,
                            lb_scores = leaderboard_scores,
                            user_scores = user_scores)
+
+
+@main.route('/profile')
+@login_required
+def profile():
+    return render_template('profile.html')
