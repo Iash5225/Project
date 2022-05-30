@@ -1,11 +1,11 @@
 <div id="top"></div>
 
 
+
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <a href="https://github.com/Iash5225/Project">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">CITS 3403 Project</h3>
@@ -29,11 +29,8 @@
   <h4>Authors:</h4>
   <p>David Wang (23064036)</p>
   <p>Jean-Pierre le Breton (21118434)</p>
-  <p>Jeremy Baird (22507349)</p>
   <p>Iash Bashir (23059859)</p>
 </div>
-
-
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -50,12 +47,21 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
+
+The project brief is linked [here](https://teaching.csse.uwa.edu.au/units/CITS3403/) however the goal was tio build a general daily game similar to Wordle
+
+The primary principles that were the key focus of our game are as follows :
+
+ + **Engaging**, so that it looks good and a user wants to play it every day.
+ + **Challenging**, so the user feels a sense of achievement
+ + **Intuitive**, so that it is easy for a user to access
+
+As wordle as is a highly popular game, we decided to to capitalise on the aspect of inputing words. Upon research we found that a blend of Tetris and Wordle could be possible. As the game is played, randomly generated letters will drop from the top and will begin to stack up at the bottom of the grid. It is up to the user to clear as much letters as they can by trying to fomulate a word to be submitted,by using either their keyboard or by clicking on the letters on the screen. The game will finish when the pile reaches to the top.
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -67,7 +73,6 @@
 * [JQuery](https://jquery.com)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
 
 <!-- ROADMAP -->
 ## Roadmap
