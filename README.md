@@ -103,12 +103,6 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt -y install ./google-chrome-stable_current_amd64.deb
 ```
 
-To install numpy for the selenium
-
-```
-pip install numpy
-```
-
 To run unit tests
 
 ```
