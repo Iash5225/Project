@@ -37,7 +37,7 @@ body {
 
 .NavBar {
     background-image: linear-gradient(0deg, rgb(70, 157, 179), rgb(124, 208, 241));
-    height: 55px;
+    height: 55px;   
 }
 
 
@@ -147,6 +147,10 @@ div.unclicked:hover {
     background-color: rgb(137, 231, 137);
 }
 
+div.clicked {
+    background-color: palegoldenrod;
+}
+
 div.clicked:hover {
     background-color: rgb(214, 209, 149);
 }
@@ -156,9 +160,7 @@ div.clicked:hover {
     background-color: paleturquoise;
 } */
 
-div.clicked {
-    background-color: palegoldenrod;
-}
+
 
 .inputcells {
     display: inline;
@@ -258,13 +260,13 @@ table#leaderboard {
 }
 
 #submit-button {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.508);
     padding-top: 5px;
     padding-bottom: 5px;
 }
 
 #submit-button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.325);
 }
 
 #text {
@@ -288,6 +290,7 @@ table#leaderboard {
 }
 
 .submit-score {
+    background-color: rgba(255, 255, 255, 0.415);;
     visibility: hidden;
     vertical-align: middle;
     width: 70px;
