@@ -13,7 +13,7 @@
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 <script src="{{ url_for('static', filename='trie.js') }}"></script>
 {% endblock head %} {% block content %}
-<h1 class="title">
+<h1 class="title" id="welcomemessage">
   Welcome, {{ name }}!
   
 </h1>
@@ -100,10 +100,14 @@
           <h1>Statistics</h1>
 
           <div id="personal-statistics">
-            <div id="average">
-              {{ user_scores[0]|tojson }}
+            <div class="inline">
+              <div id="average">
+                {{ user_scores[0]|tojson }}
+              </div>
             </div>
-            <div id="games-played"></div>
+            <div class="inline">
+              <div id="games-played"></div>
+            </div>
           </div>
 
           <table id="leaderboard">

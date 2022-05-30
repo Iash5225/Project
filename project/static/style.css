@@ -202,6 +202,8 @@ div.clicked:hover {
     color: #ddd;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     font-size: large;
+    max-height: 65%;
+    overflow-y: auto;
 }
 
 .current-user {
@@ -354,13 +356,18 @@ table#leaderboard {
 }
 
 #personal-statistics{
+    justify-content: space-between;
+    display: inline-block;
     overflow: hidden;
 }
 
 #average{
     float:left;
+    display: inline;
+    padding-inline: 60px;
 }
 
 #games-played{
     overflow: hidden;
+    padding-inline: 60px;
 }
