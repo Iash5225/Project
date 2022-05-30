@@ -2,6 +2,10 @@ import unittest
 from project import create_app, db
 from project.models import Scores, User
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import date
+from sqlalchemy import desc, null, select
+
+today = date.today()
 
 class UserModelCase(unittest.TestCase):
     def setUp(self):        
@@ -10,9 +14,18 @@ class UserModelCase(unittest.TestCase):
         app.app_context().push()
         db.create_all
         
-        U1 = User(email="iash@iash", name ="iash", password = generate_password_hash("1234", method='sha256'));
-        U2 = User(email="jp@jp", name ="jp", password = generate_password_hash("ilikeCITS3403", method='sha256'));
-        U3 = User(email="david@david", name ="david", password = generate_password_hash("idon'tlikeCITS3403", method='sha256'));
+        U1 = User(email="iash@iash", password = generate_password_hash("1234", method='sha256'),name ="iash",highscore =750,lastplayed= today);
+        U2 = User(email="jp@jp", password = generate_password_hash("ilikeCITS3403", method='sha256'),name ="jp",highscore =500,lastplayed= today);
+        U3 = User(email="david@david",  password = generate_password_hash("idon'tlikeCITS3403", method='sha256'),name ="david",highscore =1000,lastplayed= today);
+        U3 = User(email="david@david",  password = generate_password_hash("idon'tlikeCITS3403", method='sha256'),name ="david",highscore =1000,lastplayed= today);
+        U3 = User(email="david@david",  password = generate_password_hash("idon'tlikeCITS3403", method='sha256'),name ="david",highscore =1000,lastplayed= today);
+        U3 = User(email="david@david",  password = generate_password_hash("idon'tlikeCITS3403", method='sha256'),name ="david",highscore =1000,lastplayed= today);
+        U3 = User(email="david@david",  password = generate_password_hash("idon'tlikeCITS3403", method='sha256'),name ="david",highscore =1000,lastplayed= today);
+        U3 = User(email="david@david",  password = generate_password_hash("idon'tlikeCITS3403", method='sha256'),name ="david",highscore =1000,lastplayed= today);
+        U3 = User(email="david@david",  password = generate_password_hash("idon'tlikeCITS3403", method='sha256'),name ="david",highscore =1000,lastplayed= today);
+        U3 = User(email="david@david",  password = generate_password_hash("idon'tlikeCITS3403", method='sha256'),name ="david",highscore =1000,lastplayed= today);
+        U3 = User(email="david@david",  password = generate_password_hash("idon'tlikeCITS3403", method='sha256'),name ="david",highscore =1000,lastplayed= today);
+        
         
         S1 = Scores( userid = 1, score = 10)
         S2 = Scores( userid = 2, score = 20)
@@ -52,21 +65,28 @@ class UserModelCase(unittest.TestCase):
         self.assertEqual(U1.name,"iash")
         self.assertEqual(U1.email,"iash@iash")
         self.assertTrue(check_password_hash(U1.password, "1234"))
+        self.assertEqual(U1.highscore,750)
+        self.assertEqual(U1.lastplayed,today)
         
         ##Test should return True
         self.assertEqual(U2.name,"jp")
         self.assertEqual(U2.email,"jp@jp")
         self.assertTrue(check_password_hash(U2.password, "ilikeCITS3403"))
+        self.assertEqual(U2.highscore,500)
+        self.assertEqual(U2.lastplayed,today)
         
         ##Test should return True
         self.assertEqual(U3.name,"david")
         self.assertEqual(U3.email,"david@david")
         self.assertTrue(check_password_hash(U3.password, "idon'tlikeCITS3403"))
+        self.assertEqual(U3.highscore,1000)
+        self.assertEqual(U3.lastplayed,today)
         
         ##Test False values
         self.assertNotEqual(U1.name,"tim")
         self.assertNotEqual(U2.email,"bob@builder")
         self.assertNotEqual(U3.password,"test")
+        self.assertNotEqual(U3.highscore,55)
         
     def test_scores(self):
         temp = Scores.query.order_by(Scores.score_log_id.desc()).first()
@@ -90,5 +110,22 @@ class UserModelCase(unittest.TestCase):
         ##Test False values
         self.assertNotEqual(S2.userid,6)
         self.assertNotEqual(S3.score,100)
+    
+    def test_leaderboard(self):
+        leaderboard = db.session.execute(select(User.highscore, User.name)
+                                    .order_by(User.highscore.desc(), User.name)
+                                    .limit(10))
+
+        leaderboard_names = []
+        leaderboard_scores =[]
+        
+        Testleaderboard_name = ['david','iash,jp','test','123','lol']
+        Testleaderboard_scores = ['1000','750,500','141','85','0']
+        for row in leaderboard:
+            leaderboard_names.append(row.name)
+            leaderboard_scores.append(row.highscore)
+        print(leaderboard_names)
+        print(leaderboard_scores)
+    
 if __name__ == '__main__':
     unittest.main(verbosity=2)
