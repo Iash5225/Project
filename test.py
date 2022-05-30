@@ -27,9 +27,9 @@ class UserModelCase(unittest.TestCase):
         U10 = User(email="benjamin@benjamin",  password = generate_password_hash("test", method='sha256'),name ="benjamin",highscore =550,lastplayed= today);
         
         
-        S1 = Scores( userid = 1, score = 10)
-        S2 = Scores( userid = 2, score = 20)
-        S3 = Scores( userid = 3, score = 30)
+        S1 = Scores( userid =50, score = 10)
+        S2 = Scores( userid = 60, score = 20)
+        S3 = Scores( userid = 70, score = 30)
         
         db.session.add(U1)
         db.session.add(U2)
@@ -166,15 +166,15 @@ class UserModelCase(unittest.TestCase):
         S3 = Scores.query.get(temp.score_log_id)
 
         ##Test should return True
-        self.assertEqual(S1.userid,1)
+        self.assertEqual(S1.userid,50)
         self.assertEqual(S1.score,10)
         
         ##Test should return True
-        self.assertEqual(S2.userid,2)
+        self.assertEqual(S2.userid,60)
         self.assertEqual(S2.score,20)
         
         ##Test should return True
-        self.assertEqual(S3.userid,3)
+        self.assertEqual(S3.userid,70)
         self.assertEqual(S3.score,30)
         
         ##Test False values
@@ -182,6 +182,7 @@ class UserModelCase(unittest.TestCase):
         self.assertNotEqual(S3.score,100)
     
     def test_leaderboard(self):
+        #Top 10 users and their highscores are stored in leaderboard
         leaderboard = db.session.execute(select(User.highscore, User.name)
                                     .order_by(User.highscore.desc(), User.name)
                                     .limit(10))
