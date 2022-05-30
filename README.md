@@ -66,6 +66,40 @@ As wordle as is a highly popular game, we decided to to capitalise on the aspect
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
+## Launching
+
+To launch on local host you must first clone the repository into a directory that suits with the following command:
+
+```
+git clone https://github.com/Iash5225/Project
+```
+
+Next create a virtual environment
+
+```
+python3 -m venv auth
+```
+
+Then activate the virtual environment
+
+```
+source auth/bin/activate
+```
+
+Next install the necessary requirements with the following:
+
+```
+pip install -r requirements.txt
+```
+
+Navigate to the cloned repository and then run the server with the following, additionally you can specify the host ip and port number with the --host and --port flags:
+
+```
+flask run
+```
+
+If you have not specified different host IP or port number the server will be reachable on localhost:5000.
+
 ### Built With
 
 * [Flask](https://flask.palletsprojects.com/)
