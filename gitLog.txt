@@ -1,3 +1,557 @@
+commit fd6dfcbbad4d0bd2025869e5d79ce5f12bbe2fa6
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Mon May 30 14:12:27 2022 +0800
+
+    floored stat
+
+commit ab9e67a990d8975ccf1b1133e5fc79a060a00deb
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Mon May 30 13:43:48 2022 +0800
+
+    updated readme
+
+commit ffa6cd52bd7206f5dc39c2be81e5c075ab546068
+Author: David <david.holt2002@gmail.com>
+Date:   Mon May 30 10:54:16 2022 +0800
+
+    minor change to profile
+
+commit 09a2ab80633e1cb524d448c29de2b485725c0b57
+Merge: bff1bae 4a281c4
+Author: David <david.holt2002@gmail.com>
+Date:   Mon May 30 10:53:51 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project
+
+commit bff1bae95c5a7fe4cee4ad04aa036397143902e0
+Author: David <david.holt2002@gmail.com>
+Date:   Mon May 30 10:53:47 2022 +0800
+
+    Finsihed profile page
+
+commit 4a281c48050689d1ed382266323da0b5309edc94
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Mon May 30 10:52:42 2022 +0800
+
+    Updated Read me
+
+commit cf61f24b71ec6c512898b1e41cba4d4617352225
+Author: Iash <iash.bashir5225@gmail.com>
+Date:   Mon May 30 10:40:56 2022 +0800
+
+    Numpy
+
+commit 5b6b45586f3a2e919d5b123da94e0a9368375b97
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Mon May 30 10:31:48 2022 +0800
+
+    Removed table of contents
+
+commit 17ad175497a709b270e3e75931465a60a317dfde
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Mon May 30 10:27:18 2022 +0800
+
+    Added unit testing commands
+
+commit 5ece8c1bfc99137913075ae4e93d776c7962dbf8
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Mon May 30 10:15:36 2022 +0800
+
+    Added launching
+
+commit 4794032e48f7a86225c006a8fea6d3853fdaf9ed
+Merge: 3311222 c1ce9cf
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Mon May 30 10:07:02 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project
+
+commit 33112227624ddef6e0ce54976f05ac84023c1fa9
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Mon May 30 10:06:18 2022 +0800
+
+    Added project description
+
+commit c1ce9cfe1f73f2c3ebe4577f88c9f34b6b156e0a
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Mon May 30 10:05:34 2022 +0800
+
+    added stat vars to profile
+
+commit 7d577dbdec5d83233441a53e291e985dd5f221d5
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Mon May 30 09:55:54 2022 +0800
+
+    added profile page
+
+commit 3cffc733bda820a3bc3ab6a2898c9ba1ef646e61
+Merge: 9cc15d6 8258e74
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Mon May 30 09:38:29 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project into main
+
+commit 9cc15d69c74e316033b91cfc4065c8f9ce4333f2
+Merge: c37ca14 e14201f
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Mon May 30 09:38:24 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project into main
+
+commit 8258e7447c023ce3b75cf37aadbc9f9633e5bc87
+Merge: e551591 e14201f
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Mon May 30 09:37:33 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project
+
+commit c37ca147a658a31dd3d979195a917e823cd5c6c5
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Mon May 30 09:35:27 2022 +0800
+
+    added icons to navbar
+
+commit c4616982050865ae7911b6e3c53f34d97569c3e8
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Mon May 30 09:34:53 2022 +0800
+
+    enforced daily game
+
+commit e5515917a3464b371bd5d0f14ce61a3ad6a58e60
+Author: Iash <iash.bashir5225@gmail.com>
+Date:   Mon May 30 09:33:20 2022 +0800
+
+    Added selenium coverage command
+
+commit e14201f4b6876ddf7381f9fb3d3b41e5365614e8
+Merge: 0c729e2 5ec099b
+Author: David <david.holt2002@gmail.com>
+Date:   Mon May 30 09:30:28 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project
+
+commit 0c729e217f1272c04e1773892fd864f151f89a0c
+Author: David <david.holt2002@gmail.com>
+Date:   Mon May 30 09:30:22 2022 +0800
+
+    Fully functional popup for submitting wrong word + on loss change
+
+commit 5ec099be4beb1647895445b0845b3b38d58559de
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Mon May 30 09:11:04 2022 +0800
+
+    Completed Unit Testing
+
+commit 5f74e07e5073c1656c087a695f15d861c0abfe53
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Mon May 30 09:06:15 2022 +0800
+
+    added leaderboard testing
+
+commit 2159b21e5e23416e2ac72b591abc89247cbaf67b
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Mon May 30 08:23:25 2022 +0800
+
+    testing leaderboard in progress
+
+commit a7fcda572be7c7586484792c87efb39b016b5ec0
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Mon May 30 07:25:55 2022 +0800
+
+    cleaning up
+
+commit 1840208fb371ab5433d884268922d512601d0eda
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Mon May 30 07:23:41 2022 +0800
+
+    Commenting Code
+
+commit 5ec66afe28f3bc0a66d892c10c56d7a873fe59d0
+Author: Iash <iash.bashir5225@gmail.com>
+Date:   Mon May 30 00:16:49 2022 +0800
+
+    Added id to error message
+
+commit 9e14e46c3fe4bf931ffd313e29848d743832af0e
+Author: Iash <iash.bashir5225@gmail.com>
+Date:   Mon May 30 00:16:19 2022 +0800
+
+    Finished Selenium Tests
+
+commit 301eb7ff74d12e95f12d96d0b1b6804bdf553fb2
+Author: Iash <iash.bashir5225@gmail.com>
+Date:   Sun May 29 23:32:11 2022 +0800
+
+    Successful 3 tests
+
+commit e00fb9c133911ca93933c48cddb53b97496c4bcf
+Merge: 70327bf 5362157
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Sun May 29 23:19:43 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project
+
+commit 70327bf383e1753c72047462b5eb7b33d6e5ba7e
+Author: Iash <iash.bashir5225@gmail.com>
+Date:   Sun May 29 23:17:05 2022 +0800
+
+    Added id to message
+
+commit d36c5a6b5122378da812bd97bcc594a1083aa000
+Author: Iash <iash.bashir5225@gmail.com>
+Date:   Sun May 29 23:07:42 2022 +0800
+
+    Added Successful Login
+
+commit abc3500eaefbb2aaa65ff3ef83704b8d1f2b5e44
+Author: Iash <iash.bashir5225@gmail.com>
+Date:   Sun May 29 22:19:35 2022 +0800
+
+    Got rid of service warning
+
+commit 514411b15bda7211d52405bcd99944743c2d7c02
+Author: Iash <iash.bashir5225@gmail.com>
+Date:   Sun May 29 22:18:02 2022 +0800
+
+    Removed Initial Added users + scores
+
+commit 19d58dc917d16fa1968ed4bf2b81d4709fe2a310
+Author: Iash <iash.bashir5225@gmail.com>
+Date:   Sun May 29 22:14:32 2022 +0800
+
+    added updated import statement to remove warning
+
+commit 53621572fe5530f2e26fa325b06b91e5427a3eda
+Merge: f38d1c0 7dbfb5f
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sun May 29 22:10:33 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project
+
+commit f38d1c02d2b5c36e632bf3fda6e118b5b5d2d9d6
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sun May 29 22:10:28 2022 +0800
+
+    fixed alignment of stats
+
+commit 2a34f433650f28868124af8d881b3cd84b37358c
+Author: Iash <iash.bashir5225@gmail.com>
+Date:   Sun May 29 21:57:17 2022 +0800
+
+    Added Id to Html + added more tests
+
+commit 82d06ddce4f13a2e74d78aa9b71ed5936d74c0c1
+Author: Iash <iash.bashir5225@gmail.com>
+Date:   Sun May 29 21:32:03 2022 +0800
+
+    Deleted Web Drivers
+
+commit 7dbfb5f457fac967883500ff0b3a0cc90b318c36
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Sun May 29 21:15:48 2022 +0800
+
+    Cleaned up code
+
+commit 97999485efb290eece1725c61010e723beecadc0
+Merge: c4c1fc2 f4153bc
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Sun May 29 21:14:24 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project
+
+commit c4c1fc20e4ed51ce4ea8bd911ef0eb5078ec25ef
+Author: Iash <iash.bashir5225@gmail.com>
+Date:   Sun May 29 21:04:38 2022 +0800
+
+    Added signup tests
+
+commit aceb632e04a0a3e369fbc9db5a84056089051e94
+Author: Iash <iash.bashir5225@gmail.com>
+Date:   Sun May 29 20:31:51 2022 +0800
+
+    Quick Update
+
+commit f4153bcd28601d1e0f4cfc9fcd923b826e78b53c
+Author: David <david.holt2002@gmail.com>
+Date:   Sun May 29 19:06:49 2022 +0800
+
+    functional popup for incorrect work
+
+commit ddd41fdc8784cddefb8ee76c85004ec36c681582
+Merge: 4891640 3ee43b0
+Author: David <david.holt2002@gmail.com>
+Date:   Sun May 29 18:24:23 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project
+
+commit 4891640d5623e9045b3a9c13f0435275935427cb
+Author: David <david.holt2002@gmail.com>
+Date:   Sun May 29 18:24:19 2022 +0800
+
+    Finished functionality of statistics
+
+commit 3ee43b0dad7217cb464fb20025f9a516991d983b
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sun May 29 18:21:37 2022 +0800
+
+    fixed stats so dates are in descending order
+
+commit f4ec07793bd5b06d74411b3d5bfa88b1d1e16b9a
+Merge: eeb1e70 ac5a57d
+Author: David <david.holt2002@gmail.com>
+Date:   Sun May 29 11:58:36 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project
+
+commit eeb1e70cf9991b6e015f1564b5922fd0c9dd8c0a
+Author: David <david.holt2002@gmail.com>
+Date:   Sun May 29 11:58:33 2022 +0800
+
+    Functional statistics page + updated how to play instructions
+
+commit ac5a57da140c661fded2e775b672ca33f2c29d57
+Merge: 8e238bf b7066a4
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sun May 29 11:20:26 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project into main
+
+commit 8e238bffbb5dc1e19bb6b17f498b9e264ec613bf
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sun May 29 11:20:03 2022 +0800
+
+    updated score
+
+commit b7066a4dca7c721a972207035f1499a12c154bf7
+Merge: 193aa46 059a308
+Author: David <david.holt2002@gmail.com>
+Date:   Sun May 29 11:12:21 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project
+
+commit 193aa46a72764218fe522ec2681fd6a2e767b32c
+Author: David <david.holt2002@gmail.com>
+Date:   Sun May 29 11:12:16 2022 +0800
+
+    Fully functional share button
+
+commit 059a30861608bf64c231c57325fd216c5743d3f2
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sun May 29 10:48:12 2022 +0800
+
+    fixed html styling
+
+commit e5f7a6925d302bf31fd2d6184bb459f0144614b0
+Merge: 715dc43 46a5031
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sun May 29 10:29:00 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project into main
+
+commit 715dc431cc50321ae27d9d1a99e6937cc444cdc1
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sun May 29 10:26:07 2022 +0800
+
+    fixed alignment of remember me chackbox
+
+commit 46a50310bed9b24d840ca0a383993e8e21c22b53
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Sun May 29 08:53:01 2022 +0800
+
+    added gecko driver
+
+commit 03e416b211c1f19909dcbccdc44be3aa9236e0a9
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Sun May 29 08:52:42 2022 +0800
+
+    updated code
+
+commit e039c33c1253c711755e8f5cc1ad698dd66c71b1
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Sun May 29 08:20:55 2022 +0800
+
+    update on code
+
+commit 37beb601e4f9600fe7dd8730b564d3e401ef2edb
+Merge: 914ac89 58959e8
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Sun May 29 08:03:27 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project
+
+commit 914ac891f6d910517b0e0bd64de0c376e6bb9965
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Sun May 29 08:03:22 2022 +0800
+
+    Updated using chrome driver
+
+commit 58959e808048fe89337df1d993b3c50ec8520d2d
+Author: Iash5225 <83926045+Iash5225@users.noreply.github.com>
+Date:   Sun May 29 08:02:36 2022 +0800
+
+    Added Selenium Webdrivers for Chrome
+
+commit cd4f499036b81ad56dd08f9d806918937d51404e
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Sun May 29 01:33:08 2022 +0800
+
+    Updated buggy code
+
+commit 64977f838654119a9c4629f5ee03c7bd212ad2c5
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Sun May 29 01:32:45 2022 +0800
+
+    Added Coverage commands
+
+commit a3fa373f5775f0e1ba58f0405e7c35d36cdc267e
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Sun May 29 01:32:24 2022 +0800
+
+    Added Selenium + Coverage
+
+commit 0ef070c79129f3294b76a3a7fc4798869d797721
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Sun May 29 00:42:34 2022 +0800
+
+    Can't run browser
+
+commit 68488d461f9598b4f9252b62a583f88545cb71e0
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Sun May 29 00:42:03 2022 +0800
+
+    Modified Classnames
+
+commit 594406c2cacaf70b51dda2fd89c20c4d9fc8e47b
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Sun May 29 00:00:51 2022 +0800
+
+    Removed Bulma Css Link
+
+commit 375ad5f1a00e0adb49b01843367fe0d86fa82013
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Sun May 29 00:00:30 2022 +0800
+
+    Requirements update
+
+commit bedfe08c767dc827b392c42f756d78c31f540888
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Sat May 28 23:59:56 2022 +0800
+
+    Added Selnium to Requirements + commands for tests
+
+commit dfe21f86ee3cc3bca82919f81258d28fedbd0563
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Sat May 28 23:16:11 2022 +0800
+
+    Updated UnitTest so Primary Keys are used
+
+commit 3f19c92fa962d62affdcf793a60c498d7d31df1b
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sat May 28 22:34:32 2022 +0800
+
+    more css
+
+commit 928ce1eb08dd2787583a094b73ec00b1ad88dfea
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sat May 28 22:30:38 2022 +0800
+
+    more css
+
+commit 4b8f6c791b0790c91842d9def030b5e7d816ee66
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sat May 28 22:18:18 2022 +0800
+
+    fixed enter not working
+
+commit 841f3fd675a034d11d5592ed890b0898a1368435
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sat May 28 22:04:27 2022 +0800
+
+    changed font to Segoe UI Light
+
+commit 5b28f37a21dfce134e0db7d08e4b700acf91066d
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sat May 28 20:45:50 2022 +0800
+
+    fixed more css. grid resizing
+
+commit c19c02bc940462b9903d4e6d197ca35946a27f7e
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sat May 28 16:51:27 2022 +0800
+
+    implemented submission of highscores
+
+commit 83a4f433932f2a5c1965d00dd74633654d799c3b
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sat May 28 16:51:05 2022 +0800
+
+    implemented submission of highscores
+
+commit 4ffcb4e496668417dd423b87e7daf2b69126530a
+Merge: 0dcbf51 10d45f2
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sat May 28 11:49:19 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project into main
+
+commit 0dcbf510de9c29b86b0afd145e8fd84164b3d346
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Sat May 28 11:49:13 2022 +0800
+
+    fixed formatting
+
+commit 10d45f2acea5813ad2391a10e1468134def21135
+Merge: 1771a85 6f42f02
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Fri May 27 20:20:07 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project
+
+commit 1771a8564177ad11853104c2de0181c574137f1d
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Fri May 27 20:20:01 2022 +0800
+
+    Added A sample GitLog Text File
+
+commit 068381b1b2b3a96ce16758d095b2ba27573585f3
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Fri May 27 20:19:03 2022 +0800
+
+    Updated Unit Tests
+
+commit 6f42f025ed860eb5b71a2cb6f4c54f837671e4e6
+Merge: 1b9d649 ce9fa4f
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Fri May 27 20:01:46 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project into main
+
+commit 1b9d649d4d260e093fdbab917d2feaea2b423cc6
+Author: j-plebreton <21118434@student.uwa.edu.au>
+Date:   Fri May 27 20:01:42 2022 +0800
+
+    removed a comment
+
+commit ce9fa4f37c360bb758da61df95a18f9c572b21c7
+Merge: 3307f93 020b0cc
+Author: David <david.holt2002@gmail.com>
+Date:   Fri May 27 20:00:09 2022 +0800
+
+    Merge branch 'main' of https://github.com/Iash5225/Project
+
+commit 3307f936d7b4473ae695cb792465697bcf1931e0
+Author: David <david.holt2002@gmail.com>
+Date:   Fri May 27 20:00:03 2022 +0800
+
+    Updated share button + start game on enter
+
+commit 020b0cc4ee1e237f07e02f5d9de108b0e4af2ac2
+Merge: 861951b 3c0efe3
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Fri May 27 19:20:16 2022 +0800
+
+    Merge branch 'Unit-Testing-+-Selenium'
+
 commit 861951beb9248350894f4e30b2c1f0f4d6780be4
 Author: j-plebreton <21118434@student.uwa.edu.au>
 Date:   Fri May 27 14:31:05 2022 +0800
@@ -28,11 +582,47 @@ Date:   Fri May 27 12:03:58 2022 +0800
 
     fixed mobile resizing and changed profile to game
 
+commit 3c0efe3a2ad5c462d9492402a11e333b76d6dc60
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Fri May 27 11:16:29 2022 +0800
+
+    Cleaned up Test Code
+
+commit 1727d8cb095907b50c762ffaa0ebf40380fa23fa
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Fri May 27 11:07:12 2022 +0800
+
+    Tests Scores aswell
+
 commit 44c0d18dbb4eb14c42d58df50044c2095d1843f7
 Author: j-plebreton <21118434@student.uwa.edu.au>
 Date:   Fri May 27 10:52:19 2022 +0800
 
     further fixes to css, and added logo
+
+commit cc1f8974f250823f21d13f0227ae92fde7de3e05
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Fri May 27 10:10:43 2022 +0800
+
+    Added Email Testing
+
+commit 1a38cf54e1e6e26aecb00012a95f57c601c491b8
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Fri May 27 09:51:40 2022 +0800
+
+    Added test for 3 new users
+
+commit 5c7002c41778246d3ad27039d0bf4d9994786e70
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Fri May 27 09:13:42 2022 +0800
+
+    Cleaned Up code
+
+commit f62a741949650aaca4ba1e81b0d2d98b184bf189
+Author: Iash5225 <iash.bashir5225@gmail.com>
+Date:   Fri May 27 09:05:32 2022 +0800
+
+    Adds Rows to existing DB and tests correctly
 
 commit 76739faef49d9c9b75ffb4d5313d8cf803e70e87
 Author: j-plebreton <21118434@student.uwa.edu.au>
