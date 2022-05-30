@@ -100,6 +100,47 @@ flask run
 
 If you have not specified different host IP or port number the server will be reachable on localhost:5000.
 
+## Unit tests and Validation
+
+Our tests cover basic cases that are self explanatory in the function names and in the comments provided. To run our tests the venv must be active and the flask server must be running, our default unit tests uses Chrome webdriver.
+
+Our validation was done on the W3C website found [here](https://validator.w3.org/) we put in the local host url and it passed both tests for HTML and CSS!
+
+To make sure all dependencies are upto date for the chrome webdriver and chrome
+
+```
+sudo apt update
+```
+
+Download and install Chrome:
+```
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt -y install ./google-chrome-stable_current_amd64.deb
+```
+
+To install numpy for the selenium
+
+```
+pip install numpy
+```
+
+To run unit tests
+
+```
+coverage run -m test
+```
+
+To run selenium tests
+```
+coverage run -m systemtests
+```
+
+To check the coverage report of tests
+```
+coverage report -m
+```
+
+
 ### Built With
 
 * [Flask](https://flask.palletsprojects.com/)
@@ -108,15 +149,6 @@ If you have not specified different host IP or port number the server will be re
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- ROADMAP -->
-## Roadmap
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
-
-See the [open issues](https://github.com/Iash5225/Project/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
